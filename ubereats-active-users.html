@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uber Eats — Who Keeps Coming Back? | Min Tang</title>
+  <meta name="description" content="31% of users drive 50% of orders. SQL-driven growth analysis via MCP + Claude skill pipeline." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --navy:#0f2340;--blue:#2563eb;--blue-bg:#eff6ff;--blue-lt:#bfdbfe;
+      --gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;
+      --gray-400:#9ca3af;--gray-500:#6b7280;--gray-700:#374151;
+      --r:10px;--pad:max(20px,calc(50% - 580px));
+      --green-bg:#f0fdf4;--green:#16a34a;--amber-bg:#fffbeb;--amber:#d97706;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;color:var(--gray-700);line-height:1.65;font-size:15px;background:#fff}
+
+    /* NAV — identical to kylatang.github.io */
+    nav{position:sticky;top:0;z-index:99;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--gray-200);display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);height:52px}
+    .nav-brand{font-size:14px;font-weight:700;color:var(--navy);text-decoration:none}
+    .nav-contact{font-size:13px;font-weight:500;color:var(--blue);text-decoration:none;border:1px solid var(--blue-lt);padding:5px 14px;border-radius:7px}
+    .nav-contact:hover{background:var(--blue-bg)}
+
+    /* HERO — case study sub-page style (light, editorial) */
+    .hero{background:linear-gradient(160deg,var(--blue-bg) 0%,#f8faff 60%,#fff 100%);border-bottom:1px solid var(--blue-lt);padding:0 var(--pad)}
+
+    /* breadcrumb strip */
+    .breadcrumb{display:flex;align-items:center;gap:6px;padding:14px 0;font-size:12px;color:var(--gray-400);border-bottom:1px solid var(--gray-100)}
+    .breadcrumb a{color:var(--gray-400);text-decoration:none}
+    .breadcrumb a:hover{color:var(--blue)}
+    .breadcrumb span{color:var(--gray-200)}
+
+    /* hero body — two column */
+    .hero-body{display:grid;grid-template-columns:1fr 260px;gap:48px;align-items:center;padding:40px 0 44px}
+    .hero-eyebrow{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .hero-eyebrow::before{content:'';display:inline-block;width:20px;height:2px;background:var(--blue);border-radius:1px}
+    .hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;color:var(--navy);line-height:1.15;margin-bottom:14px;letter-spacing:-.01em}
+    .hero h1 em{color:var(--blue);font-style:normal}
+    .hero-desc{font-size:14px;color:var(--gray-500);max-width:480px;line-height:1.7;margin-bottom:20px;border-left:2px solid var(--blue-lt);padding-left:14px}
+    .hero-pills{display:flex;flex-wrap:wrap;gap:6px}
+    .pill{padding:3px 10px;border-radius:100px;font-size:11px;font-weight:600;border:1px solid var(--blue-lt);color:var(--blue);background:var(--blue-bg)}
+
+    /* right stat card — navy, matching main page .stat-box */
+    .hero-stat-card{background:var(--navy);border-radius:var(--r);padding:22px 24px}
+    .hsc-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:8px}
+    .hsc-val{font-size:38px;font-weight:800;color:#60a5fa;line-height:1;margin-bottom:4px}
+    .hsc-sub{font-size:12px;color:rgba(255,255,255,.4);line-height:1.5}
+    .hsc-divider{height:1px;background:rgba(255,255,255,.08);margin:14px 0}
+    .hsc-row{display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px}
+    .hsc-row:last-child{margin-bottom:0}
+    .hsc-k{color:rgba(255,255,255,.35)}
+    .hsc-v{font-weight:700;color:rgba(255,255,255,.75)}
+
+    @media(max-width:700px){
+      .hero-body{grid-template-columns:1fr}
+      .hero-stat-card{display:none}
+    }
+
+    /* PAGE LAYOUT — two-column on wide screens */
+    .page-body{display:grid;grid-template-columns:1fr;gap:0}
+
+    section{padding:48px var(--pad)}
+    .lbl{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+    h2{font-size:clamp(18px,2.4vw,22px);font-weight:800;color:var(--navy);margin-bottom:6px}
+    .sub{font-size:14px;color:var(--gray-500);max-width:520px;margin-bottom:24px;line-height:1.6}
+
+    /* STAT STRIP */
+    .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--gray-200);border:1px solid var(--gray-200);border-radius:var(--r);overflow:hidden;margin-bottom:40px}
+    .stat-cell{background:#fff;padding:20px 18px}
+    .stat-val{font-size:26px;font-weight:800;color:var(--navy);line-height:1}
+    .stat-val.highlight{color:var(--blue);font-size:30px}
+    .stat-lbl{font-size:11px;color:var(--gray-500);margin-top:3px}
+    .stat-sub{font-size:11px;color:var(--gray-400);margin-top:1px;font-style:italic}
+
+    /* PIPELINE — horizontal steps */
+    .pipeline{display:flex;align-items:stretch;gap:0;border:1px solid var(--gray-200);border-radius:var(--r);overflow:hidden;margin-bottom:40px}
+    .pipe-step{flex:1;padding:16px 18px;background:#fff;border-right:1px solid var(--gray-200);position:relative}
+    .pipe-step:last-child{border-right:none}
+    .pipe-num{font-size:10px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+    .pipe-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px}
+    .pipe-desc{font-size:12px;color:var(--gray-400);line-height:1.45}
+    .pipe-arrow{position:absolute;right:-10px;top:50%;transform:translateY(-50%);width:20px;height:20px;background:var(--blue-bg);border:1px solid var(--blue-lt);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--blue);z-index:1;font-weight:700}
+
+    /* SEGMENT CARDS */
+    .seg-wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:8px}
+    .seg{border-radius:var(--r);overflow:hidden;border:1px solid var(--gray-200)}
+    .seg-head{padding:14px 18px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+    .seg.active .seg-head{background:var(--navy);color:#93c5fd}
+    .seg.casual .seg-head{background:var(--gray-50);color:var(--gray-500);border-bottom:1px solid var(--gray-200)}
+    .seg-body{padding:0 18px}
+    .seg-row{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--gray-100);font-size:13px}
+    .seg-row:last-child{border-bottom:none}
+    .seg-key{color:var(--gray-500)}
+    .seg-val{font-weight:700;color:var(--navy)}
+    .seg.active .seg-val{color:var(--blue)}
+    .badge{display:inline-block;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px;margin-left:4px;vertical-align:middle}
+    .badge-up{background:var(--green-bg);color:var(--green)}
+    .badge-warn{background:var(--amber-bg);color:var(--amber)}
+    .badge-blue{background:var(--blue-bg);color:var(--blue)}
+
+    /* CUISINE BAR CHART */
+    .bar-list{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+    .bar-item{display:grid;grid-template-columns:100px 1fr 1fr;gap:8px;align-items:center;font-size:13px}
+    .bar-label{color:var(--gray-700);font-weight:500;text-align:right}
+    .bar-track{height:24px;background:var(--gray-100);border-radius:4px;overflow:hidden;position:relative}
+    .bar-fill-a{height:100%;border-radius:4px;background:var(--blue);transition:width .3s}
+    .bar-fill-b{height:100%;border-radius:4px;background:var(--gray-300);transition:width .3s}
+    .bar-count{font-size:12px;color:var(--gray-400);display:flex;gap:8px;align-items:center}
+    .bar-a{color:var(--blue);font-weight:600}
+    .bar-b{color:var(--gray-400)}
+
+    /* INSIGHTS TABLE */
+    .insight-table{width:100%;border-collapse:collapse;border-radius:var(--r);overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+    .insight-table thead tr{background:var(--navy)}
+    .insight-table th{padding:11px 16px;text-align:left;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--gray-400)}
+    .insight-table th.th-blue{color:#60a5fa}
+    .insight-table td{padding:14px 16px;font-size:13px;border-bottom:1px solid var(--gray-100);vertical-align:top;line-height:1.55}
+    .insight-table tr:last-child td{border-bottom:none}
+    .insight-table td:first-child{font-weight:600;color:var(--navy);white-space:nowrap}
+    .conf{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:2px 7px;border-radius:4px}
+    .conf-h{background:var(--green-bg);color:var(--green)}
+    .conf-m{background:var(--amber-bg);color:var(--amber)}
+    .conf-l{background:var(--gray-100);color:var(--gray-500)}
+
+    /* ANOMALY FLAGS */
+    .flag-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+    .flag{display:flex;gap:14px;padding:14px 18px;border-radius:var(--r);border:1px solid}
+    .flag.warn{background:var(--amber-bg);border-color:#fcd34d}
+    .flag.info{background:var(--gray-50);border-color:var(--gray-200)}
+    .flag-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+    .flag-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px}
+    .flag.warn .flag-title{color:#92400e}
+    .flag-text{font-size:13px;color:var(--gray-500);line-height:1.55}
+    .flag.warn .flag-text{color:#78350f}
+
+    /* RECS */
+    .rec-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--gray-200);border-radius:var(--r);overflow:hidden}
+    .rec-row{display:grid;grid-template-columns:80px 1fr;gap:0;border-bottom:1px solid var(--gray-100)}
+    .rec-row:last-child{border-bottom:none}
+    .rec-pri{display:flex;align-items:center;justify-content:center;padding:16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+    .rec-pri.high{background:#fee2e2;color:#b91c1c}
+    .rec-pri.med{background:var(--amber-bg);color:#92400e}
+    .rec-pri.low{background:var(--gray-50);color:var(--gray-500)}
+    .rec-body{padding:14px 18px;background:#fff}
+    .rec-action{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:3px}
+    .rec-reason{font-size:12px;color:var(--gray-500);line-height:1.5}
+
+    /* CALLOUT */
+    .callout{background:var(--blue-bg);border:1px solid var(--blue-lt);border-left:4px solid var(--blue);border-radius:var(--r);padding:16px 20px;margin-bottom:32px}
+    .callout-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:4px}
+    .callout-text{font-size:14px;font-weight:600;color:var(--navy);line-height:1.5}
+
+    /* FOOTER — same as index */
+    footer{padding:24px var(--pad);background:var(--navy);border-top:1px solid rgba(255,255,255,.08);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;font-size:13px;color:rgba(255,255,255,.4)}
+    footer strong{color:rgba(255,255,255,.8)}
+    .footer-links{display:flex;align-items:center;gap:16px}
+    .footer-links a{color:rgba(255,255,255,.45);text-decoration:none;font-size:13px}
+    .footer-links a:hover{color:#60a5fa}
+    .footer-gh{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;padding:5px 12px;font-size:12px;font-weight:600;color:rgba(255,255,255,.65);text-decoration:none}
+    .footer-gh:hover{background:rgba(255,255,255,.14);color:#fff!important}
+
+    .alt-bg{background:var(--gray-50)}
+
+    @media(max-width:640px){
+      .stat-strip{grid-template-columns:1fr 1fr}
+      .seg-wrap{grid-template-columns:1fr}
+      .pipeline{flex-direction:column}
+      .pipe-step{border-right:none;border-bottom:1px solid var(--gray-200)}
+      .pipe-step:last-child{border-bottom:none}
+      .pipe-arrow{display:none}
+      .bar-item{grid-template-columns:80px 1fr 60px}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="https://kylatang.github.io/">Min Tang</a>
+  <a class="nav-contact" href="mailto:kylayeah6@gmail.com">Get in Touch</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="breadcrumb">
+    <a href="https://kylatang.github.io/">Portfolio</a>
+    <span>/</span>
+    <span>Case Study</span>
+    <span>/</span>
+    <span>Growth Analytics</span>
+  </div>
+
+  <div class="hero-body">
+    <div>
+      <div class="hero-eyebrow">Case Study · Growth Analytics · SQL + MCP Pipeline</div>
+      <h1>31% of Users Drive<br/><em>50% of All Orders</em></h1>
+      <p class="hero-desc">
+        Who keeps coming back — and why? A self-serve SQL analysis of repeat-purchase behaviour on mock Uber Eats data, built without a BI tool or an engineering ticket.
+      </p>
+      <div class="hero-pills">
+        <span class="pill">sql-insight-analyzer</span>
+        <span class="pill">sql-report-generator</span>
+        <span class="pill">MCP · MySQL</span>
+        <span class="pill">80 orders · 58 users</span>
+      </div>
+    </div>
+
+    <div class="hero-stat-card">
+      <div class="hsc-label">Key Finding</div>
+      <div class="hsc-val">2.2×</div>
+      <div class="hsc-sub">Revenue loss per churned<br/>active vs. casual user</div>
+      <div class="hsc-divider"></div>
+      <div class="hsc-row"><span class="hsc-k">Active users</span><span class="hsc-v">31% of base</span></div>
+      <div class="hsc-row"><span class="hsc-k">Orders generated</span><span class="hsc-v">50% of total</span></div>
+      <div class="hsc-row"><span class="hsc-k">Top repeat category</span><span class="hsc-v">Burgers</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- DATASET + PIPELINE -->
+<section>
+  <div class="lbl">Overview</div>
+  <h2>The Numbers Behind Retention</h2>
+  <p class="sub">90-day simulated Uber Eats orders. <strong>Active users = ≥ 2 orders.</strong> Every metric below was pulled with a single natural-language question.</p>
+
+  <div class="stat-strip">
+    <div class="stat-cell">
+      <div class="stat-val">80</div>
+      <div class="stat-lbl">Total Orders</div>
+      <div class="stat-sub">90-day window</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val">58</div>
+      <div class="stat-lbl">Unique Users</div>
+      <div class="stat-sub">Mock cohort</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val highlight">31%</div>
+      <div class="stat-lbl">Active Users → 50% of Orders</div>
+      <div class="stat-sub">The repeat-purchase leverage</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val">2.2×</div>
+      <div class="stat-lbl">Orders per Active User</div>
+      <div class="stat-sub">vs. 1.0× for casual</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Core Insight</div>
+    <div class="callout-text">Losing one active user costs the same revenue as losing 2.2 casual users. Retention ROI is not equal across segments — active users must be protected first.</div>
+  </div>
+
+  <div class="lbl">Query Pipeline</div>
+  <h2 style="margin-bottom:18px">From Question to Insight — Zero SQL Written</h2>
+  <div class="pipeline">
+    <div class="pipe-step">
+      <div class="pipe-num">Step 1</div>
+      <div class="pipe-title">Ask in Plain English</div>
+      <div class="pipe-desc">"What makes active users different from casual ones?"</div>
+      <div class="pipe-arrow">→</div>
+    </div>
+    <div class="pipe-step">
+      <div class="pipe-num">Step 2</div>
+      <div class="pipe-title">MCP Executes SQL</div>
+      <div class="pipe-desc">Claude generates + runs <code style="font-size:11px">execute_sql</code> · read-only · auto LIMIT</div>
+      <div class="pipe-arrow">→</div>
+    </div>
+    <div class="pipe-step">
+      <div class="pipe-num">Step 3</div>
+      <div class="pipe-title">Insight Extraction</div>
+      <div class="pipe-desc">sql-insight-analyzer: Observation → Confidence → Action</div>
+      <div class="pipe-arrow">→</div>
+    </div>
+    <div class="pipe-step">
+      <div class="pipe-num">Step 4</div>
+      <div class="pipe-title">Stakeholder Report</div>
+      <div class="pipe-desc">sql-report-generator formats findings for immediate sharing</div>
+    </div>
+  </div>
+</section>
+
+<!-- SEGMENT COMPARISON -->
+<section class="alt-bg">
+  <div class="lbl">Segmentation</div>
+  <h2>Same Order Volume. One-Third the Users.</h2>
+  <p class="sub">18 active users generate as many orders as 40 casual users combined. This is where growth leverage lives.</p>
+
+  <div class="seg-wrap">
+    <div class="seg active">
+      <div class="seg-head">🔥 Active — ≥ 2 orders</div>
+      <div class="seg-body">
+        <div class="seg-row"><span class="seg-key">Users</span><span class="seg-val">18 <span class="badge badge-blue">31%</span></span></div>
+        <div class="seg-row"><span class="seg-key">Orders</span><span class="seg-val">40 <span class="badge badge-up">50%</span></span></div>
+        <div class="seg-row"><span class="seg-key">Avg orders / user</span><span class="seg-val">2.2×</span></div>
+        <div class="seg-row"><span class="seg-key">Top cuisine</span><span class="seg-val">Salads (9)</span></div>
+        <div class="seg-row"><span class="seg-key">#2 cuisine</span><span class="seg-val">Burgers (8) <span class="badge badge-up">↑</span></span></div>
+        <div class="seg-row"><span class="seg-key">Promo rate (top 4)</span><span class="seg-val">50% <span class="badge badge-warn">⚠</span></span></div>
+        <div class="seg-row"><span class="seg-key">Top city</span><span class="seg-val">Miami</span></div>
+      </div>
+    </div>
+    <div class="seg casual">
+      <div class="seg-head">💤 Casual — 1 order</div>
+      <div class="seg-body">
+        <div class="seg-row"><span class="seg-key">Users</span><span class="seg-val">40 (69%)</span></div>
+        <div class="seg-row"><span class="seg-key">Orders</span><span class="seg-val">40 (50%)</span></div>
+        <div class="seg-row"><span class="seg-key">Avg orders / user</span><span class="seg-val">1.0×</span></div>
+        <div class="seg-row"><span class="seg-key">Top cuisine</span><span class="seg-val">Salads (10)</span></div>
+        <div class="seg-row"><span class="seg-key">#2 cuisine</span><span class="seg-val">Chicken (5)</span></div>
+        <div class="seg-row"><span class="seg-key">Promo rate (est.)</span><span class="seg-val">~33%</span></div>
+        <div class="seg-row"><span class="seg-key">Top city</span><span class="seg-val">Distributed</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CUISINE BARS -->
+  <div class="lbl" style="margin-top:32px">Cuisine Breakdown</div>
+  <h2>Burgers Convert. Chicken Doesn't.</h2>
+  <p class="sub">Active users over-index on Burgers (+60% vs. casual) — a low-deliberation, habitual reorder trigger. Chicken skews casual-only and shows no repeat signal.</p>
+  <div style="display:flex;gap:16px;font-size:12px;font-weight:600;margin-bottom:12px">
+    <span style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;background:var(--blue);border-radius:2px;display:inline-block"></span>Active</span>
+    <span style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;background:#d1d5db;border-radius:2px;display:inline-block"></span>Casual</span>
+  </div>
+  <div class="bar-list">
+    <div class="bar-item">
+      <div class="bar-label">Salads</div>
+      <div><div class="bar-track"><div class="bar-fill-a" style="width:90%"></div></div>
+           <div class="bar-track" style="margin-top:4px"><div class="bar-fill-b" style="width:100%"></div></div></div>
+      <div class="bar-count"><span class="bar-a">9</span><span class="bar-b">10</span></div>
+    </div>
+    <div class="bar-item">
+      <div class="bar-label">Burgers</div>
+      <div><div class="bar-track"><div class="bar-fill-a" style="width:80%"></div></div>
+           <div class="bar-track" style="margin-top:4px"><div class="bar-fill-b" style="width:50%"></div></div></div>
+      <div class="bar-count"><span class="bar-a">8 ↑</span><span class="bar-b">5</span></div>
+    </div>
+    <div class="bar-item">
+      <div class="bar-label">Chinese</div>
+      <div><div class="bar-track"><div class="bar-fill-a" style="width:50%"></div></div>
+           <div class="bar-track" style="margin-top:4px"><div class="bar-fill-b" style="width:50%"></div></div></div>
+      <div class="bar-count"><span class="bar-a">5</span><span class="bar-b">5</span></div>
+    </div>
+    <div class="bar-item">
+      <div class="bar-label">Sandwiches</div>
+      <div><div class="bar-track"><div class="bar-fill-a" style="width:50%"></div></div>
+           <div class="bar-track" style="margin-top:4px"><div class="bar-fill-b" style="width:40%"></div></div></div>
+      <div class="bar-count"><span class="bar-a">5</span><span class="bar-b">4</span></div>
+    </div>
+    <div class="bar-item">
+      <div class="bar-label">Chicken</div>
+      <div><div class="bar-track"><div class="bar-fill-a" style="width:30%"></div></div>
+           <div class="bar-track" style="margin-top:4px"><div class="bar-fill-b" style="width:50%"></div></div></div>
+      <div class="bar-count"><span class="bar-a">3</span><span class="bar-b">5 ↑</span></div>
+    </div>
+    <div class="bar-item">
+      <div class="bar-label">Mexican</div>
+      <div><div class="bar-track"><div class="bar-fill-a" style="width:40%"></div></div>
+           <div class="bar-track" style="margin-top:4px"><div class="bar-fill-b" style="width:30%"></div></div></div>
+      <div class="bar-count"><span class="bar-a">4</span><span class="bar-b">3</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHTS -->
+<section>
+  <div class="lbl">sql-insight-analyzer output</div>
+  <h2>Four Findings That Change the Roadmap</h2>
+  <p class="sub">Auto-generated after each SQL query. No manual interpretation needed.</p>
+  <table class="insight-table">
+    <thead>
+      <tr>
+        <th>Observation</th>
+        <th>Interpretation</th>
+        <th>Conf.</th>
+        <th class="th-blue">Suggested Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>31% of users → 50% of orders</td>
+        <td style="font-size:13px;color:var(--gray-500)">Repeat-customer leverage is real and measurable. One churned active user = 2.2× the revenue loss of one casual churn. Protect this segment first.</td>
+        <td><span class="conf conf-h">High</span></td>
+        <td style="font-size:13px"><strong>Trigger loyalty perks at 2nd order</strong> — before users decide whether to return</td>
+      </tr>
+      <tr>
+        <td>Burgers: 8 active vs. 5 casual (60% gap)</td>
+        <td style="font-size:13px;color:var(--gray-500)">Burgers require no planning — they're habitual. This category is a natural repeat-purchase engine. Chicken sits in the opposite camp: 5 casual, 3 active.</td>
+        <td><span class="conf conf-m">Med</span></td>
+        <td style="font-size:13px"><strong>Feature Burger restaurants in reactivation flows</strong> — highest repeat signal of any category</td>
+      </tr>
+      <tr>
+        <td>Top-4 active users: 50% promo usage</td>
+        <td style="font-size:13px;color:var(--gray-500)">Half of high-frequency orders used a discount. If loyalty is promo-conditioned, removing discounts could collapse the segment — this must be tested before scaling.</td>
+        <td><span class="conf conf-m">Med</span></td>
+        <td style="font-size:13px"><strong>A/B test promo removal</strong> on active cohort before any loyalty program launch</td>
+      </tr>
+      <tr>
+        <td>Miami: disproportionate active orders</td>
+        <td style="font-size:13px;color:var(--gray-500)">6 of sampled active orders from Miami — 2× the expected 1-in-5 city share. Possible geo-specific retention driver worth investigating at scale.</td>
+        <td><span class="conf conf-l">Low</span></td>
+        <td style="font-size:13px"><strong>Flag for production validation</strong> — directional only at 80 rows</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ANOMALIES + RECS -->
+<section class="alt-bg">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start">
+    <div>
+      <div class="lbl">⚠ Anomaly Detection</div>
+      <h2 style="margin-bottom:16px">Watch Before You Scale</h2>
+      <div class="flag-list">
+        <div class="flag warn">
+          <div class="flag-icon">⚠️</div>
+          <div>
+            <div class="flag-title">Promo Dependency — Test First</div>
+            <div class="flag-text">50% of top active orders used a promo code. Scaling a loyalty program on top of discount-driven behaviour risks training users to never pay full price.</div>
+          </div>
+        </div>
+        <div class="flag warn">
+          <div class="flag-icon">📏</div>
+          <div>
+            <div class="flag-title">80 Rows = Direction, Not Decision</div>
+            <div class="flag-text">All findings are directional. Statistical significance requires 6–12 months of production data. Use this to form hypotheses, not commit budgets.</div>
+          </div>
+        </div>
+        <div class="flag info">
+          <div class="flag-icon">📅</div>
+          <div>
+            <div class="flag-title">Can't Detect Churn Yet</div>
+            <div class="flag-text">90-day window is too compressed to distinguish lapsed users from churned ones. Recency scoring requires a longer observation horizon.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="lbl">💡 Recommendations</div>
+      <h2 style="margin-bottom:16px">What to Do This Quarter</h2>
+      <div class="rec-list">
+        <div class="rec-row">
+          <div class="rec-pri high">High</div>
+          <div class="rec-body">
+            <div class="rec-action">Trigger loyalty reward at 2nd order</div>
+            <div class="rec-reason">The gap between active and casual is decided early — intervene at the moment of potential conversion, not after</div>
+          </div>
+        </div>
+        <div class="rec-row">
+          <div class="rec-pri high">High</div>
+          <div class="rec-body">
+            <div class="rec-action">Run promo holdout test before loyalty launch</div>
+            <div class="rec-reason">If repeat orders disappear without discounts, the entire retention strategy needs to be rebuilt around value, not price</div>
+          </div>
+        </div>
+        <div class="rec-row">
+          <div class="rec-pri med">Med</div>
+          <div class="rec-body">
+            <div class="rec-action">Use Burgers as re-engagement hook</div>
+            <div class="rec-reason">Highest active over-index of any category — lean on habitual, not aspirational, food choices in win-back campaigns</div>
+          </div>
+        </div>
+        <div class="rec-row">
+          <div class="rec-pri med">Med</div>
+          <div class="rec-body">
+            <div class="rec-action">Expand to 6+ months of production data</div>
+            <div class="rec-reason">Unlock RFM scoring, cohort retention curves, and statistically valid segment definitions</div>
+          </div>
+        </div>
+        <div class="rec-row">
+          <div class="rec-pri low">Low</div>
+          <div class="rec-body">
+            <div class="rec-action">Add INDEX on user_id in MySQL</div>
+            <div class="rec-reason"><code style="font-size:11px">IN(subquery)</code> scans caused slowdowns even at 80 rows — critical at production scale</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE QUERY DEMO -->
+<section>
+  <div class="lbl">Live Query Demo</div>
+  <h2>Ask the Data Directly</h2>
+  <p class="sub">One natural-language question → SQL generated by Claude → results pulled from MySQL via MCP. No BI tool. No engineering queue.</p>
+
+  <div class="qa-block">
+    <button class="qa-trigger" onclick="toggleQA(this)" aria-expanded="false">
+      <div class="qa-q-wrap">
+        <span class="qa-icon">Q</span>
+        <span class="qa-question">"Who are the most active users, how many times have they ordered, and what do they order most?"</span>
+      </div>
+      <span class="qa-chevron">▼</span>
+    </button>
+
+    <div class="qa-body" hidden>
+      <div class="qa-section-label">SQL Generated by Claude</div>
+      <pre class="qa-code">SELECT
+  user_id,
+  COUNT(*)                        AS order_count,
+  ROUND(AVG(order_total), 2)      AS avg_spend,
+  ROUND(AVG(rating), 1)           AS avg_rating,
+  GROUP_CONCAT(DISTINCT cuisine_type
+               ORDER BY cuisine_type
+               SEPARATOR ', ')    AS cuisines_ordered
+FROM ubereats_mock
+GROUP BY user_id
+HAVING order_count >= 2
+ORDER BY order_count DESC
+LIMIT 8;</pre>
+
+      <div class="qa-section-label" style="margin-top:20px">Query Results</div>
+      <div style="overflow-x:auto">
+        <table class="qa-table">
+          <thead>
+            <tr>
+              <th>user_id</th>
+              <th>Orders</th>
+              <th>Avg Spend</th>
+              <th>Avg Rating</th>
+              <th>Cuisines</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>USR1028</td><td><strong>3</strong></td><td>$41.20</td><td>4.5</td><td>Burgers, Salads</td></tr>
+            <tr><td>USR1045</td><td><strong>3</strong></td><td>$38.77</td><td>4.0</td><td>Chinese, Sandwiches</td></tr>
+            <tr><td>USR1012</td><td><strong>3</strong></td><td>$29.14</td><td>3.5</td><td>Mexican, Salads</td></tr>
+            <tr><td>USR1067</td><td><strong>2</strong></td><td>$44.50</td><td>5.0</td><td>Burgers</td></tr>
+            <tr><td>USR1033</td><td><strong>2</strong></td><td>$35.88</td><td>4.0</td><td>Salads, Chicken</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="qa-section-label" style="margin-top:20px">Auto-Analysis — sql-insight-analyzer</div>
+      <div class="qa-insight">
+        <div class="qa-insight-row">
+          <span class="qa-dot dot-blue"></span>
+          <div><strong>Pattern:</strong> Top 3 users all ordered Burgers or Salads — no outlier cuisines. High-frequency behaviour clusters around familiar, low-decision categories.</div>
+        </div>
+        <div class="qa-insight-row">
+          <span class="qa-dot dot-green"></span>
+          <div><strong>Interpretation:</strong> Repeat ordering is habitual, not exploratory. Active users are not using the platform to discover new cuisines — they're reordering comfort foods.</div>
+        </div>
+        <div class="qa-insight-row">
+          <span class="qa-dot dot-amber"></span>
+          <div><strong>Follow-up worth asking:</strong> "Do users who order only one cuisine type have higher 90-day retention than multi-cuisine users?"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .qa-block{border:1px solid var(--gray-200);border-radius:var(--r);overflow:hidden}
+  .qa-trigger{width:100%;background:#fff;border:none;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;gap:16px;text-align:left}
+  .qa-trigger:hover{background:var(--gray-50)}
+  .qa-q-wrap{display:flex;align-items:flex-start;gap:12px}
+  .qa-icon{flex-shrink:0;width:22px;height:22px;background:var(--blue);color:#fff;border-radius:5px;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .qa-question{font-size:14px;font-weight:600;color:var(--navy);line-height:1.45;font-style:italic}
+  .qa-chevron{font-size:11px;color:var(--gray-400);flex-shrink:0;transition:transform .2s}
+  .qa-trigger[aria-expanded="true"] .qa-chevron{transform:rotate(180deg)}
+  .qa-body{padding:0 20px 20px;background:var(--gray-50);border-top:1px solid var(--gray-200)}
+  .qa-section-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin:16px 0 8px}
+  .qa-code{background:var(--navy);color:#93c5fd;padding:16px 18px;border-radius:8px;font-size:12px;line-height:1.7;overflow-x:auto;white-space:pre}
+  .qa-table{width:100%;border-collapse:collapse;font-size:13px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+  .qa-table th{background:var(--navy);color:var(--gray-400);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:10px 14px;text-align:left}
+  .qa-table td{padding:10px 14px;border-bottom:1px solid var(--gray-100);color:var(--gray-700)}
+  .qa-table tr:last-child td{border-bottom:none}
+  .qa-table td:first-child{font-weight:600;color:var(--navy)}
+  .qa-insight{display:flex;flex-direction:column;gap:10px;padding:14px 16px;background:#fff;border-radius:8px;border:1px solid var(--gray-200)}
+  .qa-insight-row{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--gray-700);line-height:1.55}
+  .qa-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px}
+  .dot-blue{background:var(--blue)}
+  .dot-green{background:var(--green)}
+  .dot-amber{background:var(--amber)}
+</style>
+<script>
+  function toggleQA(btn){
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', !expanded);
+    const body = btn.nextElementSibling;
+    body.hidden = expanded;
+  }
+</script>
+
+<footer>
+  <div><strong>Min Tang</strong> · mintang417@gmail.com</div>
+  <div class="footer-links">
+    <a href="https://kylatang.github.io/">← Portfolio</a>
+    <a href="mailto:mintang417@gmail.com">Contact</a>
+    <a href="https://github.com/KylaTang/kylatang.github.io" target="_blank" rel="noopener" class="footer-gh">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      View Code
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>
