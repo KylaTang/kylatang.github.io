@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Uber Eats — Who Keeps Coming Back? | Min Tang</title>
-  <meta name="description" content="31% of users drive 50% of orders. SQL-driven growth analysis via MCP + Claude skill pipeline." />
+  <meta name="description" content="31% of users drive 50% of orders. A SQL-driven growth analysis via LLM pipeline." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -179,7 +179,7 @@
 
 <nav>
   <a class="nav-brand" href="https://kylatang.github.io/">Min Tang</a>
-  <a class="nav-contact" href="mailto:kylayeah6@gmail.com">Get in Touch</a>
+  <a class="nav-contact" href="mailto:mintang417@gmail.com">Get in Touch</a>
 </nav>
 
 <!-- HERO -->
@@ -194,16 +194,13 @@
 
   <div class="hero-body">
     <div>
-      <div class="hero-eyebrow">Case Study · Growth Analytics · SQL + MCP Pipeline</div>
+      <div class="hero-eyebrow">Growth Analytics Case · LLM x SQL</div>
       <h1>31% of Users Drive<br/><em>50% of All Orders</em></h1>
       <p class="hero-desc">
-        Who keeps coming back — and why? A self-serve SQL analysis of repeat-purchase behaviour on mock Uber Eats data, built without a BI tool or an engineering ticket.
+        Who keeps coming back — and why? A AI-driven SQL analysis of repeat-purchase behaviour, built LLM-based pipeline.
       </p>
       <div class="hero-pills">
-        <span class="pill">sql-insight-analyzer</span>
-        <span class="pill">sql-report-generator</span>
-        <span class="pill">MCP · MySQL</span>
-        <span class="pill">80 orders · 58 users</span>
+        <span class="pill">LLM · MySQL</span>
       </div>
     </div>
 
@@ -221,40 +218,9 @@
 
 <!-- DATASET + PIPELINE -->
 <section>
-  <div class="lbl">Overview</div>
-  <h2>The Numbers Behind Retention</h2>
-  <p class="sub">90-day simulated Uber Eats orders. <strong>Active users = ≥ 2 orders.</strong> Every metric below was pulled with a single natural-language question.</p>
-
-  <div class="stat-strip">
-    <div class="stat-cell">
-      <div class="stat-val">80</div>
-      <div class="stat-lbl">Total Orders</div>
-      <div class="stat-sub">90-day window</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-val">58</div>
-      <div class="stat-lbl">Unique Users</div>
-      <div class="stat-sub">Mock cohort</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-val highlight">31%</div>
-      <div class="stat-lbl">Active Users → 50% of Orders</div>
-      <div class="stat-sub">The repeat-purchase leverage</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-val">2.2×</div>
-      <div class="stat-lbl">Orders per Active User</div>
-      <div class="stat-sub">vs. 1.0× for casual</div>
-    </div>
-  </div>
-
-  <div class="callout">
-    <div class="callout-label">Core Insight</div>
-    <div class="callout-text">Losing one active user costs the same revenue as losing 2.2 casual users. Retention ROI is not equal across segments — active users must be protected first.</div>
-  </div>
 
   <div class="lbl">Query Pipeline</div>
-  <h2 style="margin-bottom:18px">From Question to Insight — Zero SQL Written</h2>
+  <h2 style="margin-bottom:18px">From Question to Insight</h2>
   <div class="pipeline">
     <div class="pipe-step">
       <div class="pipe-num">Step 1</div>
@@ -280,8 +246,14 @@
       <div class="pipe-desc">sql-report-generator formats findings for immediate sharing</div>
     </div>
   </div>
+  
+  <div class="callout">
+    <div class="callout-label">Core Insight</div>
+    <div class="callout-text">Losing one active user costs the same revenue as losing 2.2 casual users. Retention ROI is not equal across segments — active users must be protected first.</div>
+  </div>
 </section>
 
+  
 <!-- SEGMENT COMPARISON -->
 <section class="alt-bg">
   <div class="lbl">Segmentation</div>
@@ -368,9 +340,7 @@
 
 <!-- INSIGHTS -->
 <section>
-  <div class="lbl">sql-insight-analyzer output</div>
-  <h2>Four Findings That Change the Roadmap</h2>
-  <p class="sub">Auto-generated after each SQL query. No manual interpretation needed.</p>
+  <div class="lbl">Four Finding</div>
   <table class="insight-table">
     <thead>
       <tr>
@@ -409,94 +379,7 @@
   </table>
 </section>
 
-<!-- CITY ANALYSIS -->
-<section>
-  <div class="lbl">City Performance — sql-report-generator output</div>
-  <h2>Where Orders Are Happy — and Where They're Not</h2>
-  <p class="sub">Group comparison across 5 cities. Auto-detected by sql-insight-analyzer: categorical × numeric → ranking + gap analysis.</p>
 
-  <div class="stat-strip" style="grid-template-columns:repeat(5,1fr);margin-bottom:28px">
-    <div class="stat-cell">
-      <div class="stat-val highlight" style="font-size:22px">Miami</div>
-      <div class="stat-lbl">Top-rated city</div>
-      <div class="stat-sub">3.93 ★ · 22 orders</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-val" style="font-size:22px">New York</div>
-      <div class="stat-lbl">2nd rated</div>
-      <div class="stat-sub">3.88 ★ · 13 orders</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-val" style="font-size:22px">Los Angeles</div>
-      <div class="stat-lbl">Fastest delivery</div>
-      <div class="stat-sub">32.1 min avg</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-val" style="font-size:22px">San Francisco</div>
-      <div class="stat-lbl">Slowest delivery</div>
-      <div class="stat-sub">40.1 min avg</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-val" style="color:#b91c1c;font-size:22px">Chicago</div>
-      <div class="stat-lbl">Value inversion</div>
-      <div class="stat-sub">$45 spend · 3.50 ★</div>
-    </div>
-  </div>
-
-  <div class="callout">
-    <div class="callout-label">Key Pattern</div>
-    <div class="callout-text">Delivery speed does not predict rating — Chicago is 2nd fastest yet lowest-rated. Spend per order does not predict satisfaction — Chicago's $45 avg (30% above mean) coincides with the worst rating. User expectations scale with price.</div>
-  </div>
-</section>
-
-  
-  <!-- CUISINE BARS -->
-  <div class="lbl" style="margin-top:32px">Cuisine Breakdown</div>
-  <h2>Burgers Convert. Chicken Doesn't.</h2>
-  <p class="sub">Active users over-index on Burgers (+60% vs. casual) — a low-deliberation, habitual reorder trigger. Chicken skews casual-only and shows no repeat signal.</p>
-  <div style="display:flex;gap:16px;font-size:12px;font-weight:600;margin-bottom:12px">
-    <span style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;background:var(--blue);border-radius:2px;display:inline-block"></span>Active</span>
-    <span style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;background:#d1d5db;border-radius:2px;display:inline-block"></span>Casual</span>
-  </div>
-  <div class="bar-list">
-    <div class="bar-item">
-      <div class="bar-label">Salads</div>
-      <div><div class="bar-track"><div class="bar-fill-a" style="width:90%"></div></div>
-           <div class="bar-track" style="margin-top:4px"><div class="bar-fill-b" style="width:100%"></div></div></div>
-      <div class="bar-count"><span class="bar-a">9</span><span class="bar-b">10</span></div>
-    </div>
-    <div class="bar-item">
-      <div class="bar-label">Burgers</div>
-      <div><div class="bar-track"><div class="bar-fill-a" style="width:80%"></div></div>
-           <div class="bar-track" style="margin-top:4px"><div class="bar-fill-b" style="width:50%"></div></div></div>
-      <div class="bar-count"><span class="bar-a">8 ↑</span><span class="bar-b">5</span></div>
-    </div>
-    <div class="bar-item">
-      <div class="bar-label">Chinese</div>
-      <div><div class="bar-track"><div class="bar-fill-a" style="width:50%"></div></div>
-           <div class="bar-track" style="margin-top:4px"><div class="bar-fill-b" style="width:50%"></div></div></div>
-      <div class="bar-count"><span class="bar-a">5</span><span class="bar-b">5</span></div>
-    </div>
-    <div class="bar-item">
-      <div class="bar-label">Sandwiches</div>
-      <div><div class="bar-track"><div class="bar-fill-a" style="width:50%"></div></div>
-           <div class="bar-track" style="margin-top:4px"><div class="bar-fill-b" style="width:40%"></div></div></div>
-      <div class="bar-count"><span class="bar-a">5</span><span class="bar-b">4</span></div>
-    </div>
-    <div class="bar-item">
-      <div class="bar-label">Chicken</div>
-      <div><div class="bar-track"><div class="bar-fill-a" style="width:30%"></div></div>
-           <div class="bar-track" style="margin-top:4px"><div class="bar-fill-b" style="width:50%"></div></div></div>
-      <div class="bar-count"><span class="bar-a">3</span><span class="bar-b">5 ↑</span></div>
-    </div>
-    <div class="bar-item">
-      <div class="bar-label">Mexican</div>
-      <div><div class="bar-track"><div class="bar-fill-a" style="width:40%"></div></div>
-           <div class="bar-track" style="margin-top:4px"><div class="bar-fill-b" style="width:30%"></div></div></div>
-      <div class="bar-count"><span class="bar-a">4</span><span class="bar-b">3</span></div>
-    </div>
-  </div>
-</section>
   
 <!-- ANOMALIES + RECS -->
 <section class="alt-bg">
@@ -535,37 +418,27 @@
         <div class="rec-row">
           <div class="rec-pri high">High</div>
           <div class="rec-body">
-            <div class="rec-action">Drill Chicago by cuisine</div>
-            <div class="rec-reason">$45 spend + 3.50 ★ — likely a restaurant cluster issue, not city-wide</div>
+            <div class="rec-action">Chicago Check: $45 spend but 3.50 ★ — likely a restaurant cluster issue</div>
           </div>
         </div>
         <div class="rec-row">
           <div class="rec-pri high">High</div>
           <div class="rec-body">
-            <div class="rec-action">Promo holdout test first</div>
-            <div class="rec-reason">50% active orders used promos — confirm loyalty isn't discount-only before scaling</div>
+            <div class="rec-action">Promo test for "discount-only" confounder</div>
           </div>
         </div>
         <div class="rec-row">
           <div class="rec-pri med">Med</div>
           <div class="rec-body">
-            <div class="rec-action">Benchmark against Miami</div>
-            <div class="rec-reason">Best rating + volume — replicate its restaurant mix and delivery model</div>
+            <div class="rec-action">Delivery Model Benchmark against Miami</div>
           </div>
         </div>
         <div class="rec-row">
           <div class="rec-pri med">Med</div>
           <div class="rec-body">
             <div class="rec-action">Loyalty perk at 2nd order</div>
-            <div class="rec-reason">Active vs. casual gap forms early — intervene before the decision is made</div>
           </div>
         </div>
-        <div class="rec-row">
-          <div class="rec-pri low">Low</div>
-          <div class="rec-body">
-            <div class="rec-action">Index user_id in MySQL</div>
-            <div class="rec-reason">Subquery scans slow even at 80 rows — critical at scale</div>
-          </div>
         </div>
       </div>
     </div>
