@@ -316,6 +316,141 @@
   </div>
 
   <!-- CUISINE BARS -->
+  <div style="display:flex;align-items:baseline;justify-content:space-between;margin-top:28px;margin-bottom:10px;flex-wrap:wrap;gap:8px">
+    <div>
+      <div class="lbl" style="margin-bottom:2px">Cuisine Breakdown</div>
+      <h2 style="margin-bottom:0">Burgers Convert. Chicken Doesn't.</h2>
+    </div>
+    <div style="display:flex;gap:12px;font-size:11px;font-weight:600">
+      <span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;background:var(--blue);border-radius:2px;display:inline-block"></span>Active</span>
+      <span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;background:#d1d5db;border-radius:2px;display:inline-block"></span>Casual</span>
+    </div>
+  </div>
+  <div class="bar-list" style="gap:5px">
+    <div class="bar-item">
+      <div class="bar-label">Salads</div>
+      <div><div class="bar-track" style="height:18px"><div class="bar-fill-a" style="width:90%"></div></div>
+           <div class="bar-track" style="margin-top:3px;height:18px"><div class="bar-fill-b" style="width:100%"></div></div></div>
+      <div class="bar-count"><span class="bar-a">9</span><span class="bar-b">10</span></div>
+    </div>
+    <div class="bar-item">
+      <div class="bar-label">Burgers</div>
+      <div><div class="bar-track" style="height:18px"><div class="bar-fill-a" style="width:80%"></div></div>
+           <div class="bar-track" style="margin-top:3px;height:18px"><div class="bar-fill-b" style="width:50%"></div></div></div>
+      <div class="bar-count"><span class="bar-a">8 ↑</span><span class="bar-b">5</span></div>
+    </div>
+    <div class="bar-item">
+      <div class="bar-label">Chinese</div>
+      <div><div class="bar-track" style="height:18px"><div class="bar-fill-a" style="width:50%"></div></div>
+           <div class="bar-track" style="margin-top:3px;height:18px"><div class="bar-fill-b" style="width:50%"></div></div></div>
+      <div class="bar-count"><span class="bar-a">5</span><span class="bar-b">5</span></div>
+    </div>
+    <div class="bar-item">
+      <div class="bar-label">Sandwiches</div>
+      <div><div class="bar-track" style="height:18px"><div class="bar-fill-a" style="width:50%"></div></div>
+           <div class="bar-track" style="margin-top:3px;height:18px"><div class="bar-fill-b" style="width:40%"></div></div></div>
+      <div class="bar-count"><span class="bar-a">5</span><span class="bar-b">4</span></div>
+    </div>
+    <div class="bar-item">
+      <div class="bar-label">Chicken</div>
+      <div><div class="bar-track" style="height:18px"><div class="bar-fill-a" style="width:30%"></div></div>
+           <div class="bar-track" style="margin-top:3px;height:18px"><div class="bar-fill-b" style="width:50%"></div></div></div>
+      <div class="bar-count"><span class="bar-a">3</span><span class="bar-b">5 ↑</span></div>
+    </div>
+    <div class="bar-item">
+      <div class="bar-label">Mexican</div>
+      <div><div class="bar-track" style="height:18px"><div class="bar-fill-a" style="width:40%"></div></div>
+           <div class="bar-track" style="margin-top:3px;height:18px"><div class="bar-fill-b" style="width:30%"></div></div></div>
+      <div class="bar-count"><span class="bar-a">4</span><span class="bar-b">3</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHTS -->
+<section>
+  <div class="lbl">sql-insight-analyzer output</div>
+  <h2>Four Findings That Change the Roadmap</h2>
+  <p class="sub">Auto-generated after each SQL query. No manual interpretation needed.</p>
+  <table class="insight-table">
+    <thead>
+      <tr>
+        <th>Observation</th>
+        <th>Interpretation</th>
+        <th>Conf.</th>
+        <th class="th-blue">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>31% users → 50% orders</td>
+        <td style="font-size:12px;color:var(--gray-500)">1 churned active = 2.2× revenue loss vs. casual. Protect first.</td>
+        <td><span class="conf conf-h">High</span></td>
+        <td style="font-size:12px"><strong>Loyalty perk at 2nd order</strong></td>
+      </tr>
+      <tr>
+        <td>Burgers: 8 active vs. 5 casual</td>
+        <td style="font-size:12px;color:var(--gray-500)">Habitual, low-decision reorder. Natural repeat engine.</td>
+        <td><span class="conf conf-m">Med</span></td>
+        <td style="font-size:12px"><strong>Feature Burgers in win-back flows</strong></td>
+      </tr>
+      <tr>
+        <td>Top-4 actives: 50% promo usage</td>
+        <td style="font-size:12px;color:var(--gray-500)">Loyalty may be discount-conditioned — must test before scaling.</td>
+        <td><span class="conf conf-m">Med</span></td>
+        <td style="font-size:12px"><strong>A/B test promo removal first</strong></td>
+      </tr>
+      <tr>
+        <td>Miami: 2× expected active share</td>
+        <td style="font-size:12px;color:var(--gray-500)">Possible geo retention driver. Directional only at 80 rows.</td>
+        <td><span class="conf conf-l">Low</span></td>
+        <td style="font-size:12px"><strong>Flag for production validation</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- CITY ANALYSIS -->
+<section>
+  <div class="lbl">City Performance — sql-report-generator output</div>
+  <h2>Where Orders Are Happy — and Where They're Not</h2>
+  <p class="sub">Group comparison across 5 cities. Auto-detected by sql-insight-analyzer: categorical × numeric → ranking + gap analysis.</p>
+
+  <div class="stat-strip" style="grid-template-columns:repeat(5,1fr);margin-bottom:28px">
+    <div class="stat-cell">
+      <div class="stat-val highlight" style="font-size:22px">Miami</div>
+      <div class="stat-lbl">Top-rated city</div>
+      <div class="stat-sub">3.93 ★ · 22 orders</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val" style="font-size:22px">New York</div>
+      <div class="stat-lbl">2nd rated</div>
+      <div class="stat-sub">3.88 ★ · 13 orders</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val" style="font-size:22px">Los Angeles</div>
+      <div class="stat-lbl">Fastest delivery</div>
+      <div class="stat-sub">32.1 min avg</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val" style="font-size:22px">San Francisco</div>
+      <div class="stat-lbl">Slowest delivery</div>
+      <div class="stat-sub">40.1 min avg</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val" style="color:#b91c1c;font-size:22px">Chicago</div>
+      <div class="stat-lbl">Value inversion</div>
+      <div class="stat-sub">$45 spend · 3.50 ★</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Key Pattern</div>
+    <div class="callout-text">Delivery speed does not predict rating — Chicago is 2nd fastest yet lowest-rated. Spend per order does not predict satisfaction — Chicago's $45 avg (30% above mean) coincides with the worst rating. User expectations scale with price.</div>
+  </div>
+</section>
+
+  
+  <!-- CUISINE BARS -->
   <div class="lbl" style="margin-top:32px">Cuisine Breakdown</div>
   <h2>Burgers Convert. Chicken Doesn't.</h2>
   <p class="sub">Active users over-index on Burgers (+60% vs. casual) — a low-deliberation, habitual reorder trigger. Chicken skews casual-only and shows no repeat signal.</p>
@@ -362,50 +497,7 @@
     </div>
   </div>
 </section>
-
-<!-- INSIGHTS -->
-<section>
-  <div class="lbl">sql-insight-analyzer output</div>
-  <h2>Four Findings That Change the Roadmap</h2>
-  <p class="sub">Auto-generated after each SQL query. No manual interpretation needed.</p>
-  <table class="insight-table">
-    <thead>
-      <tr>
-        <th>Observation</th>
-        <th>Interpretation</th>
-        <th>Conf.</th>
-        <th class="th-blue">Suggested Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>31% of users → 50% of orders</td>
-        <td style="font-size:13px;color:var(--gray-500)">Repeat-customer leverage is real and measurable. One churned active user = 2.2× the revenue loss of one casual churn. Protect this segment first.</td>
-        <td><span class="conf conf-h">High</span></td>
-        <td style="font-size:13px"><strong>Trigger loyalty perks at 2nd order</strong> — before users decide whether to return</td>
-      </tr>
-      <tr>
-        <td>Burgers: 8 active vs. 5 casual (60% gap)</td>
-        <td style="font-size:13px;color:var(--gray-500)">Burgers require no planning — they're habitual. This category is a natural repeat-purchase engine. Chicken sits in the opposite camp: 5 casual, 3 active.</td>
-        <td><span class="conf conf-m">Med</span></td>
-        <td style="font-size:13px"><strong>Feature Burger restaurants in reactivation flows</strong> — highest repeat signal of any category</td>
-      </tr>
-      <tr>
-        <td>Top-4 active users: 50% promo usage</td>
-        <td style="font-size:13px;color:var(--gray-500)">Half of high-frequency orders used a discount. If loyalty is promo-conditioned, removing discounts could collapse the segment — this must be tested before scaling.</td>
-        <td><span class="conf conf-m">Med</span></td>
-        <td style="font-size:13px"><strong>A/B test promo removal</strong> on active cohort before any loyalty program launch</td>
-      </tr>
-      <tr>
-        <td>Miami: disproportionate active orders</td>
-        <td style="font-size:13px;color:var(--gray-500)">6 of sampled active orders from Miami — 2× the expected 1-in-5 city share. Possible geo-specific retention driver worth investigating at scale.</td>
-        <td><span class="conf conf-l">Low</span></td>
-        <td style="font-size:13px"><strong>Flag for production validation</strong> — directional only at 80 rows</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
+  
 <!-- ANOMALIES + RECS -->
 <section class="alt-bg">
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start">
@@ -416,22 +508,22 @@
         <div class="flag warn">
           <div class="flag-icon">⚠️</div>
           <div>
+            <div class="flag-title">Chicago: High Spend, Low Satisfaction</div>
+            <div class="flag-text">Chicago avg order value ($45.14) is 30% above the 5-city mean ($37.08), yet its rating (3.50) is 0.43 stars below Miami's. Higher price raised expectations — experience didn't follow.</div>
+          </div>
+        </div>
+        <div class="flag warn">
+          <div class="flag-icon">⚡</div>
+          <div>
             <div class="flag-title">Promo Dependency — Test First</div>
             <div class="flag-text">50% of top active orders used a promo code. Scaling a loyalty program on top of discount-driven behaviour risks training users to never pay full price.</div>
           </div>
         </div>
-        <div class="flag warn">
+        <div class="flag info">
           <div class="flag-icon">📏</div>
           <div>
             <div class="flag-title">80 Rows = Direction, Not Decision</div>
             <div class="flag-text">All findings are directional. Statistical significance requires 6–12 months of production data. Use this to form hypotheses, not commit budgets.</div>
-          </div>
-        </div>
-        <div class="flag info">
-          <div class="flag-icon">📅</div>
-          <div>
-            <div class="flag-title">Can't Detect Churn Yet</div>
-            <div class="flag-text">90-day window is too compressed to distinguish lapsed users from churned ones. Recency scoring requires a longer observation horizon.</div>
           </div>
         </div>
       </div>
@@ -443,42 +535,43 @@
         <div class="rec-row">
           <div class="rec-pri high">High</div>
           <div class="rec-body">
-            <div class="rec-action">Trigger loyalty reward at 2nd order</div>
-            <div class="rec-reason">The gap between active and casual is decided early — intervene at the moment of potential conversion, not after</div>
+            <div class="rec-action">Drill Chicago by cuisine</div>
+            <div class="rec-reason">$45 spend + 3.50 ★ — likely a restaurant cluster issue, not city-wide</div>
           </div>
         </div>
         <div class="rec-row">
           <div class="rec-pri high">High</div>
           <div class="rec-body">
-            <div class="rec-action">Run promo holdout test before loyalty launch</div>
-            <div class="rec-reason">If repeat orders disappear without discounts, the entire retention strategy needs to be rebuilt around value, not price</div>
+            <div class="rec-action">Promo holdout test first</div>
+            <div class="rec-reason">50% active orders used promos — confirm loyalty isn't discount-only before scaling</div>
           </div>
         </div>
         <div class="rec-row">
           <div class="rec-pri med">Med</div>
           <div class="rec-body">
-            <div class="rec-action">Use Burgers as re-engagement hook</div>
-            <div class="rec-reason">Highest active over-index of any category — lean on habitual, not aspirational, food choices in win-back campaigns</div>
+            <div class="rec-action">Benchmark against Miami</div>
+            <div class="rec-reason">Best rating + volume — replicate its restaurant mix and delivery model</div>
           </div>
         </div>
         <div class="rec-row">
           <div class="rec-pri med">Med</div>
           <div class="rec-body">
-            <div class="rec-action">Expand to 6+ months of production data</div>
-            <div class="rec-reason">Unlock RFM scoring, cohort retention curves, and statistically valid segment definitions</div>
+            <div class="rec-action">Loyalty perk at 2nd order</div>
+            <div class="rec-reason">Active vs. casual gap forms early — intervene before the decision is made</div>
           </div>
         </div>
         <div class="rec-row">
           <div class="rec-pri low">Low</div>
           <div class="rec-body">
-            <div class="rec-action">Add INDEX on user_id in MySQL</div>
-            <div class="rec-reason"><code style="font-size:11px">IN(subquery)</code> scans caused slowdowns even at 80 rows — critical at production scale</div>
+            <div class="rec-action">Index user_id in MySQL</div>
+            <div class="rec-reason">Subquery scans slow even at 80 rows — critical at scale</div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- LIVE QUERY DEMO -->
 <section>
