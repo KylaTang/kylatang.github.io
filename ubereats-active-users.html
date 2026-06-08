@@ -101,14 +101,14 @@
     .badge-warn{background:var(--amber-bg);color:var(--amber)}
     .badge-blue{background:var(--blue-bg);color:var(--blue)}
 
-    /* CUISINE BAR CHART */
-    .bar-list{display:flex;flex-direction:column;gap:8px;margin-top:16px}
-    .bar-item{display:grid;grid-template-columns:100px 1fr 1fr;gap:8px;align-items:center;font-size:13px}
-    .bar-label{color:var(--gray-700);font-weight:500;text-align:right}
-    .bar-track{height:24px;background:var(--gray-100);border-radius:4px;overflow:hidden;position:relative}
-    .bar-fill-a{height:100%;border-radius:4px;background:var(--blue);transition:width .3s}
-    .bar-fill-b{height:100%;border-radius:4px;background:var(--gray-300);transition:width .3s}
-    .bar-count{font-size:12px;color:var(--gray-400);display:flex;gap:8px;align-items:center}
+  /* BAR CHART */
+    .bar-list{display:flex;flex-direction:column;gap:5px}
+    .bar-item{display:grid;grid-template-columns:90px 1fr 52px;gap:8px;align-items:center;font-size:13px}
+    .bar-label{color:var(--gray-700);font-weight:500;text-align:right;font-size:12px}
+    .bar-track{height:16px;background:var(--gray-100);border-radius:3px;overflow:hidden}
+    .bar-fill-a{height:100%;border-radius:3px;background:var(--blue);transition:width .3s}
+    .bar-fill-b{height:100%;border-radius:3px;background:#d1d5db;transition:width .3s}
+    .bar-count{font-size:11px;color:var(--gray-400);display:flex;gap:6px}
     .bar-a{color:var(--blue);font-weight:600}
     .bar-b{color:var(--gray-400)}
 
@@ -153,25 +153,23 @@
     .callout-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:4px}
     .callout-text{font-size:14px;font-weight:600;color:var(--navy);line-height:1.5}
 
-    /* FOOTER — same as index */
-    footer{padding:24px var(--pad);background:var(--navy);border-top:1px solid rgba(255,255,255,.08);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;font-size:13px;color:rgba(255,255,255,.4)}
+    /* FOOTER */
+    footer{padding:22px var(--pad);background:var(--navy);border-top:1px solid rgba(255,255,255,.08);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;font-size:13px;color:rgba(255,255,255,.4)}
     footer strong{color:rgba(255,255,255,.8)}
     .footer-links{display:flex;align-items:center;gap:16px}
-    .footer-links a{color:rgba(255,255,255,.45);text-decoration:none;font-size:13px}
+    .footer-links a{color:rgba(255,255,255,.45);text-decoration:none;font-size:13px;transition:color .15s}
     .footer-links a:hover{color:#60a5fa}
     .footer-gh{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;padding:5px 12px;font-size:12px;font-weight:600;color:rgba(255,255,255,.65);text-decoration:none}
     .footer-gh:hover{background:rgba(255,255,255,.14);color:#fff!important}
 
-    .alt-bg{background:var(--gray-50)}
-
     @media(max-width:640px){
-      .stat-strip{grid-template-columns:1fr 1fr}
+      .stat-strip,.city-strip{grid-template-columns:1fr 1fr}
       .seg-wrap{grid-template-columns:1fr}
       .pipeline{flex-direction:column}
       .pipe-step{border-right:none;border-bottom:1px solid var(--gray-200)}
       .pipe-step:last-child{border-bottom:none}
       .pipe-arrow{display:none}
-      .bar-item{grid-template-columns:80px 1fr 60px}
+      .bar-item{grid-template-columns:76px 1fr 44px}
     }
   </style>
 </head>
