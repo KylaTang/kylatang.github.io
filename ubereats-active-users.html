@@ -231,19 +231,19 @@
     <div class="pipe-step">
       <div class="pipe-num">Step 2</div>
       <div class="pipe-title">MCP Executes SQL</div>
-      <div class="pipe-desc">Claude generates + runs <code style="font-size:11px">execute_sql</code> · read-only · auto LIMIT</div>
+      <div class="pipe-desc">LLM generates and executesT</div>
       <div class="pipe-arrow">→</div>
     </div>
     <div class="pipe-step">
       <div class="pipe-num">Step 3</div>
       <div class="pipe-title">Insight Extraction</div>
-      <div class="pipe-desc">sql-insight-analyzer: Observation → Confidence → Action</div>
+      <div class="pipe-desc">sql-insight-analyzer</div>
       <div class="pipe-arrow">→</div>
     </div>
     <div class="pipe-step">
       <div class="pipe-num">Step 4</div>
-      <div class="pipe-title">Stakeholder Report</div>
-      <div class="pipe-desc">sql-report-generator formats findings for immediate sharing</div>
+      <div class="pipe-title">Insight Report</div>
+      <div class="pipe-desc">sql-report-generator for findings</div>
     </div>
   </div>
   
@@ -253,6 +253,39 @@
   </div>
 </section>
 
+<!-- CITY ANALYSIS -->
+<section>
+  <div class="lbl">City Performance — sql-report-generator output</div>
+  <h2>Where Orders Are Happy — and Where They're Not</h2>
+  <p class="sub">Group comparison across 5 cities. Auto-detected by sql-insight-analyzer: categorical × numeric → ranking + gap analysis.</p>
+
+  <div class="stat-strip" style="grid-template-columns:repeat(5,1fr);margin-bottom:28px">
+    <div class="stat-cell">
+      <div class="stat-val highlight" style="font-size:22px">Miami</div>
+      <div class="stat-lbl">Top-rated city</div>
+      <div class="stat-sub">3.93 ★ · 22 orders</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val" style="font-size:22px">New York</div>
+      <div class="stat-lbl">2nd rated</div>
+      <div class="stat-sub">3.88 ★ · 13 orders</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val" style="font-size:22px">Los Angeles</div>
+      <div class="stat-lbl">Fastest delivery</div>
+      <div class="stat-sub">32.1 min avg</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val" style="font-size:22px">San Francisco</div>
+      <div class="stat-lbl">Slowest delivery</div>
+      <div class="stat-sub">40.1 min avg</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val" style="color:#b91c1c;font-size:22px">Chicago</div>
+      <div class="stat-lbl">Value inversion</div>
+      <div class="stat-sub">$45 spend · 3.50 ★</div>
+    </div>
+  </div>
   
 <!-- SEGMENT COMPARISON -->
 <section class="alt-bg">
