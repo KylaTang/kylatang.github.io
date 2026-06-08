@@ -218,7 +218,6 @@
 
 <!-- DATASET + PIPELINE -->
 <section>
-
   <div class="lbl">Query Pipeline</div>
   <h2 style="margin-bottom:18px">From Question to Insight</h2>
   <div class="pipeline">
@@ -231,34 +230,31 @@
     <div class="pipe-step">
       <div class="pipe-num">Step 2</div>
       <div class="pipe-title">MCP Executes SQL</div>
-      <div class="pipe-desc">LLM generates and executesT</div>
+      <div class="pipe-desc">LLM generates and executes</div>
       <div class="pipe-arrow">→</div>
     </div>
     <div class="pipe-step">
       <div class="pipe-num">Step 3</div>
       <div class="pipe-title">Insight Extraction</div>
-      <div class="pipe-desc">sql-insight-analyzer</div>
+      <div class="pipe-desc">Define scope of sql insight analyzer</div>
       <div class="pipe-arrow">→</div>
     </div>
     <div class="pipe-step">
       <div class="pipe-num">Step 4</div>
       <div class="pipe-title">Insight Report</div>
-      <div class="pipe-desc">sql-report-generator for findings</div>
+      <div class="pipe-desc">Define scope of sql report generator</div>
     </div>
-  </div>
-  
-  <div class="callout">
-    <div class="callout-label">Core Insight</div>
-    <div class="callout-text">Losing one active user costs the same revenue as losing 2.2 casual users. Retention ROI is not equal across segments — active users must be protected first.</div>
-  </div>
 </section>
 
 <!-- CITY ANALYSIS -->
 <section>
+  <div class="callout">
+    <div class="callout-label">Core Insight</div>
+    <div class="callout-text">Losing one active user costs the same revenue as losing 2.2 casual users. Retention ROI is not equal across segments — active users must be protected first.</div>
+  </div>
   <div class="lbl">City Performance — sql-report-generator output</div>
   <h2>Where Orders Are Happy — and Where They're Not</h2>
   <p class="sub">Rank comparison across cities.</p>
-
   <div class="stat-strip" style="grid-template-columns:repeat(5,1fr);margin-bottom:28px">
     <div class="stat-cell">
       <div class="stat-val highlight" style="font-size:22px">Miami</div>
@@ -284,15 +280,12 @@
       <div class="stat-val" style="color:#b91c1c;font-size:22px">Chicago</div>
       <div class="stat-lbl">Value inversion</div>
       <div class="stat-sub">$45 spend · 3.50 ★</div>
-    </div>
   </div>
   
 <!-- SEGMENT COMPARISON -->
-<section>
+<section class="alt-bg">
   <div class="lbl">Segmentation</div>
   <h2>Same Order Volume. One-Third the Users.</h2>
-  <p class="sub">18 active users generate as many orders as 40 casual users combined. This is where growth leverage lives.</p>
-
   <div class="seg-wrap">
     <div class="seg active">
       <div class="seg-head">🔥 Active — ≥ 2 orders</div>
@@ -326,48 +319,18 @@
       <div class="lbl" style="margin-bottom:2px">Cuisine Breakdown</div>
       <h2 style="margin-bottom:0">Burgers Convert. Chicken Doesn't.</h2>
     </div>
-    <div style="display:flex;gap:12px;font-size:11px;font-weight:600">
+    <div style="display:flex;gap:12px;font-size:11px;font-weight:600;align-items:center">
       <span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;background:var(--blue);border-radius:2px;display:inline-block"></span>Active</span>
       <span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;background:#d1d5db;border-radius:2px;display:inline-block"></span>Casual</span>
     </div>
   </div>
-  <div class="bar-list" style="gap:5px">
-    <div class="bar-item">
-      <div class="bar-label">Salads</div>
-      <div><div class="bar-track" style="height:18px"><div class="bar-fill-a" style="width:90%"></div></div>
-           <div class="bar-track" style="margin-top:3px;height:18px"><div class="bar-fill-b" style="width:100%"></div></div></div>
-      <div class="bar-count"><span class="bar-a">9</span><span class="bar-b">10</span></div>
-    </div>
-    <div class="bar-item">
-      <div class="bar-label">Burgers</div>
-      <div><div class="bar-track" style="height:18px"><div class="bar-fill-a" style="width:80%"></div></div>
-           <div class="bar-track" style="margin-top:3px;height:18px"><div class="bar-fill-b" style="width:50%"></div></div></div>
-      <div class="bar-count"><span class="bar-a">8 ↑</span><span class="bar-b">5</span></div>
-    </div>
-    <div class="bar-item">
-      <div class="bar-label">Chinese</div>
-      <div><div class="bar-track" style="height:18px"><div class="bar-fill-a" style="width:50%"></div></div>
-           <div class="bar-track" style="margin-top:3px;height:18px"><div class="bar-fill-b" style="width:50%"></div></div></div>
-      <div class="bar-count"><span class="bar-a">5</span><span class="bar-b">5</span></div>
-    </div>
-    <div class="bar-item">
-      <div class="bar-label">Sandwiches</div>
-      <div><div class="bar-track" style="height:18px"><div class="bar-fill-a" style="width:50%"></div></div>
-           <div class="bar-track" style="margin-top:3px;height:18px"><div class="bar-fill-b" style="width:40%"></div></div></div>
-      <div class="bar-count"><span class="bar-a">5</span><span class="bar-b">4</span></div>
-    </div>
-    <div class="bar-item">
-      <div class="bar-label">Chicken</div>
-      <div><div class="bar-track" style="height:18px"><div class="bar-fill-a" style="width:30%"></div></div>
-           <div class="bar-track" style="margin-top:3px;height:18px"><div class="bar-fill-b" style="width:50%"></div></div></div>
-      <div class="bar-count"><span class="bar-a">3</span><span class="bar-b">5 ↑</span></div>
-    </div>
-    <div class="bar-item">
-      <div class="bar-label">Mexican</div>
-      <div><div class="bar-track" style="height:18px"><div class="bar-fill-a" style="width:40%"></div></div>
-           <div class="bar-track" style="margin-top:3px;height:18px"><div class="bar-fill-b" style="width:30%"></div></div></div>
-      <div class="bar-count"><span class="bar-a">4</span><span class="bar-b">3</span></div>
-    </div>
+  <div class="bar-list">
+    <div class="bar-item"><div class="bar-label">Salads</div><div><div class="bar-track"><div class="bar-fill-a" style="width:90%"></div></div><div class="bar-track" style="margin-top:3px"><div class="bar-fill-b" style="width:100%"></div></div></div><div class="bar-count"><span class="bar-a">9</span><span class="bar-b">10</span></div></div>
+    <div class="bar-item"><div class="bar-label">Burgers</div><div><div class="bar-track"><div class="bar-fill-a" style="width:80%"></div></div><div class="bar-track" style="margin-top:3px"><div class="bar-fill-b" style="width:50%"></div></div></div><div class="bar-count"><span class="bar-a">8 ↑</span><span class="bar-b">5</span></div></div>
+    <div class="bar-item"><div class="bar-label">Chinese</div><div><div class="bar-track"><div class="bar-fill-a" style="width:50%"></div></div><div class="bar-track" style="margin-top:3px"><div class="bar-fill-b" style="width:50%"></div></div></div><div class="bar-count"><span class="bar-a">5</span><span class="bar-b">5</span></div></div>
+    <div class="bar-item"><div class="bar-label">Sandwiches</div><div><div class="bar-track"><div class="bar-fill-a" style="width:50%"></div></div><div class="bar-track" style="margin-top:3px"><div class="bar-fill-b" style="width:40%"></div></div></div><div class="bar-count"><span class="bar-a">5</span><span class="bar-b">4</span></div></div>
+    <div class="bar-item"><div class="bar-label">Chicken</div><div><div class="bar-track"><div class="bar-fill-a" style="width:30%"></div></div><div class="bar-track" style="margin-top:3px"><div class="bar-fill-b" style="width:50%"></div></div></div><div class="bar-count"><span class="bar-a">3</span><span class="bar-b">5 ↑</span></div></div>
+    <div class="bar-item"><div class="bar-label">Mexican</div><div><div class="bar-track"><div class="bar-fill-a" style="width:40%"></div></div><div class="bar-track" style="margin-top:3px"><div class="bar-fill-b" style="width:30%"></div></div></div><div class="bar-count"><span class="bar-a">4</span><span class="bar-b">3</span></div></div>
   </div>
 </section>
 
@@ -581,16 +544,17 @@ LIMIT 8;</pre>
   }
 </script>
 
+
 <footer>
   <div><strong>Min Tang</strong> · mintang417@gmail.com</div>
   <div class="footer-links">
     <a href="https://kylatang.github.io/">← Portfolio</a>
     <a href="mailto:mintang417@gmail.com">Contact</a>
+    <a href="https://github.com/KylaTang/kylatang.github.io" target="_blank" rel="noopener" class="footer-gh">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-      View Code
     </a>
   </div>
 </footer>
-  
+
 </body>
 </html>
