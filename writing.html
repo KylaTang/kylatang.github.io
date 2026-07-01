@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Writing — Min Tang</title>
+  <meta name="description" content="Weekly writing on AI, machine learning, and modern marketing by Min Tang." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink:      #1c1c1a;
+      --ink-2:    #4a4a46;
+      --ink-3:    #8a8a84;
+      --line:     #e0ddd6;
+      --warm:     #f8f6f1;
+      --warm-d:   #f0ede6;
+      --bg:       #ffffff;
+      --accent:   #25451C;
+      --accent-pale: #d4e4c2;
+      --pad: max(40px, calc(50% - 660px));
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); font-size: 15px; line-height: 1.6; }
+
+    /* NAV — consistent */
+    nav {
+      position: sticky; top: 0; z-index: 99;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 var(--pad); height: 56px;
+      background: rgba(255,255,255,.97); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-name { font-size: 14px; font-weight: 700; color: var(--ink); text-decoration: none; }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { font-size: 13px; color: var(--ink-3); text-decoration: none; transition: color .15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+    .nav-cta {
+      font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--ink); background: transparent; text-decoration: none;
+      padding: 8px 18px; border: 1px solid var(--ink);
+      transition: background .15s, color .15s;
+    }
+    .nav-cta:hover { background: var(--ink); color: #fff; }
+
+    /* PAGE HEADER — warm, matches draft.html */
+    .page-header {
+      padding: 72px var(--pad) 64px;
+      background: var(--warm);
+      border-bottom: 1px solid var(--line);
+    }
+    .page-breadcrumb {
+      font-size: 11px; color: var(--ink-3); margin-bottom: 24px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .page-breadcrumb a { color: var(--ink-3); text-decoration: none; }
+    .page-breadcrumb a:hover { color: var(--ink); }
+    .page-eyebrow { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+    .eyebrow-tag {
+      font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--ink-3); padding: 4px 10px; border: 1px solid var(--line); background: var(--warm-d);
+    }
+    .page-header h1 {
+      font-size: clamp(28px, 4vw, 52px); font-weight: 900;
+      letter-spacing: -.035em; line-height: 1.05;
+      color: var(--ink); margin-bottom: 16px; max-width: 600px;
+    }
+    .page-header h1 em {
+      font-style: normal;
+      background: linear-gradient(110deg, #25451C, #1a4a3a);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .page-sub { font-size: 13px; color: var(--ink-3); line-height: 1.75; }
+
+    /* ARTICLE LIST */
+    .article-list { background: var(--bg); }
+
+    .article-entry {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: 200px;
+      border-bottom: 1px solid var(--line);
+      text-decoration: none; color: inherit;
+      transition: background .15s;
+    }
+    .article-entry:hover { background: var(--warm); }
+
+    /* IMAGE SIDE */
+    .article-img {
+      position: relative;
+      overflow: hidden;
+      background: var(--warm-d);
+      border-right: 1px solid var(--line);
+    }
+    .article-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .3s;
+    }
+    .article-entry:hover .article-img img { transform: scale(1.03); }
+    /* placeholder when no image */
+    .article-img-placeholder {
+      width: 100%; height: 100%; min-height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--warm-d);
+    }
+    .placeholder-label {
+      font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    /* CONTENT SIDE */
+    .article-content {
+      padding: 36px 48px 36px var(--pad);
+      display: flex; flex-direction: column; justify-content: center; gap: 14px;
+    }
+    /* for entries where image is on right */
+    .article-entry.flip { grid-template-columns: 1fr 260px; }
+    .article-entry.flip .article-img { order: 2; border-right: none; border-left: 1px solid var(--line); }
+    .article-entry.flip .article-content { order: 1; padding: 36px var(--pad) 36px 48px; }
+
+    .article-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .article-date { font-size: 11px; color: var(--ink-3); letter-spacing: .04em; }
+    .article-tag {
+      font-size: 10px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase;
+      padding: 2px 8px; background: var(--accent-pale); color: var(--accent);
+    }
+    .article-title {
+      font-size: 19px; font-weight: 800; letter-spacing: -.025em; line-height: 1.35;
+      color: var(--accent);
+    }
+    .article-desc {
+      font-size: 13px; color: var(--ink-3); line-height: 1.7;
+    }
+    .article-cta {
+      font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--ink-3); display: flex; align-items: center; gap: 6px;
+      transition: color .15s;
+    }
+    .article-entry:hover .article-cta { color: var(--accent); }
+
+    /* MEDIUM CTA */
+    .medium-cta {
+      padding: 24px var(--pad);
+      background: var(--warm-d);
+      border-top: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    }
+    .medium-note { font-size: 12px; color: var(--ink-3); }
+    .medium-link {
+      font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--accent); text-decoration: none;
+    }
+    .medium-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+    /* FOOTER */
+    footer {
+      padding: 28px var(--pad); background: var(--warm); border-top: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-name { font-size: 13px; font-weight: 700; color: var(--ink); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 13px; color: var(--ink-3); text-decoration: none; transition: color .15s; }
+    .footer-links a:hover { color: var(--ink); }
+    .footer-copy { font-size: 12px; color: var(--ink-3); }
+
+    @media (max-width: 700px) {
+      .article-entry, .article-entry.flip { grid-template-columns: 1fr; }
+      .article-img, .article-entry.flip .article-img { order: 1; border-right: none; border-left: none; border-bottom: 1px solid var(--line); min-height: 180px; }
+      .article-content, .article-entry.flip .article-content { order: 2; padding: 28px var(--pad); }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="index.html">Min Tang</a>
+  <div class="nav-links">
+    <a href="index.html#case">Work</a>
+    <a href="writing.html" class="active">Writing</a>
+  </div>
+  <a class="nav-cta" href="mailto:mintang417@gmail.com">Get in Touch</a>
+</nav>
+
+<div class="page-header">
+  <div class="page-breadcrumb">
+    <a href="index.html">Portfolio</a>
+    <span>→</span>
+    <span>Writing</span>
+  </div>
+  <div class="page-eyebrow">
+    <span class="eyebrow-tag">Weekly</span>
+    <span class="eyebrow-tag">AI · Data · Marketing</span>
+    <span class="eyebrow-tag">Medium</span>
+  </div>
+  <h1>Thinking out loud<br>on <em>AI and marketing.</em></h1>
+  <p class="page-sub"></p>
+</div>
+
+<div class="article-list">
+
+  <!-- W1 — paste the article's featured image URL into src="" below -->
+  <a class="article-entry" href="https://medium.com/@mintang417/ai-agents-in-marketing-intelligence-754bc37470fe" target="_blank">
+    <div class="article-img">
+      <!-- Replace src with actual image URL from Medium article -->
+      <img src="" alt="AI Agents in Marketing Intelligence"
+           onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><span class=\'placeholder-label\'>Article 01</span></div>'" />
+    </div>
+    <div class="article-content">
+      <div class="article-meta">
+        <span class="article-date">Jun 2026 · W1</span>
+        <span class="article-tag">AI Agents</span>
+        <span class="article-tag">Marketing</span>
+      </div>
+      <div class="article-title">AI Agents in Marketing Intelligence: From Signal to Action</div>
+      <div class="article-desc">How AI agents move beyond dashboards to take action on marketing signals — and what that means for how marketing teams are structured.</div>
+      <span class="article-cta">Read on Medium →</span>
+    </div>
+  </a>
+
+  <!-- Add new articles above this comment as they publish. Copy the block above, update href, img src, date, tags, title, desc. Alternate class="article-entry" and class="article-entry flip" for visual variety. -->
+
+</div>
+
+<div class="medium-cta">
+  <span class="medium-note">Published weekly on Medium</span>
+  <a class="medium-link" href="https://medium.com/@mintang417" target="_blank">Follow on Medium →</a>
+</div>
+
+<footer>
+  <div class="footer-name">Min Tang</div>
+  <div class="footer-links">
+    <a href="index.html">← Portfolio</a>
+    <a href="mailto:mintang417@gmail.com">mintang417@gmail.com</a>
+    <a href="https://www.linkedin.com/in/kylatang/" target="_blank">LinkedIn</a>
+  </div>
+  <div class="footer-copy">© 2026</div>
+</footer>
+
+</body>
+</html>

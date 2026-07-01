@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="N-a9qvl_ROvwXuGwKZf-jWE0TjOp6fCBA8T16mlF1Ow" />
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WHFCJNDL0J"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -12,163 +11,236 @@
     gtag('js', new Date());
     gtag('config', 'G-WHFCJNDL0J');
   </script>
-
-  <!-- SEO -->
-  <title>Min Tang — ML Marketer | Consumer Intelligence from Yelp</title>
-  <meta name="description" content="Min Tang is an integrated marketer and data scientist. Master's in Computer Social Science. Specialised in market entry, user growth, and ML-driven consumer intelligence." />
-  <meta name="keywords" content="Min Tang, ML Marketer, NLP marketing, machine learning, consumer intelligence, market entry, user analysis" />
+  <title>Min Tang — AI Marketing Analyst</title>
+  <meta name="description" content="Min Tang is an AI marketing analyst building NLP pipelines, ML models, and LLM agents that turn raw data into marketing decisions. AUC 0.863 on 480K+ Yelp reviews." />
+  <meta name="keywords" content="Min Tang, AI Marketing Analyst, NLP, Machine Learning, consumer intelligence, BERT, XGBoost, LangGraph, RAG" />
   <meta name="author" content="Min Tang" />
-  <meta property="og:title" content="Min Tang — ML Marketer" />
-  <meta property="og:description" content="B2C & B2B marketer combining market experience with machine learning. Master's in Computer Social Science, Sweden." />
+  <meta property="og:title" content="Min Tang — AI Marketing Analyst" />
+  <meta property="og:description" content="NLP pipelines, ML models, and LLM agents that turn raw data into marketing decisions." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kylatang.github.io" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Min Tang — ML Marketer" />
-  <meta name="twitter:description" content="ML-driven consumer intelligence from 480,000 Yelp reviews. Market entry strategy without surveys." />
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <meta name="twitter:title" content="Min Tang — AI Marketing Analyst" />
+  <meta name="twitter:description" content="NLP pipelines, ML models, and LLM agents that turn raw data into marketing decisions." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--navy:#0f2340;--blue:#2563eb;--blue-bg:#eff6ff;--blue-lt:#bfdbfe;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-700:#374151;--r:10px;--pad:max(20px,calc(50% - 560px))}
-    html{scroll-behavior:smooth}
-    body{font-family:'Inter',sans-serif;color:var(--gray-700);line-height:1.65;font-size:15px;background:#fff}
-    nav{position:sticky;top:0;z-index:99;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--gray-200);display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);height:52px}
-    .nav-brand{font-size:14px;font-weight:700;color:var(--navy)}
-    .nav-contact{font-size:13px;font-weight:500;color:var(--blue);text-decoration:none;border:1px solid var(--blue-lt);padding:5px 14px;border-radius:7px}
-    .nav-contact:hover{background:var(--blue-bg)}
-    section{padding:60px var(--pad)}
-    .lbl{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
-    h2{font-size:clamp(20px,2.8vw,26px);font-weight:800;color:var(--navy);margin-bottom:8px}
-    .sub{font-size:15px;color:var(--gray-500);max-width:500px;margin-bottom:28px}
-    .hero{background:var(--navy);padding:64px var(--pad) 56px;color:#fff}
-    .hero-role{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#93c5fd;margin-bottom:14px}
-    .hero h1{font-size:clamp(28px,4vw,46px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:20px}
-    .hero h1 span{color:#60a5fa}
-    .hero-bio{font-size:16px;color:rgba(255,255,255,.72);max-width:560px;line-height:1.7;margin-bottom:32px;border-left:2px solid rgba(96,165,250,.4);padding-left:18px}
-    .hero-bio strong{color:rgba(255,255,255,.9);font-weight:600}
-    .tags{display:flex;flex-wrap:wrap;gap:8px}
-    .tag{padding:4px 12px;border-radius:100px;font-size:12px;font-weight:600}
-    .tag-a{background:rgba(96,165,250,.18);border:1px solid rgba(96,165,250,.3);color:#93c5fd}
-    .tag-b{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.6)}
-    .case-header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:10px}
-    .case-meta{font-size:13px;color:var(--gray-400)}
-    .case-question{background:var(--blue-bg);border-left:3px solid var(--blue);border-radius:0 var(--r) var(--r) 0;padding:16px 22px;margin-bottom:24px;font-size:15px;font-weight:500;color:var(--navy);position:relative;overflow:hidden}
-    .case-question::after{content:'\201C';font-family:Georgia,serif;font-size:100px;color:var(--blue-lt);line-height:1;position:absolute;right:14px;top:-8px;pointer-events:none}
-    .case-question span{position:relative;z-index:1}
-    .case-question strong{color:var(--blue)}
-    .mini-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:24px}
-    .mini-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r);padding:16px 18px;box-shadow:0 1px 4px rgba(0,0,0,.05);border-left:3px solid var(--blue)}
-    .mc-step{font-size:10px;font-weight:700;color:var(--blue);letter-spacing:.07em;text-transform:uppercase;margin-bottom:5px}
-    .mc-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px}
-    .mc-desc{font-size:13px;color:var(--gray-500);line-height:1.5}
-    .mc-result{display:inline-block;margin-top:8px;font-size:12px;font-weight:700;color:var(--blue);background:var(--blue-bg);padding:2px 8px;border-radius:4px}
-    .stat-row{display:flex;flex-wrap:wrap;gap:12px}
-    .stat-box{flex:1;min-width:140px;background:var(--navy);border-radius:var(--r);padding:18px 22px}
-    .stat-val{font-size:28px;font-weight:800;color:#60a5fa;line-height:1}
-    .stat-lbl{font-size:12px;color:rgba(255,255,255,.55);margin-top:3px}
-    .stat-note{font-size:12px;color:rgba(255,255,255,.35);margin-top:2px;font-style:italic}
-    .vs-section{background:var(--gray-50)}
-    .vs-table{width:100%;border-collapse:collapse;border-radius:var(--r);overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,.07)}
-    .vs-table thead tr{background:var(--navy)}
-    .vs-table th{padding:12px 18px;text-align:left;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
-    .vs-table th:first-child{color:var(--gray-400);width:22%}
-    .vs-table th.th-t{color:#9ca3af;width:37%}
-    .vs-table th.th-a{color:#60a5fa;width:41%}
-    .vs-table td{padding:13px 18px;font-size:14px;border-bottom:1px solid var(--gray-100);vertical-align:top;line-height:1.5}
-    .vs-table tr:last-child td{border-bottom:none}
-    .vs-table td:first-child{font-size:13px;font-weight:600;color:var(--navy);background:#fff}
-    .vs-table td.t{color:var(--gray-400);font-style:italic}
-    .vs-table td.a{color:var(--gray-700);font-weight:500}
-    .chip{display:inline-block;background:var(--blue-bg);color:var(--blue);font-size:10px;font-weight:700;padding:1px 7px;border-radius:4px;margin-left:5px;vertical-align:middle}
-    .outputs-wrap{border:1px solid var(--gray-200);border-radius:var(--r);overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,.06)}
-    .outputs-header-row{display:grid;grid-template-columns:1fr 36px 1fr;background:var(--navy)}
-    .outputs-head{padding:11px 20px;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
-    .outputs-head.h-insight{color:var(--gray-400)}
-    .outputs-head.h-arrow{display:flex;align-items:center;justify-content:center;color:#60a5fa;font-size:16px;font-weight:700}
-    .outputs-head.h-action{color:#60a5fa}
-    .output-row{display:grid;grid-template-columns:1fr 36px 1fr;border-bottom:1px solid var(--gray-100)}
-    .output-row:last-child{border-bottom:none}
-    .out-insight{padding:16px 20px;font-size:14px;color:var(--gray-700);line-height:1.55;background:#fff}
-    .out-insight strong{color:var(--navy)}
-    .out-arrow{display:flex;align-items:center;justify-content:center;color:var(--blue-lt);font-size:14px;background:var(--gray-50);border-left:1px solid var(--gray-100);border-right:1px solid var(--gray-100)}
-    .out-action{padding:16px 20px;font-size:14px;color:var(--navy);font-weight:500;line-height:1.55;background:var(--blue-bg)}
-    .out-action .act-lbl{font-size:10px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:3px}
-    .bring-section{background:var(--navy)}
-    .bring-section h2{color:#fff}
-    .bring-section .lbl{color:#93c5fd}
-    .bring-section .sub{color:rgba(255,255,255,.5)}
-    .bring-list{display:flex;flex-direction:column;border:1px solid rgba(255,255,255,.12);border-radius:var(--r);overflow:hidden}
-    .bring-item{display:flex;align-items:flex-start;gap:16px;padding:20px 24px;border-bottom:1px solid rgba(255,255,255,.08)}
-    .bring-item:last-child{border-bottom:none}
-    .bring-icon{font-size:22px;flex-shrink:0;margin-top:2px}
-    .bring-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:3px}
-    .bring-desc{font-size:13px;color:rgba(255,255,255,.55);line-height:1.55}
-    footer{padding:24px var(--pad);background:var(--navy);border-top:1px solid rgba(255,255,255,.08);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;font-size:13px;color:rgba(255,255,255,.4)}
-    footer strong{color:rgba(255,255,255,.8)}
-    .footer-links{display:flex;align-items:center;gap:16px}
-    .footer-links a{color:rgba(255,255,255,.45);text-decoration:none;font-size:13px}
-    .footer-links a:hover{color:#60a5fa}
-    .footer-gh{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;padding:5px 12px;font-size:12px;font-weight:600;color:rgba(255,255,255,.65);text-decoration:none}
-    .footer-gh:hover{background:rgba(255,255,255,.14);color:#fff!important}
-    @media(max-width:640px){.outputs-header-row,.output-row{grid-template-columns:1fr}.out-arrow,.outputs-head.h-arrow{display:none}.out-action{border-top:1px solid var(--gray-200)}}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink:         #1c1c1a;
+      --ink-2:       #4a4a46;
+      --ink-3:       #8a8a84;
+      --line:        #e0ddd6;
+      --warm:        #f8f6f1;
+      --warm-d:      #f0ede6;
+      --bg:          #ffffff;
+      --accent:      #25451C;
+      --accent-pale: #d4e4c2;
+      --pad: max(40px, calc(50% - 660px));
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); font-size: 15px; line-height: 1.6; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 99;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 var(--pad); height: 56px;
+      background: rgba(255,255,255,.97); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-name { font-size: 14px; font-weight: 700; color: var(--ink); text-decoration: none; }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { font-size: 13px; color: var(--ink-3); text-decoration: none; font-weight: 400; transition: color .15s; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--ink); background: transparent; text-decoration: none;
+      padding: 8px 18px; border: 1px solid var(--ink);
+      transition: background .15s, color .15s;
+    }
+    .nav-cta:hover { background: var(--ink); color: #fff; }
+
+    /* HERO */
+    .hero { padding: 96px var(--pad) 80px; background: var(--warm); border-bottom: 1px solid var(--line); }
+    .hero-eyebrow { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+    .eyebrow-tag {
+      font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--ink-3); padding: 4px 10px; border: 1px solid var(--line); background: var(--warm-d);
+    }
+    .hero h1 {
+      font-size: clamp(44px, 6.5vw, 84px); font-weight: 900;
+      color: var(--ink); line-height: .97; letter-spacing: -.04em;
+      max-width: 800px; margin-bottom: 28px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(110deg, #25451C, #1a4a3a);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-sub { font-size: 16px; color: var(--ink-2); line-height: 1.75; max-width: 540px; font-weight: 400; }
+
+    /* STAT BAR */
+    .stat-bar {
+      padding: 0 var(--pad); background: var(--warm-d);
+      border-bottom: 1px solid var(--line); display: flex; flex-wrap: wrap;
+    }
+    .stat-item {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 28px 48px 28px 0; margin-right: 48px;
+      border-right: 1px solid var(--line);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-n { font-size: 28px; font-weight: 900; letter-spacing: -.04em; color: var(--ink); line-height: 1; }
+    .stat-l { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin-top: 5px; }
+
+    /* STACK BAR */
+    .stack-bar {
+      padding: 20px var(--pad); background: var(--warm);
+      border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+    }
+    .stack-label { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); white-space: nowrap; }
+    .stack-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .stack-tag { font-size: 11px; font-weight: 500; color: var(--ink-2); padding: 4px 10px; border: 1px solid var(--line); background: var(--warm-d); }
+
+    /* DIVIDER */
+    .arrow-divider {
+      padding: 22px var(--pad); background: var(--warm);
+      border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; gap: 18px;
+    }
+    .arrow-mark { font-size: 28px; font-weight: 700; color: var(--ink-3); line-height: 1; }
+    .arrow-label { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-3); }
+
+    /* CASE STUDY SECTIONS */
+    section { padding: 60px var(--pad); }
+    .lbl { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    h2 { font-size: clamp(20px, 2.8vw, 26px); font-weight: 900; color: var(--ink); margin-bottom: 8px; letter-spacing: -.02em; }
+    .sub { font-size: 15px; color: var(--ink-2); max-width: 500px; margin-bottom: 28px; }
+    .case-header { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+    .case-meta { font-size: 13px; color: var(--ink-3); }
+    .case-question { background: var(--warm-d); border-left: 3px solid var(--accent); padding: 16px 22px; margin-bottom: 24px; font-size: 15px; font-weight: 500; color: var(--ink); position: relative; overflow: hidden; }
+    .case-question::after { content: '\201C'; font-family: Georgia, serif; font-size: 100px; color: var(--accent-pale); line-height: 1; position: absolute; right: 14px; top: -8px; pointer-events: none; }
+    .case-question span { position: relative; z-index: 1; }
+    .case-question strong { color: var(--accent); }
+    .mini-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 24px; }
+    .mini-card { background: #fff; border: 1px solid var(--line); padding: 16px 18px; border-left: 3px solid var(--accent); }
+    .mc-step { font-size: 10px; font-weight: 700; color: var(--accent); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 5px; }
+    .mc-title { font-size: 14px; font-weight: 800; color: var(--ink); margin-bottom: 4px; letter-spacing: -.02em; }
+    .mc-desc { font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+    .mc-result { display: inline-block; margin-top: 8px; font-size: 11px; font-weight: 700; color: var(--accent); background: var(--accent-pale); padding: 2px 8px; }
+    .stat-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .stat-box { flex: 1; min-width: 140px; background: var(--ink); padding: 18px 22px; }
+    .stat-val { font-size: 28px; font-weight: 900; color: var(--accent-pale); line-height: 1; letter-spacing: -.04em; }
+    .stat-lbl { font-size: 12px; color: rgba(255,255,255,.45); margin-top: 3px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+    .stat-note { font-size: 12px; color: rgba(255,255,255,.3); margin-top: 2px; }
+    .vs-section { background: var(--warm); }
+    .chip { display: inline-block; background: var(--accent-pale); color: var(--accent); font-size: 10px; font-weight: 700; padding: 1px 7px; margin-left: 5px; vertical-align: middle; border: 1px solid var(--accent-pale); }
+    .outputs-wrap { border: 1px solid var(--line); overflow: hidden; }
+    .outputs-header-row { display: grid; grid-template-columns: 1fr 1fr; background: var(--ink); }
+    .outputs-head { padding: 11px 20px; font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: rgba(255,255,255,.4); }
+    .outputs-head.h-action { color: var(--accent-pale); }
+    .output-row { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--line); }
+    .output-row:last-child { border-bottom: none; }
+    .out-insight { padding: 16px 20px; font-size: 14px; color: var(--ink-2); line-height: 1.55; background: #fff; border-right: 1px solid var(--line); }
+    .out-insight strong { color: var(--ink); }
+    .out-action { padding: 16px 20px; font-size: 14px; color: var(--ink); font-weight: 500; line-height: 1.55; background: var(--warm); }
+    .out-action .act-lbl { font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .06em; display: block; margin-bottom: 3px; }
+
+    /* FOOTER */
+    footer {
+      padding: 28px var(--pad); background: var(--warm); border-top: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-name { font-size: 13px; font-weight: 700; color: var(--ink); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 13px; color: var(--ink-3); text-decoration: none; transition: color .15s; }
+    .footer-links a:hover { color: var(--ink); }
+    .footer-gh { display: inline-flex; align-items: center; gap: 6px; background: var(--warm-d); border: 1px solid var(--line); padding: 5px 12px; font-size: 12px; font-weight: 600; color: var(--ink-2); text-decoration: none; }
+    .footer-gh:hover { background: var(--accent-pale); color: var(--accent); }
+    .footer-copy { font-size: 12px; color: var(--ink-3); }
+
+    @media (max-width: 860px) {
+      .outputs-header-row, .output-row { grid-template-columns: 1fr; }
+      .out-action { border-top: 1px solid var(--line); }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .stat-item { padding: 20px 28px 20px 0; margin-right: 28px; }
+    }
   </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <div class="nav-brand">Min Tang</div>
-  <a class="nav-contact" href="mailto:mintang417@gmail.com">Get in Touch</a>
+  <a class="nav-name" href="index.html">Min Tang</a>
+  <div class="nav-links">
+    <a href="#case">Work</a>
+    <a href="writing.html">Writing</a>
+  </div>
+  <a class="nav-cta" href="mailto:mintang417@gmail.com">Get in Touch</a>
 </nav>
 
-<div class="hero">
-  <div class="hero-role">Integrated Marketing · User Analysis · ML Methods</div>
-  <h1>Hi, I'm Min. <span>I turn data<br/>into marketing strategy.</span></h1>
-  <p class="hero-bio">
-    I've worked as a <strong>B2C &amp; B2B marketer</strong> specialising in product market entry and user growth — especially in cross-cultural environments.<br/><br/>
-    I hold a Master's in Computer Social Science, focusing on data analysis, statistical modeling, and understanding human behavior through large-scale data. Before my master's, I accumulated eight years of professional experience, and now combine it with ML methods to guide instructive strategy.
-  </p>
-  <div class="tags">
-    <span class="tag tag-a">Market Entry &amp; Growth</span>
-    <span class="tag tag-a">NLP · Machine Learning</span>
-    <span class="tag tag-b">Cross-Cultural Marketing</span>
-    <span class="tag tag-b">R · Python</span>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">
+    <span class="eyebrow-tag">AI Marketing Analyst</span>
+    <span class="eyebrow-tag">NLP</span>
+    <span class="eyebrow-tag">Machine Learning</span>
+    <span class="eyebrow-tag">Martech</span>
+  </div>
+  <h1>AI-powered<br>marketing — built<br>on <em>data and ML.</em></h1>
+  <p class="hero-sub">I build NLP pipelines, ML models, and LLM agents that turn raw data into marketing decisions — not just dashboards.</p>
+</section>
+
+<!-- STAT BAR -->
+<div class="stat-bar">
+  <div class="stat-item">
+    <span class="stat-n">8</span>
+    <span class="stat-l">Years in Marketing</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-n">EU + Asia</span>
+    <span class="stat-l">Market Focus</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-n">10+</span>
+    <span class="stat-l">Countries</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-n">4</span>
+    <span class="stat-l">Fortune 500 Companies</span>
   </div>
 </div>
 
+<!-- STACK BAR -->
+<div class="stack-bar">
+  <span class="stack-label">Stack</span>
+  <div class="stack-tags">
+    <span class="stack-tag">Python · R · SQL</span>
+    <span class="stack-tag">NLP · LLM · RAG</span>
+    <span class="stack-tag">XGBoost · Causal Inference</span>
+    <span class="stack-tag">LangGraph · ChromaDB · Tavily</span>
+    <span class="stack-tag">Claude API · dbt · BigQuery</span>
+    <span class="stack-tag">Consumer Intelligence</span>
+    <span class="stack-tag">Growth Analytics</span>
+    <span class="stack-tag">B2B GTM</span>
+  </div>
+</div>
+
+<!-- DIVIDER INTO CASE STUDY -->
+<div class="arrow-divider" id="case">
+  <span class="arrow-mark">→</span>
+  <span class="arrow-label">Case Study · 01</span>
+</div>
+
+<!-- CASE STUDY CONTENT (from yelp-nlp.html) -->
 <section>
   <div class="lbl">Case Study</div>
   <div class="case-header">
     <h2>ML-Driven Consumer Intelligence — Yelp Philadelphia</h2>
     <span class="case-meta">480,000+ reviews · No surveys required</span>
-  </div>
-  <div class="case-question">
-    <span>A restaurant brand is entering Philadelphia. <strong>Who are the right customers — and what language wins them?</strong></span>
-  </div>
-  <div class="mini-cards">
-    <div class="mini-card">
-      <div class="mc-step">Step 1</div>
-      <div class="mc-title">Audience Discovery</div>
-      <div class="mc-desc">Used LDA topic modelling to identify "Omnivore" consumers — broad-taste, high-value — from raw review data.</div>
-      <span class="mc-result">No pre-defined segments needed</span>
-    </div>
-    <div class="mini-card">
-      <div class="mc-step">Step 2</div>
-      <div class="mc-title">Language Analysis</div>
-      <div class="mc-desc">BERT embeddings decoded which words and phrases signal authentic dining culture — and which audiences use them.</div>
-      <span class="mc-result">Semantic authenticity score</span>
-    </div>
-    <div class="mini-card">
-      <div class="mc-step">Step 3</div>
-      <div class="mc-title">Causal Inference</div>
-      <div class="mc-desc">Causal Forest model identified what actually drives authentic language — proving causation, not just correlation.</div>
-      <span class="mc-result">Beyond correlation</span>
-    </div>
-    <div class="mini-card">
-      <div class="mc-step">Step 4</div>
-      <div class="mc-title">Predictive Modelling</div>
-      <div class="mc-desc">XGBoost predicts consumer type from writing style alone — no demographics, no purchase history needed.</div>
-      <span class="mc-result">AUC 0.863</span>
-    </div>
   </div>
   <div class="stat-row">
     <div class="stat-box">
@@ -187,108 +259,150 @@
       <div class="stat-note">Unsupervised taste segmentation</div>
     </div>
   </div>
+  <div class="case-question" style="margin-top:24px">
+    <span>A restaurant brand is entering Philadelphia. <strong>Who are the right customers — and what language wins them?</strong></span>
+  </div>
+  <p style="font-size:13px;color:var(--ink-3);margin-bottom:28px">8+ years in Fortune 500 marketing · Master's in Computer Social Science · R + Python · BERT · XGBoost · Causal Forest</p>
+  <div class="mini-cards">
+    <div class="mini-card">
+      <div class="mc-step">Step 1</div>
+      <div class="mc-title">Audience Discovery</div>
+      <div class="mc-desc">Used LDA topic modelling to identify "Omnivore" consumers — broad-taste, high-value — from raw review data.</div>
+      <span class="mc-result">No pre-defined segments needed</span>
+    </div>
+    <div class="mini-card">
+      <div class="mc-step">Step 2</div>
+      <div class="mc-title">Language Analysis</div>
+      <div class="mc-desc">BERT embeddings decoded which words and phrases signal authentic dining culture — and which audiences use them.</div>
+      <span class="mc-result">Semantic authenticity score</span>
+    </div>
+    <div class="mini-card">
+      <div class="mc-step">Step 3</div>
+      <div class="mc-title">Causal Inference</div>
+      <div class="mc-desc">Causal Forest model identified causation — what actually drives authentic language — not just which variables happen to correlate with it.</div>
+      <span class="mc-result">Beyond correlation</span>
+    </div>
+    <div class="mini-card">
+      <div class="mc-step">Step 4</div>
+      <div class="mc-title">Predictive Modelling</div>
+      <div class="mc-desc">XGBoost predicts consumer type from writing style alone. AUC 0.863.</div>
+      <span class="mc-result">Strongest predictor</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="lbl">Model Comparison</div>
+  <h2>XGBoost + BERT delivered the best result.</h2>
+  <p class="sub">LR as baseline, Random Forest next, XGBoost with BERT's authenticity score on top. AUC went from 0.746 to 0.863.</p>
+  <div style="display:flex;gap:0;border:1px solid var(--line)">
+    <div style="flex:1;padding:22px 20px;border-right:1px solid var(--line)">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px">Logistic Regression</div>
+      <div style="font-size:32px;font-weight:900;color:var(--ink);line-height:1;letter-spacing:-.04em">0.746</div>
+    </div>
+    <div style="flex:1;padding:22px 20px;border-right:1px solid var(--line)">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px">Random Forest</div>
+      <div style="font-size:32px;font-weight:900;color:var(--ink);line-height:1;letter-spacing:-.04em">0.849</div>
+    </div>
+    <div style="flex:1;padding:22px 20px;background:var(--accent-pale)">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">XGBoost + BERT</div>
+      <div style="font-size:32px;font-weight:900;color:var(--accent);line-height:1;letter-spacing:-.04em">0.863</div>
+    </div>
+  </div>
 </section>
 
 <section class="vs-section">
   <div class="lbl">Why ML over Traditional Methods?</div>
-  <h2>What Changes When You Apply Machine Learning</h2>
-  <p class="sub">The same marketing questions — answered at a different scale, speed, and depth.</p>
-  <table class="vs-table">
-    <thead>
-      <tr>
-        <th>Challenge</th>
-        <th class="th-t">Traditional Approach</th>
-        <th class="th-a">ML-Driven Approach</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Audience Profiling</td>
-        <td class="t">Surveys &amp; focus groups — weeks of fieldwork, high cost, small samples</td>
-        <td class="a">Topic modelling on 480K real reviews — instant, scalable, zero recruitment cost<span class="chip">LDA</span></td>
-      </tr>
-      <tr>
-        <td>Brand Messaging</td>
-        <td class="t">Gut instinct + A/B tests on limited traffic</td>
-        <td class="a">BERT embeddings surface what language actually resonates — grounded in real consumer voice<span class="chip">NLP</span></td>
-      </tr>
-      <tr>
-        <td>Predicting Behaviour</td>
-        <td class="t">Demographic proxies: age, income, location</td>
-        <td class="a">Gradient boosting trained on real behavioural signals — AUC 0.863 predictive accuracy<span class="chip">XGBoost</span></td>
-      </tr>
-      <tr>
-        <td>Brand Health</td>
-        <td class="t">Quarterly surveys — always lagging, expensive to repeat</td>
-        <td class="a">Semantic similarity scoring as a live, always-on brand KPI<span class="chip">BERT</span></td>
-      </tr>
-    </tbody>
-  </table>
+  <div style="position:relative;display:grid;grid-template-columns:1fr 1fr;gap:0">
+    <div style="background:var(--warm-d);padding:32px 52px 32px 32px">
+      <div style="font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:28px">Traditional Research</div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;align-items:baseline;gap:10px">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--ink-3);flex-shrink:0;margin-top:5px;display:inline-block"></span>
+          <span style="font-size:14px;color:var(--ink-3)">Surveys &amp; focus groups — weeks of fieldwork, high cost, small samples</span>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:10px">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--ink-3);flex-shrink:0;margin-top:5px;display:inline-block"></span>
+          <span style="font-size:14px;color:var(--ink-3)">Gut instinct + A/B tests on limited traffic</span>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:10px">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--ink-3);flex-shrink:0;margin-top:5px;display:inline-block"></span>
+          <span style="font-size:14px;color:var(--ink-3)">Demographic proxies: age, income, location</span>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:10px">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--ink-3);flex-shrink:0;margin-top:5px;display:inline-block"></span>
+          <span style="font-size:14px;color:var(--ink-3)">Quarterly surveys — always lagging, expensive to repeat</span>
+        </div>
+      </div>
+    </div>
+    <div style="background:var(--accent-pale);padding:32px 32px 32px 52px">
+      <div style="font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:28px;text-align:right">ML on 480K Reviews</div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;align-items:baseline;gap:10px;justify-content:flex-end">
+          <span style="font-size:14px;color:var(--accent);text-align:right">Topic modelling on 480K real reviews — instant, scalable, zero recruitment cost</span>
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:5px;display:inline-block"></span>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:10px;justify-content:flex-end">
+          <span style="font-size:14px;color:var(--accent);text-align:right">BERT embeddings surface what language actually resonates — grounded in real consumer voice</span>
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:5px;display:inline-block"></span>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:10px;justify-content:flex-end">
+          <span style="font-size:14px;color:var(--accent);text-align:right">Gradient boosting trained on real behavioural signals — AUC 0.863 predictive accuracy</span>
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:5px;display:inline-block"></span>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:10px;justify-content:flex-end">
+          <span style="font-size:14px;color:var(--accent);text-align:right">Semantic similarity scoring as a live, always-on brand KPI</span>
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:5px;display:inline-block"></span>
+        </div>
+      </div>
+    </div>
+    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center;z-index:2">
+      <span style="font-size:14px;font-weight:900;color:#fff;letter-spacing:.04em">VS</span>
+    </div>
+  </div>
 </section>
 
 <section>
   <div class="lbl">Key Outputs</div>
-  <h2>From Insight to Action</h2>
-  <p class="sub">What the models found — and the marketing decision each finding drives.</p>
+  <h2>From Findings to Decisions</h2>
   <div class="outputs-wrap">
     <div class="outputs-header-row">
-      <div class="outputs-head h-insight">Data Insight</div>
-      <div class="outputs-head h-arrow">→</div>
-      <div class="outputs-head h-action">Marketing Action</div>
+      <div class="outputs-head">Finding</div>
+      <div class="outputs-head h-action">Decision</div>
     </div>
     <div class="output-row">
-      <div class="out-insight"><strong>Omnivore consumers</strong> dominate Philadelphia — broad-taste, highly active reviewers across American, Asian, and Latin American cuisines at mid-budget price points.</div>
-      <div class="out-arrow">→</div>
-      <div class="out-action"><span class="act-lbl">Target</span>Lead acquisition with omnivore-profile users — they write more, reach more people, and are natural early adopters for a new brand.</div>
+      <div class="out-insight"><strong>Omnivore consumers</strong> dominate Philadelphia. Broad taste, mid-budget, highly active reviewers.</div>
+      <div class="out-action"><span class="act-lbl">Target</span>Prioritise omnivore-profile users for acquisition. Higher review activity, faster brand adoption.</div>
     </div>
     <div class="output-row">
-      <div class="out-insight">"<strong>Authentic</strong>" is a cultural signal, not a fine-dining one. Budget and mid-price diners use it most — authenticity and accessibility coexist.</div>
-      <div class="out-arrow">→</div>
-      <div class="out-action"><span class="act-lbl">Messaging</span>Build brand copy around cultural authenticity at approachable price points. Avoid premium framing — it misreads the audience.</div>
+      <div class="out-insight">"<strong>Authentic</strong>" is used most by budget and mid-price diners. Accessibility and authenticity overlap.</div>
+      <div class="out-action"><span class="act-lbl">Messaging</span>Build copy around cultural authenticity at accessible price points. Premium framing misreads the segment.</div>
     </div>
     <div class="output-row">
-      <div class="out-insight">Writing style alone predicts consumer identity with <strong>AUC 0.863</strong> — BERT semantic features outranked all traditional text metrics.</div>
-      <div class="out-arrow">→</div>
-      <div class="out-action"><span class="act-lbl">Measure</span>Replace quarterly surveys with a language-based brand health KPI. Public reviews become a real-time signal, not a lagging report.</div>
+      <div class="out-insight">Writing style predicts consumer identity at <strong>AUC 0.863</strong>. BERT semantic features outperformed all text baselines.</div>
+      <div class="out-action"><span class="act-lbl">Measure</span>Use public reviews as a real-time brand health KPI. No survey cadence needed.</div>
     </div>
   </div>
 </section>
 
-<section class="bring-section">
-  <div class="lbl">What I Bring</div>
-  <h2>Skills × Business Value</h2>
-  <p class="sub">I work at the intersection of marketing strategy and machine learning — so the output is always a decision, not just a dashboard.</p>
-  <div class="bring-list">
-    <div class="bring-item">
-      <span class="bring-icon">🔍</span>
-      <div>
-        <div class="bring-title">Consumer Profiling at Scale</div>
-        <div class="bring-desc">Audience intelligence from public data using unsupervised ML — no surveys, no waiting. Faster market entry with better-defined targeting.</div>
-      </div>
-    </div>
-    <div class="bring-item">
-      <span class="bring-icon">🧠</span>
-      <div>
-        <div class="bring-title">Language &amp; Brand Signal Analysis</div>
-        <div class="bring-desc">NLP and BERT embeddings that identify which messages, words, and values your audience actually responds to — grounding creative in evidence.</div>
-      </div>
-    </div>
-    <div class="bring-item">
-      <span class="bring-icon">📈</span>
-      <div>
-        <div class="bring-title">Data to Strategy</div>
-        <div class="bring-desc">Not just models — actionable recommendations your team can implement. I translate ML outputs into marketing decisions.</div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- MKT BRIDGE -->
+<div style="padding:48px var(--pad);background:var(--warm-d);border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap">
+  <div style="font-size:17px;font-weight:700;color:var(--ink);letter-spacing:-.01em;line-height:1.5;max-width:480px">8 years in marketing built the domain knowledge behind every data project.</div>
+  <a href="https://www.linkedin.com/in/kylatang/" target="_blank" rel="noopener" style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);text-decoration:none;padding:12px 28px;border:1.5px solid var(--accent);white-space:nowrap;transition:background .15s,color .15s" onmouseover="this.style.background='var(--accent)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='var(--accent)'">Marketing Background →</a>
+</div>
 
+<!-- FOOTER -->
 <footer>
-  <div><strong>Min Tang</strong> · mintang417@gmail.com</div>
+  <div class="footer-name">Min Tang</div>
   <div class="footer-links">
-    <a href="mailto:mintang417@gmail.com">Contact</a>
-    <a href="https://www.linkedin.com/in/min-tang-kyla/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:mintang417@gmail.com">mintang417@gmail.com</a>
+    <a href="https://www.linkedin.com/in/kylatang/" target="_blank">LinkedIn</a>
+    <a href="https://github.com/KylaTang/NLP-Analysis-of-Cultural-Omnivores-on-Yelp-" target="_blank" rel="noopener" class="footer-gh">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      View Code
+    </a>
   </div>
+  <div class="footer-copy">© 2026</div>
 </footer>
 
 </body>
