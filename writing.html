@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Writing — Min Tang</title>
-  <meta name="description" content="Weekly writing on AI, machine learning, and modern marketing by Min Tang." />
+  <title>Work — Min Tang</title>
+  <meta name="description" content="Writing and interactive analyses on AI, machine learning, and modern marketing by Min Tang." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -18,10 +18,15 @@
       --bg:       #ffffff;
       --accent:   #25451C;
       --accent-pale: #d4e4c2;
-      --pad: max(40px, calc(50% - 660px));
+      --pad: max(20px, calc(50% - 640px));
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); font-size: 15px; line-height: 1.6; }
+    body { font-family: 'Inter', ui-sans-serif, -apple-system, "Segoe UI", "PingFang SC", sans-serif; color: var(--ink); background: var(--bg); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 {
+      font-family: 'Iowan Old Style','Palatino Linotype',Georgia,'Songti SC',serif;
+      font-weight: 600;
+      color: var(--ink);
+    }
 
     /* NAV — consistent */
     nav {
@@ -61,14 +66,15 @@
       color: var(--ink-3); padding: 4px 10px; border: 1px solid var(--line); background: var(--warm-d);
     }
     .page-header h1 {
-      font-size: clamp(28px, 4vw, 52px); font-weight: 900;
-      letter-spacing: -.035em; line-height: 1.05;
-      color: var(--ink); margin-bottom: 16px; max-width: 600px;
+      font-family: Georgia, 'Iowan Old Style', 'Songti SC', serif;
+      font-size: clamp(38px, 5vw, 64px);
+      font-weight: 800;
+      letter-spacing: -.02em; line-height: 1.05;
+      margin-bottom: 16px; max-width: 640px;
     }
     .page-header h1 em {
       font-style: normal;
-      background: linear-gradient(110deg, #25451C, #1a4a3a);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      color: var(--accent);
     }
     .page-sub { font-size: 13px; color: var(--ink-3); line-height: 1.75; }
 
@@ -115,10 +121,6 @@
       padding: 36px 48px 36px var(--pad);
       display: flex; flex-direction: column; justify-content: center; gap: 14px;
     }
-    /* for entries where image is on right */
-    .article-entry.flip { grid-template-columns: 1fr 260px; }
-    .article-entry.flip .article-img { order: 2; border-right: none; border-left: 1px solid var(--line); }
-    .article-entry.flip .article-content { order: 1; padding: 36px var(--pad) 36px 48px; }
 
     .article-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
     .article-date { font-size: 11px; color: var(--ink-3); letter-spacing: .04em; }
@@ -127,7 +129,8 @@
       padding: 2px 8px; background: var(--accent-pale); color: var(--accent);
     }
     .article-title {
-      font-size: 19px; font-weight: 800; letter-spacing: -.025em; line-height: 1.35;
+      font-family: 'Iowan Old Style','Palatino Linotype',Georgia,'Songti SC',serif;
+      font-size: 20px; font-weight: 600; letter-spacing: -.005em; line-height: 1.35;
       color: var(--accent);
     }
     .article-desc {
@@ -154,8 +157,24 @@
     }
     .medium-link:hover { text-decoration: underline; text-underline-offset: 3px; }
 
+    /* MKT BRIDGE */
+    .mkt-bridge {
+      padding: 48px var(--pad); background: var(--warm-d); border-top: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
+    }
+    .mkt-bridge-text { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -.01em; line-height: 1.5; max-width: 480px; }
+    .mkt-bridge-link {
+      font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--accent); text-decoration: none; padding: 12px 28px; border: 1.5px solid var(--accent);
+      white-space: nowrap; transition: background .15s, color .15s;
+    }
+    .mkt-bridge-link:hover { 
+      margin-top: 40px;
+      background: var(--accent); color: #fff; }
+
     /* FOOTER */
     footer {
+      margin-top: 40px;
       padding: 28px var(--pad); background: var(--warm); border-top: 1px solid var(--line);
       display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
     }
@@ -166,9 +185,9 @@
     .footer-copy { font-size: 12px; color: var(--ink-3); }
 
     @media (max-width: 700px) {
-      .article-entry, .article-entry.flip { grid-template-columns: 1fr; }
-      .article-img, .article-entry.flip .article-img { order: 1; border-right: none; border-left: none; border-bottom: 1px solid var(--line); min-height: 180px; }
-      .article-content, .article-entry.flip .article-content { order: 2; padding: 28px var(--pad); }
+      .article-entry { grid-template-columns: 1fr; }
+      .article-img { order: 1; border-right: none; border-left: none; border-bottom: 1px solid var(--line); min-height: 180px; }
+      .article-content { order: 2; padding: 28px var(--pad); }
     }
   </style>
 </head>
@@ -177,24 +196,24 @@
 <nav>
   <a class="nav-name" href="index.html">Min Tang</a>
   <div class="nav-links">
-    <a href="index.html#case">Work</a>
-    <a href="writing.html" class="active">Writing</a>
+    <a href="index.html">Home</a>
+    <a href="writing.html" class="active">Work</a>
   </div>
   <a class="nav-cta" href="mailto:mintang417@gmail.com">Get in Touch</a>
 </nav>
 
 <div class="page-header">
   <div class="page-breadcrumb">
-    <a href="index.html">Portfolio</a>
-    <span>→</span>
-    <span>Writing</span>
+    <a href="index.html">Home</a>
+    <span>·</span>
+    <span>Work</span>
   </div>
   <div class="page-eyebrow">
-    <span class="eyebrow-tag">Market Strategy</span>
-    <span class="eyebrow-tag">LLM</span>
-    <span class="eyebrow-tag">Data Analysis</span>
+    <span class="eyebrow-tag">Growth Marketing</span>
+    <span class="eyebrow-tag">AI Data Analysis</span>
+    <span class="eyebrow-tag">LLM & ML</span>
   </div>
-  <h1>Thinking out loud<br>on <em>market strategy, LLM<br>and data analysis.</em></h1>
+  <h1>Think out loud on <br><em>Growth Marketing, ML Analysis <br>and LLM<br></em></h1>
   <p class="page-sub"></p>
 </div>
 
@@ -209,30 +228,48 @@
     </div>
     <div class="article-content">
       <div class="article-meta">
-        <span class="article-date">Jun 2026 · W1</span>
+        <span class="article-date">Jun 2026 · 01</span>
         <span class="article-tag">NLP</span>
         <span class="article-tag">AI Agents</span>
-        <span class="article-tag">Market</span>
+        <span class="article-tag">AI Automation</span>
       </div>
       <div class="article-title">AI Agents in Marketing Intelligence: From Signal to Action</div>
       <div class="article-desc">How AI agents move beyond dashboards to take action on marketing signals — and what that means for how marketing teams are structured.</div>
-      <span class="article-cta">Read on Medium →</span>
+      <span class="article-cta">Read on Medium</span>
     </div>
   </a>
 
-  <!-- Add new articles above this comment as they publish. Copy the block above, update href, img src, date, tags, title, desc. Alternate class="article-entry" and class="article-entry flip" for visual variety. -->
+  <!-- 02 — interactive analysis, lives on this site -->
+  <a class="article-entry" href="attribution-audit.html">
+    <div class="article-img">
+      <div class="article-img-placeholder"><span class="placeholder-label">Analysis 02</span></div>
+    </div>
+    <div class="article-content">
+      <div class="article-meta">
+        <span class="article-date">Jul 2026 · 02</span>
+        <span class="article-tag">Attribution Method</span>
+        <span class="article-tag">Growth Marketing Analysis</span>
+      </div>
+      <div class="article-title">The 0.66% Problem — MTA Analysis (Multi-Touch Attribution)</div>
+      <div class="article-desc">Channel performance analysis on 16.4 million real ad impressions. Last-click vs. two independent methods.</div>
+      <span class="article-cta">READ</span>
+    </div>
+  </a>
 
-</div>
+  <!-- Add new articles above this comment as they publish. Copy the block above, update href, img src, date, tags, title, desc. -->
 
-<div class="medium-cta">
-  <span class="medium-note">Published weekly on Medium</span>
-  <a class="medium-link" href="https://medium.com/@mintang417" target="_blank">Follow on Medium →</a>
-</div>
+
+
+ </div>
+ <div class="mkt-bridge">
+  <div class="mkt-bridge-text">8 years in marketing built the domain knowledge behind every data project.</div>
+  <a class="btn"  href="https://www.linkedin.com/in/kylatang/" target="_blank" rel="noopener" class="mkt-bridge-link">Marketing Background</a>
+ </div>
+
 
 <footer>
   <div class="footer-name">Min Tang</div>
   <div class="footer-links">
-    <a href="index.html">← Portfolio</a>
     <a href="mailto:mintang417@gmail.com">mintang417@gmail.com</a>
     <a href="https://www.linkedin.com/in/kylatang/" target="_blank">LinkedIn</a>
   </div>

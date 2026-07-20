@@ -9,238 +9,236 @@
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
-      --navy:#0f2340;--blue:#2563eb;--blue-bg:#eff6ff;--blue-lt:#bfdbfe;
-      --gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;
-      --gray-400:#9ca3af;--gray-500:#6b7280;--gray-700:#374151;
-      --r:10px;--pad:max(20px,calc(50% - 580px));
-      --green-bg:#f0fdf4;--green:#16a34a;--amber-bg:#fffbeb;--amber:#d97706;
+      --ink:#1c1c1a;--ink-2:#4a4a46;--ink-3:#8a8a84;
+      --line:#e0ddd6;--warm:#f8f6f1;--warm-d:#f0ede6;--bg:#fff;
+      --accent:#25451C;--accent-pale:#d4e4c2;
+      --red:#b91c1c;--red-bg:#fee2e2;
+      --amber:#d97706;--amber-bg:#fffbeb;
+      --green:#16a34a;--green-bg:#f0fdf4;
+      --pad:max(40px,calc(50% - 660px));
     }
     html{scroll-behavior:smooth}
-    body{font-family:'Inter',sans-serif;color:var(--gray-700);line-height:1.65;font-size:15px;background:#fff}
+    body{font-family:'Inter',sans-serif;color:var(--ink);line-height:1.65;font-size:15px;background:var(--bg)}
 
-    /* NAV — identical to kylatang.github.io */
-    nav{position:sticky;top:0;z-index:99;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--gray-200);display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);height:52px}
-    .nav-brand{font-size:14px;font-weight:700;color:var(--navy);text-decoration:none}
-    .nav-contact{font-size:13px;font-weight:500;color:var(--blue);text-decoration:none;border:1px solid var(--blue-lt);padding:5px 14px;border-radius:7px}
-    .nav-contact:hover{background:var(--blue-bg)}
+    /* NAV */
+    nav{position:sticky;top:0;z-index:99;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);height:56px}
+    .nav-brand{font-size:14px;font-weight:700;color:var(--ink);text-decoration:none}
+    .nav-links{display:flex;gap:28px}
+    .nav-links a{font-size:13px;color:var(--ink-3);text-decoration:none;transition:color .15s}
+    .nav-links a:hover{color:var(--ink)}
+    .nav-cta,.nav-contact{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);text-decoration:none;padding:8px 18px;border:1px solid var(--ink);transition:background .15s,color .15s}
+    .nav-cta:hover,.nav-contact:hover{background:var(--ink);color:#fff}
+    .page-breadcrumb{font-size:11px;color:var(--ink-3);margin-bottom:22px;display:flex;align-items:center;gap:8px}
+    .page-breadcrumb a{color:var(--ink-3);text-decoration:none}
+    .page-breadcrumb a:hover{color:var(--ink)}
+    .section-sep{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:28px;display:block}
+    .chip-group{display:flex;flex-wrap:wrap;gap:6px;margin-top:28px}
+    .chip{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:6px 12px;border:1px solid var(--accent-pale);color:var(--accent);background:var(--accent-pale)}
+    .back-row{padding:40px var(--pad);background:var(--warm-d);border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+    .back-link{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);text-decoration:none;padding:12px 28px;border:1.5px solid var(--accent);transition:background .15s,color .15s}
+    .back-link:hover{background:var(--accent);color:#fff}
+    .back-note{font-size:13px;color:var(--ink-3)}
 
-    /* HERO — case study sub-page style (light, editorial) */
-    .hero{background:linear-gradient(160deg,var(--blue-bg) 0%,#f8faff 60%,#fff 100%);border-bottom:1px solid var(--blue-lt);padding:0 var(--pad)}
+    /* HERO */
+    .hero{background:var(--warm);border-bottom:1px solid var(--line);padding:72px var(--pad) 56px}
+    .hero-eyebrow{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px}
+    .eyebrow-tag{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);padding:4px 10px;border:1px solid var(--accent-pale);background:var(--accent-pale)}
+    .hero h1{font-size:clamp(36px,5.5vw,68px);font-weight:900;color:var(--ink);line-height:.97;letter-spacing:-.04em;max-width:720px;margin-bottom:22px}
+    .hero h1 em{font-style:normal;background:linear-gradient(110deg,#25451C,#1a4a3a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-desc{font-size:15px;color:var(--ink-2);max-width:540px;line-height:1.7}
 
-    /* breadcrumb strip */
-    .breadcrumb{display:flex;align-items:center;gap:6px;padding:14px 0;font-size:12px;color:var(--gray-400);border-bottom:1px solid var(--gray-100)}
-    .breadcrumb a{color:var(--gray-400);text-decoration:none}
-    .breadcrumb a:hover{color:var(--blue)}
-    .breadcrumb span{color:var(--gray-200)}
+    /* STAT BAR */
+    .stat-bar{padding:0 var(--pad);background:var(--warm-d);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap}
+    .stat-item{display:flex;flex-direction:column;justify-content:center;padding:24px 48px 24px 0;margin-right:48px;border-right:1px solid var(--line)}
+    .stat-item:last-child{border-right:none;margin-right:0}
+    .stat-n{font-size:26px;font-weight:900;letter-spacing:-.04em;color:var(--ink);line-height:1}
+    .stat-n.red{color:var(--red)}
+    .stat-n.amber{color:var(--amber)}
+    .stat-l{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-top:5px}
 
-    /* hero body — two column */
-    .hero-body{display:grid;grid-template-columns:1fr 260px;gap:48px;align-items:center;padding:40px 0 44px}
-    .hero-eyebrow{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px;display:flex;align-items:center;gap:8px}
-    .hero-eyebrow::before{content:'';display:inline-block;width:20px;height:2px;background:var(--blue);border-radius:1px}
-    .hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;color:var(--navy);line-height:1.15;margin-bottom:14px;letter-spacing:-.01em}
-    .hero h1 em{color:var(--blue);font-style:normal}
-    .hero-desc{font-size:14px;color:var(--gray-500);max-width:480px;line-height:1.7;margin-bottom:20px;border-left:2px solid var(--blue-lt);padding-left:14px}
-    .hero-pills{display:flex;flex-wrap:wrap;gap:6px}
-    .pill{padding:3px 10px;border-radius:100px;font-size:11px;font-weight:600;border:1px solid var(--blue-lt);color:var(--blue);background:var(--blue-bg)}
+    /* SECTIONS */
+    section{padding:52px var(--pad);background:var(--warm);border-bottom:1px solid var(--line)}
+    section.alt{background:var(--warm-d)}
+    .lbl{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px}
+    h2{font-size:clamp(20px,2.6vw,28px);font-weight:800;color:var(--ink);margin-bottom:8px;letter-spacing:-.025em}
+    .sub{font-size:14px;color:var(--ink-2);max-width:520px;margin-bottom:28px;line-height:1.65}
 
-    /* right stat card — navy, matching main page .stat-box */
-    .hero-stat-card{background:var(--navy);border-radius:var(--r);padding:22px 24px}
-    .hsc-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:8px}
-    .hsc-val{font-size:38px;font-weight:800;color:#60a5fa;line-height:1;margin-bottom:4px}
-    .hsc-sub{font-size:12px;color:rgba(255,255,255,.4);line-height:1.5}
-    .hsc-divider{height:1px;background:rgba(255,255,255,.08);margin:14px 0}
-    .hsc-row{display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px}
-    .hsc-row:last-child{margin-bottom:0}
-    .hsc-k{color:rgba(255,255,255,.35)}
-    .hsc-v{font-weight:700;color:rgba(255,255,255,.75)}
-
-    @media(max-width:700px){
-      .hero-body{grid-template-columns:1fr}
-      .hero-stat-card{display:none}
-    }
-
-    /* PAGE LAYOUT — two-column on wide screens */
-    .page-body{display:grid;grid-template-columns:1fr;gap:0}
-
-    section{padding:48px var(--pad)}
-    .lbl{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
-    h2{font-size:clamp(18px,2.4vw,22px);font-weight:800;color:var(--navy);margin-bottom:6px}
-    .sub{font-size:14px;color:var(--gray-500);max-width:520px;margin-bottom:24px;line-height:1.6}
-
-    /* STAT STRIP */
-    .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--gray-200);border:1px solid var(--gray-200);border-radius:var(--r);overflow:hidden;margin-bottom:40px}
-    .stat-cell{background:#fff;padding:20px 18px}
-    .stat-val{font-size:26px;font-weight:800;color:var(--navy);line-height:1}
-    .stat-val.highlight{color:var(--blue);font-size:30px}
-    .stat-lbl{font-size:11px;color:var(--gray-500);margin-top:3px}
-    .stat-sub{font-size:11px;color:var(--gray-400);margin-top:1px;font-style:italic}
-
-    /* PIPELINE — horizontal steps */
-    .pipeline{display:flex;align-items:stretch;gap:0;border:1px solid var(--gray-200);border-radius:var(--r);overflow:hidden;margin-bottom:40px}
-    .pipe-step{flex:1;padding:16px 18px;background:#fff;border-right:1px solid var(--gray-200);position:relative}
+    /* PIPELINE */
+    .pipeline{display:flex;align-items:stretch;border:1px solid var(--line);margin-bottom:32px;background:var(--bg)}
+    .pipe-step{flex:1;padding:18px 20px;border-right:1px solid var(--line);position:relative}
     .pipe-step:last-child{border-right:none}
-    .pipe-num{font-size:10px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
-    .pipe-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px}
-    .pipe-desc{font-size:12px;color:var(--gray-400);line-height:1.45}
-    .pipe-arrow{position:absolute;right:-10px;top:50%;transform:translateY(-50%);width:20px;height:20px;background:var(--blue-bg);border:1px solid var(--blue-lt);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--blue);z-index:1;font-weight:700}
+    .pipe-num{font-size:10px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+    .pipe-title{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:3px}
+    .pipe-desc{font-size:12px;color:var(--ink-3);line-height:1.45}
+    .pipe-arrow{position:absolute;right:-10px;top:50%;transform:translateY(-50%);width:20px;height:20px;background:var(--warm);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--accent);z-index:1;font-weight:700}
 
-    /* SEGMENT CARDS */
-    .seg-wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:8px}
-    .seg{border-radius:var(--r);overflow:hidden;border:1px solid var(--gray-200)}
-    .seg-head{padding:14px 18px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-    .seg.active .seg-head{background:var(--navy);color:#93c5fd}
-    .seg.casual .seg-head{background:var(--gray-50);color:var(--gray-500);border-bottom:1px solid var(--gray-200)}
-    .seg-body{padding:0 18px}
-    .seg-row{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--gray-100);font-size:13px}
+    /* STAT STRIP (data grid) */
+    .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);margin-bottom:36px;background:var(--bg)}
+    .stat-cell{padding:22px 20px;border-right:1px solid var(--line)}
+    .stat-cell:last-child{border-right:none}
+    .stat-val{font-size:28px;font-weight:900;color:var(--ink);line-height:1;letter-spacing:-.03em}
+    .stat-val.highlight{color:var(--accent)}
+    .stat-lbl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-top:6px}
+    .stat-sub{font-size:11px;color:var(--ink-3);margin-top:4px;line-height:1.45}
+
+    /* SEGMENTS */
+    .seg-wrap{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);margin-bottom:16px;background:var(--bg)}
+    .seg{border-right:1px solid var(--line)}
+    .seg:last-child{border-right:none}
+    .seg-head{padding:14px 20px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--line)}
+    .seg.active .seg-head{background:var(--ink);color:rgba(255,255,255,.55)}
+    .seg.casual .seg-head{background:var(--warm-d);color:var(--ink-3)}
+    .seg-body{padding:0 20px;background:var(--bg)}
+    .seg-row{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line);font-size:13px}
     .seg-row:last-child{border-bottom:none}
-    .seg-key{color:var(--gray-500)}
-    .seg-val{font-weight:700;color:var(--navy)}
-    .seg.active .seg-val{color:var(--blue)}
-    .badge{display:inline-block;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px;margin-left:4px;vertical-align:middle}
+    .seg-key{color:var(--ink-3)}
+    .seg-val{font-weight:700;color:var(--ink)}
+    .badge{display:inline-block;font-size:10px;font-weight:700;padding:1px 7px;margin-left:4px;vertical-align:middle;letter-spacing:.03em}
     .badge-up{background:var(--green-bg);color:var(--green)}
     .badge-warn{background:var(--amber-bg);color:var(--amber)}
-    .badge-blue{background:var(--blue-bg);color:var(--blue)}
+    .badge-blue{background:var(--accent-pale);color:var(--accent)}
+    .agent-tag{font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border:1px solid var(--accent-pale);color:var(--accent);background:var(--accent-pale)}
 
-  /* BAR CHART */
-    .bar-list{display:flex;flex-direction:column;gap:5px}
-    .bar-item{display:grid;grid-template-columns:90px 1fr 52px;gap:8px;align-items:center;font-size:13px}
-    .bar-label{color:var(--gray-700);font-weight:500;text-align:right;font-size:12px}
-    .bar-track{height:16px;background:var(--gray-100);border-radius:3px;overflow:hidden}
-    .bar-fill-a{height:100%;border-radius:3px;background:var(--blue);transition:width .3s}
-    .bar-fill-b{height:100%;border-radius:3px;background:#d1d5db;transition:width .3s}
-    .bar-count{font-size:11px;color:var(--gray-400);display:flex;gap:6px}
-    .bar-a{color:var(--blue);font-weight:600}
-    .bar-b{color:var(--gray-400)}
+    /* BAR CHART */
+    .bar-list{display:flex;flex-direction:column;gap:6px}
+    .bar-item{display:grid;grid-template-columns:96px 1fr 52px;gap:8px;align-items:center}
+    .bar-label{color:var(--ink-2);font-weight:500;text-align:right;font-size:12px}
+    .bar-track{height:14px;background:var(--warm-d);border:1px solid var(--line)}
+    .bar-fill-a{height:100%;background:var(--accent)}
+    .bar-fill-b{height:100%;background:var(--ink-3)}
+    .bar-count{font-size:11px;color:var(--ink-3);display:flex;gap:6px}
+    .bar-a{color:var(--accent);font-weight:700}
+    .bar-b{color:var(--ink-3)}
 
-    /* INSIGHTS TABLE */
-    .insight-table{width:100%;border-collapse:collapse;border-radius:var(--r);overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06)}
-    .insight-table thead tr{background:var(--navy)}
-    .insight-table th{padding:11px 16px;text-align:left;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--gray-400)}
-    .insight-table th.th-blue{color:#60a5fa}
-    .insight-table td{padding:14px 16px;font-size:13px;border-bottom:1px solid var(--gray-100);vertical-align:top;line-height:1.55}
+    /* INSIGHT TABLE */
+    .insight-table{width:100%;border-collapse:collapse;border:1px solid var(--line)}
+    .insight-table thead tr{background:var(--ink)}
+    .insight-table th{padding:12px 16px;text-align:left;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+    .insight-table th.th-blue{color:var(--accent-pale)}
+    .insight-table td{padding:14px 16px;font-size:13px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.55}
     .insight-table tr:last-child td{border-bottom:none}
-    .insight-table td:first-child{font-weight:600;color:var(--navy);white-space:nowrap}
-    .conf{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:2px 7px;border-radius:4px}
+    .insight-table td:first-child{font-weight:600;color:var(--ink)}
+    .insight-table tr:nth-child(even) td{background:var(--warm)}
+    .conf{display:inline-flex;align-items:center;font-size:10px;font-weight:700;padding:2px 7px;letter-spacing:.05em}
     .conf-h{background:var(--green-bg);color:var(--green)}
     .conf-m{background:var(--amber-bg);color:var(--amber)}
-    .conf-l{background:var(--gray-100);color:var(--gray-500)}
+    .conf-l{background:var(--warm-d);color:var(--ink-3)}
 
-    /* ANOMALY FLAGS */
-    .flag-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}
-    .flag{display:flex;gap:14px;padding:14px 18px;border-radius:var(--r);border:1px solid}
-    .flag.warn{background:var(--amber-bg);border-color:#fcd34d}
-    .flag.info{background:var(--gray-50);border-color:var(--gray-200)}
-    .flag-icon{font-size:18px;flex-shrink:0;margin-top:1px}
-    .flag-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px}
+    /* FLAGS */
+    .flag-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);margin-top:4px}
+    .flag{display:flex;gap:14px;padding:16px 20px;border-bottom:1px solid var(--line)}
+    .flag:last-child{border-bottom:none}
+    .flag.warn{background:var(--amber-bg)}
+    .flag.info{background:var(--warm-d)}
+    .flag-icon{font-size:16px;flex-shrink:0;margin-top:2px}
+    .flag-title{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:3px}
     .flag.warn .flag-title{color:#92400e}
-    .flag-text{font-size:13px;color:var(--gray-500);line-height:1.55}
+    .flag-text{font-size:13px;color:var(--ink-2);line-height:1.55}
     .flag.warn .flag-text{color:#78350f}
 
-    /* RECS */
-    .rec-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--gray-200);border-radius:var(--r);overflow:hidden}
-    .rec-row{display:grid;grid-template-columns:80px 1fr;gap:0;border-bottom:1px solid var(--gray-100)}
+    /* ACTION RECS */
+    .rec-list{display:flex;flex-direction:column;border:1px solid var(--line)}
+    .rec-row{display:grid;grid-template-columns:72px 1fr;border-bottom:1px solid var(--line)}
     .rec-row:last-child{border-bottom:none}
-    .rec-pri{display:flex;align-items:center;justify-content:center;padding:16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
-    .rec-pri.high{background:#fee2e2;color:#b91c1c}
+    .rec-pri{display:flex;align-items:center;justify-content:center;padding:14px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;border-right:1px solid var(--line)}
+    .rec-pri.high{background:var(--red-bg);color:var(--red)}
     .rec-pri.med{background:var(--amber-bg);color:#92400e}
-    .rec-pri.low{background:var(--gray-50);color:var(--gray-500)}
-    .rec-body{padding:14px 18px;background:#fff}
-    .rec-action{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:3px}
-    .rec-reason{font-size:12px;color:var(--gray-500);line-height:1.5}
+    .rec-pri.low{background:var(--warm-d);color:var(--ink-3)}
+    .rec-body{padding:14px 18px;background:var(--bg)}
+    .rec-action{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px}
+    .rec-reason{font-size:12px;color:var(--ink-3);line-height:1.5}
 
     /* CALLOUT */
-    .callout{background:var(--blue-bg);border:1px solid var(--blue-lt);border-left:4px solid var(--blue);border-radius:var(--r);padding:16px 20px;margin-bottom:32px}
-    .callout-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:4px}
-    .callout-text{font-size:14px;font-weight:600;color:var(--navy);line-height:1.5}
+    .callout{background:var(--warm-d);border:1px solid var(--line);border-left:3px solid var(--accent);padding:16px 20px;margin-bottom:28px}
+    .callout-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:5px}
+    .callout-text{font-size:14px;font-weight:600;color:var(--ink);line-height:1.55}
 
     /* FOOTER */
-    footer{padding:22px var(--pad);background:var(--navy);border-top:1px solid rgba(255,255,255,.08);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;font-size:13px;color:rgba(255,255,255,.4)}
-    footer strong{color:rgba(255,255,255,.8)}
-    .footer-links{display:flex;align-items:center;gap:16px}
-    .footer-links a{color:rgba(255,255,255,.45);text-decoration:none;font-size:13px;transition:color .15s}
-    .footer-links a:hover{color:#60a5fa}
-    .footer-gh{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;padding:5px 12px;font-size:12px;font-weight:600;color:rgba(255,255,255,.65);text-decoration:none}
-    .footer-gh:hover{background:rgba(255,255,255,.14);color:#fff!important}
+    footer{padding:24px var(--pad);background:var(--warm);border-top:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+    .footer-name{font-size:13px;font-weight:700;color:var(--ink)}
+    .footer-links{display:flex;align-items:center;gap:24px}
+    .footer-links a{color:var(--ink-3);text-decoration:none;font-size:13px;transition:color .15s}
+    .footer-links a:hover{color:var(--ink)}
+    .footer-copy{font-size:12px;color:var(--ink-3)}
 
-    @media(max-width:640px){
-      .stat-strip,.city-strip{grid-template-columns:1fr 1fr}
+    @media(max-width:700px){
+      .stat-strip{grid-template-columns:1fr 1fr}
+      .stat-bar{flex-wrap:wrap}
+      .stat-item{border-right:none;padding-right:0;margin-right:0;width:50%;padding:16px 0}
       .seg-wrap{grid-template-columns:1fr}
+      .seg{border-right:none;border-bottom:1px solid var(--line)}
       .pipeline{flex-direction:column}
-      .pipe-step{border-right:none;border-bottom:1px solid var(--gray-200)}
+      .pipe-step{border-right:none;border-bottom:1px solid var(--line)}
       .pipe-step:last-child{border-bottom:none}
       .pipe-arrow{display:none}
-      .bar-item{grid-template-columns:76px 1fr 44px}
+      .bar-item{grid-template-columns:72px 1fr 44px}
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-brand" href="https://kylatang.github.io/">Min Tang</a>
-  <a class="nav-contact" href="mailto:mintang417@gmail.com">Get in Touch</a>
+  <a class="nav-brand" href="draft.html">Min Tang</a>
+  <div class="nav-links">
+    <a href="draft.html">Work</a>
+    <a href="mkt-work.html">Marketing</a>
+    <a href="writing.html">Writing</a>
+  </div>
+  <a class="nav-cta" href="mailto:mintang417@gmail.com">Get in Touch</a>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="breadcrumb">
-    <a href="https://kylatang.github.io/">Portfolio</a>
-    <span>/</span>
-    <span>Case Study</span>
-    <span>/</span>
-    <span>Growth Analytics</span>
+  <div class="page-breadcrumb">
+    <a href="draft.html">Portfolio</a>
+    <span>→</span>
+    <span>Uber Eats Growth Analysis</span>
   </div>
-
-  <div class="hero-body">
-    <div>
-      <div class="hero-eyebrow">Growth Analytics Case · LLM x SQL</div>
-      <h1>31% of Users Drive<br/><em>50% of All Orders</em></h1>
-      <p class="hero-desc">
-        Who keeps coming back — and why? A AI-driven SQL analysis of repeat-purchase behaviour, built LLM-based pipeline.
-      </p>
-      <div class="hero-pills">
-        <span class="pill">LLM · MySQL</span>
-      </div>
-    </div>
-
-    <div class="hero-stat-card">
-      <div class="hsc-label">Key Finding</div>
-      <div class="hsc-val">2.2×</div>
-      <div class="hsc-sub">Revenue loss per churned<br/>active vs. casual user</div>
-      <div class="hsc-divider"></div>
-      <div class="hsc-row"><span class="hsc-k">Active users</span><span class="hsc-v">31% of base</span></div>
-      <div class="hsc-row"><span class="hsc-k">Orders generated</span><span class="hsc-v">50% of total</span></div>
-      <div class="hsc-row"><span class="hsc-k">Top repeat category</span><span class="hsc-v">Burgers</span></div>
-    </div>
+  <div class="hero-eyebrow">
+    <span class="eyebrow-tag">Growth Analytics</span>
+    <span class="eyebrow-tag">SQL · RFM · Cohort</span>
+    <span class="eyebrow-tag">LLM Pipeline</span>
   </div>
+  <h1>31% of Users Drive<br/><em>50% of All Orders</em></h1>
+  <p class="hero-desc">But 32% never ordered at all. I ran a full growth audit on a mock Uber Eats dataset — 80 users, 200 orders, 18 months — and found three structural problems the aggregate numbers were hiding.</p>
+</div>
+
+<!-- STAT BAR -->
+<div class="stat-bar">
+  <div class="stat-item"><span class="stat-n red">32%</span><span class="stat-l">Never Ordered</span></div>
+  <div class="stat-item"><span class="stat-n red">21%</span><span class="stat-l">Cancel Rate</span></div>
+  <div class="stat-item"><span class="stat-n amber">−12%</span><span class="stat-l">Promo AOV Gap</span></div>
+  <div class="stat-item"><span class="stat-n amber">40–50%</span><span class="stat-l">2026 Cohort M1 Retention</span></div>
+  <div class="stat-item"><span class="stat-n">2.2×</span><span class="stat-l">Revenue Loss Per Churned Active</span></div>
 </div>
 
 <!-- DATASET + PIPELINE -->
 <section>
-  <div class="lbl">Query Pipeline</div>
-  <h2 style="margin-bottom:18px">From Question to Insight</h2>
+  <div class="lbl">How the Analysis Was Built</div>
+  <h2 style="margin-bottom:18px">Natural language in. Structured insight out.</h2>
   <div class="pipeline">
     <div class="pipe-step">
       <div class="pipe-num">Step 1</div>
-      <div class="pipe-title">Ask in Plain English</div>
-      <div class="pipe-desc">"What makes active users different from casual ones?"</div>
+      <div class="pipe-title">Question in plain English</div>
+      <div class="pipe-desc">"What separates users who reorder from those who don't?"</div>
       <div class="pipe-arrow">→</div>
     </div>
     <div class="pipe-step">
       <div class="pipe-num">Step 2</div>
-      <div class="pipe-title">MCP Executes SQL</div>
-      <div class="pipe-desc">LLM generates and executes</div>
+      <div class="pipe-title">LLM writes + runs SQL</div>
+      <div class="pipe-desc">Query generated automatically, executed against MySQL — no manual SQL writing</div>
       <div class="pipe-arrow">→</div>
     </div>
     <div class="pipe-step">
       <div class="pipe-num">Step 3</div>
-      <div class="pipe-title">Insight Extraction</div>
-      <div class="pipe-desc">Define scope of sql insight analyzer</div>
+      <div class="pipe-title">Pattern extraction</div>
+      <div class="pipe-desc">Second LLM pass reads the result set and surfaces what's worth flagging</div>
       <div class="pipe-arrow">→</div>
     </div>
     <div class="pipe-step">
       <div class="pipe-num">Step 4</div>
-      <div class="pipe-title">Insight Report</div>
-      <div class="pipe-desc">Define scope of sql report generator</div>
+      <div class="pipe-title">Actionable report</div>
+      <div class="pipe-desc">Findings formatted as a growth memo — observation, interpretation, recommended action</div>
     </div>
   </div>
   <div class="callout">
@@ -332,11 +330,129 @@
     <div class="bar-item"><div class="bar-label">Chicken</div><div><div class="bar-track"><div class="bar-fill-a" style="width:30%"></div></div><div class="bar-track" style="margin-top:3px"><div class="bar-fill-b" style="width:50%"></div></div></div><div class="bar-count"><span class="bar-a">3</span><span class="bar-b">5 ↑</span></div></div>
     <div class="bar-item"><div class="bar-label">Mexican</div><div><div class="bar-track"><div class="bar-fill-a" style="width:40%"></div></div><div class="bar-track" style="margin-top:3px"><div class="bar-fill-b" style="width:30%"></div></div></div><div class="bar-count"><span class="bar-a">4</span><span class="bar-b">3</span></div></div>
   </div>
+</section>
+
+<!-- THREE GROWTH PROBLEMS -->
+<section>
+  <div class="lbl">Growth Audit</div>
+  <h2>The aggregate numbers looked fine. The breakdown didn't.</h2>
+  <p class="sub">31% of users drive half the orders — that headline is solid. But underneath it, three things are quietly bleeding revenue.</p>
+  <div class="stat-strip">
+    <div class="stat-cell">
+      <div class="stat-val" style="color:#b91c1c">32%</div>
+      <div class="stat-lbl">Never Ordered</div>
+      <div class="stat-sub">26 of 80 users: Tier 3 RFM, $0 GMV — paid acquisition partially wasted</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val" style="color:#b91c1c">21%</div>
+      <div class="stat-lbl">Cancel Rate</div>
+      <div class="stat-sub">42 of 200 orders cancelled — est. $1,800/mo GMV loss</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val" style="color:var(--amber)">−12%</div>
+      <div class="stat-lbl">Promo AOV Gap</div>
+      <div class="stat-sub">$46 promo vs $53 non-promo — coupons subsidising lower-value users</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val" style="color:var(--amber)">40–50%</div>
+      <div class="stat-lbl">2026 Cohort M1</div>
+      <div class="stat-sub">vs 88–100% for 2025 — retention cliff in new acquisitions</div>
+    </div>
+  </div>
+</section>
+
+<!-- RFM SEGMENTATION -->
+<section>
+  <div class="lbl">RFM Segmentation · NTILE(3)</div>
+  <h2>Not all "users" are the same problem.</h2>
+  <p class="sub">RFM split across 80 users: one third is driving the business, one third needs a nudge, one third registered and disappeared. Each requires a completely different response.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:24px">
+    <div class="seg active">
+      <div class="seg-head">🔥 Tier 1 — High Value</div>
+      <div class="seg-body">
+        <div class="seg-row"><span class="seg-key">Users</span><span class="seg-val">~27 <span class="badge badge-blue">34%</span></span></div>
+        <div class="seg-row"><span class="seg-key">Order share</span><span class="seg-val">~68% of GMV</span></div>
+        <div class="seg-row"><span class="seg-key">Avg orders</span><span class="seg-val">4+ / period</span></div>
+        <div class="seg-row"><span class="seg-key">Avg AOV</span><span class="seg-val">$50+</span></div>
+        <div class="seg-row"><span class="seg-key">Action</span><span class="seg-val" style="color:var(--green)">Protect &amp; Reward</span></div>
+      </div>
+    </div>
+    <div class="seg casual">
+      <div class="seg-head">📈 Tier 2 — Mid Value</div>
+      <div class="seg-body">
+        <div class="seg-row"><span class="seg-key">Users</span><span class="seg-val">~27 (34%)</span></div>
+        <div class="seg-row"><span class="seg-key">Order share</span><span class="seg-val">~32% of GMV</span></div>
+        <div class="seg-row"><span class="seg-key">Avg orders</span><span class="seg-val">1–2 / period</span></div>
+        <div class="seg-row"><span class="seg-key">Avg AOV</span><span class="seg-val">$35–45</span></div>
+        <div class="seg-row"><span class="seg-key">Action</span><span class="seg-val" style="color:var(--blue)">2nd-order incentive</span></div>
+      </div>
+    </div>
+    <div class="seg" style="border:1px solid #fca5a5">
+      <div class="seg-head" style="background:#fee2e2;color:#b91c1c;border-bottom:1px solid #fca5a5">⚠️ Tier 3 — Inactive</div>
+      <div class="seg-body">
+        <div class="seg-row"><span class="seg-key">Users</span><span class="seg-val" style="color:#b91c1c">26 <span class="badge" style="background:#fee2e2;color:#b91c1c">32.5%</span></span></div>
+        <div class="seg-row"><span class="seg-key">Orders</span><span class="seg-val" style="color:#b91c1c">0</span></div>
+        <div class="seg-row"><span class="seg-key">GMV</span><span class="seg-val" style="color:#b91c1c">$0</span></div>
+        <div class="seg-row"><span class="seg-key">Likely source</span><span class="seg-val">Paid / Social</span></div>
+        <div class="seg-row"><span class="seg-key">Action</span><span class="seg-val" style="color:#b91c1c">72h reactivation</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="callout">
+    <div class="callout-label">Activation Problem</div>
+    <div class="callout-text">Paid + Social channels account for 60% of acquisition but drive the worst retention. Paid acquisition is partially funding Tier 3 — users who register but never place a first order.</div>
+  </div>
+</section>
+
+<!-- COHORT RETENTION -->
+<section>
+  <div class="lbl">Cohort Analysis</div>
+  <h2>Something broke between 2025 and 2026.</h2>
+  <p class="sub">2025 users retained at 88–100% in Month 1. 2026 new acquisitions: 40–50%. That's not a small dip — it's a structural shift. The most likely culprit is channel mix, not product.</p>
+  <div style="overflow-x:auto;margin-bottom:24px">
+    <table class="insight-table">
+      <thead>
+        <tr>
+          <th>Cohort</th>
+          <th>Users</th>
+          <th>M1 Retention</th>
+          <th>Pattern</th>
+          <th>Dominant Channel</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2025 (Established)</td>
+          <td>~40</td>
+          <td><span class="badge badge-up">88–100%</span></td>
+          <td style="font-size:12px;color:var(--gray-500)">Repeat ordering holds — habitual reordering</td>
+          <td style="font-size:12px;color:var(--gray-500)">Organic + Referral</td>
+        </tr>
+        <tr>
+          <td>2026 (New)</td>
+          <td>~40</td>
+          <td><span class="badge badge-warn">40–50%</span></td>
+          <td style="font-size:12px;color:var(--gray-500)">Half churn after first interaction</td>
+          <td style="font-size:12px;color:var(--gray-500)">Paid + Social</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="flag-list">
+    <div class="flag warn">
+      <div class="flag-icon">⚠️</div>
+      <div>
+        <div class="flag-title">Most Likely Cause: Channel Quality + No Onboarding Sequence</div>
+        <div class="flag-text">2026 new users arrive via paid/social (higher volume, lower intent) and face no structured onboarding. Without a 72h first-order nudge, ~50% of new acquisitions become Tier 3 — registered but never converted.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- INSIGHTS -->
 <section class="alt-bg">
   <div class="lbl">INSIGHTS</div>
-  <h2 style="margin-bottom:16px">Four Finding</h2>
+  <h2 style="margin-bottom:16px">Six Findings</h2>
   <table class="insight-table">
     <thead>
       <tr>
@@ -348,28 +464,40 @@
     </thead>
     <tbody>
       <tr>
-        <td>31% users → 50% orders</td>
-        <td style="font-size:12px;color:var(--gray-500)">1 churned active = 2.2× revenue loss vs. casual. Protect first.</td>
+        <td>32% users never ordered (Tier 3)</td>
+        <td style="font-size:12px;color:var(--gray-500)">Paid acquisition partially wasted — 26 of 80 registered users generated $0 GMV.</td>
         <td><span class="conf conf-h">High</span></td>
-        <td style="font-size:12px"><strong>Loyalty perk at 2nd order</strong></td>
+        <td style="font-size:12px"><strong>72h post-signup nudge + first-order voucher (P0)</strong></td>
       </tr>
       <tr>
-        <td>Burgers: 8 active vs. 5 casual</td>
-        <td style="font-size:12px;color:var(--gray-500)">Habitual, low-decision reorder. Natural repeat engine.</td>
+        <td>2026 cohort M1 retention: 40–50%</td>
+        <td style="font-size:12px;color:var(--gray-500)">vs 88–100% for 2025 — driven by paid/social channel mix and absent onboarding.</td>
+        <td><span class="conf conf-h">High</span></td>
+        <td style="font-size:12px"><strong>Onboarding sequence + channel quality audit (P0)</strong></td>
+      </tr>
+      <tr>
+        <td>21% cancel rate (42/200 orders)</td>
+        <td style="font-size:12px;color:var(--gray-500)">Est. $1,800/mo GMV loss. Root cause unknown — no cancel_reason field exists.</td>
+        <td><span class="conf conf-h">High</span></td>
+        <td style="font-size:12px"><strong>Add cancel_reason field immediately (P0 Eng)</strong></td>
+      </tr>
+      <tr>
+        <td>Promo AOV $46 vs non-promo $53</td>
+        <td style="font-size:12px;color:var(--gray-500)">−12% AOV gap: coupons attract lower-spend users. 54% of completed orders used a promo.</td>
+        <td><span class="conf conf-m">Med</span></td>
+        <td style="font-size:12px"><strong>Raise promo threshold to $45 min order (P1)</strong></td>
+      </tr>
+      <tr>
+        <td>31% users → 50% orders</td>
+        <td style="font-size:12px;color:var(--gray-500)">1 churned Tier-1 user = 2.2× revenue loss vs. casual. Protect this group first.</td>
+        <td><span class="conf conf-h">High</span></td>
+        <td style="font-size:12px"><strong>Loyalty perk at 2nd order (P2)</strong></td>
+      </tr>
+      <tr>
+        <td>Burgers: 8 active vs. 5 casual orders</td>
+        <td style="font-size:12px;color:var(--gray-500)">Habitual, low-decision reorder. Natural repeat engine for win-back campaigns.</td>
         <td><span class="conf conf-m">Med</span></td>
         <td style="font-size:12px"><strong>Feature Burgers in win-back flows</strong></td>
-      </tr>
-      <tr>
-        <td>Top-4 actives: 50% promo usage</td>
-        <td style="font-size:12px;color:var(--gray-500)">Loyalty may be discount-conditioned — must test before scaling.</td>
-        <td><span class="conf conf-m">Med</span></td>
-        <td style="font-size:12px"><strong>A/B test promo removal first</strong></td>
-      </tr>
-      <tr>
-        <td>Miami: 2× expected active share</td>
-        <td style="font-size:12px;color:var(--gray-500)">Possible geo retention driver. Directional only at 80 rows.</td>
-        <td><span class="conf conf-l">Low</span></td>
-        <td style="font-size:12px"><strong>Flag for production validation</strong></td>
       </tr>
     </tbody>
   </table>
@@ -454,7 +582,7 @@
     </button>
 
     <div class="qa-body" hidden>
-      <div class="qa-section-label">SQL Generated by Claude</div>
+      <div class="qa-section-label">Question raised by user → SQL transferred automatically by LLM</div>
       <pre class="qa-code">SELECT
   user_id,
   COUNT(*)                        AS order_count,
@@ -469,7 +597,7 @@ HAVING order_count >= 2
 ORDER BY order_count DESC
 LIMIT 8;</pre>
 
-      <div class="qa-section-label" style="margin-top:20px">Query Results</div>
+      <div class="qa-section-label" style="margin-top:20px">Results returned to user</div>
       <div style="overflow-x:auto">
         <table class="qa-table">
           <thead>
@@ -491,7 +619,7 @@ LIMIT 8;</pre>
         </table>
       </div>
 
-      <div class="qa-section-label" style="margin-top:20px">Auto-Analysis — sql-insight-analyzer</div>
+      <div class="qa-section-label" style="margin-top:20px">Auto-analysis — pattern + interpretation surfaced by LLM</div>
       <div class="qa-insight">
         <div class="qa-insight-row">
           <span class="qa-dot dot-blue"></span>
@@ -511,26 +639,26 @@ LIMIT 8;</pre>
 </section>
 
 <style>
-  .qa-block{border:1px solid var(--gray-200);border-radius:var(--r);overflow:hidden}
-  .qa-trigger{width:100%;background:#fff;border:none;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;gap:16px;text-align:left}
-  .qa-trigger:hover{background:var(--gray-50)}
+  .qa-block{border:1px solid var(--line);background:var(--bg)}
+  .qa-trigger{width:100%;background:var(--bg);border:none;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;gap:16px;text-align:left}
+  .qa-trigger:hover{background:var(--warm)}
   .qa-q-wrap{display:flex;align-items:flex-start;gap:12px}
-  .qa-icon{flex-shrink:0;width:22px;height:22px;background:var(--blue);color:#fff;border-radius:5px;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px}
-  .qa-question{font-size:14px;font-weight:600;color:var(--navy);line-height:1.45;font-style:italic}
-  .qa-chevron{font-size:11px;color:var(--gray-400);flex-shrink:0;transition:transform .2s}
+  .qa-icon{flex-shrink:0;width:22px;height:22px;background:var(--ink);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .qa-question{font-size:14px;font-weight:600;color:var(--ink);line-height:1.45;font-style:italic}
+  .qa-chevron{font-size:11px;color:var(--ink-3);flex-shrink:0;transition:transform .2s}
   .qa-trigger[aria-expanded="true"] .qa-chevron{transform:rotate(180deg)}
-  .qa-body{padding:0 20px 20px;background:var(--gray-50);border-top:1px solid var(--gray-200)}
-  .qa-section-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin:16px 0 8px}
-  .qa-code{background:var(--navy);color:#93c5fd;padding:16px 18px;border-radius:8px;font-size:12px;line-height:1.7;overflow-x:auto;white-space:pre}
-  .qa-table{width:100%;border-collapse:collapse;font-size:13px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-  .qa-table th{background:var(--navy);color:var(--gray-400);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:10px 14px;text-align:left}
-  .qa-table td{padding:10px 14px;border-bottom:1px solid var(--gray-100);color:var(--gray-700)}
+  .qa-body{padding:0 20px 20px;background:var(--warm);border-top:1px solid var(--line)}
+  .qa-section-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:16px 0 8px}
+  .qa-code{background:var(--ink);color:#d4e4c2;padding:16px 18px;font-size:12px;line-height:1.7;overflow-x:auto;white-space:pre}
+  .qa-table{width:100%;border-collapse:collapse;font-size:13px;background:var(--bg);border:1px solid var(--line)}
+  .qa-table th{background:var(--ink);color:rgba(255,255,255,.4);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:10px 14px;text-align:left}
+  .qa-table td{padding:10px 14px;border-bottom:1px solid var(--line);color:var(--ink-2)}
   .qa-table tr:last-child td{border-bottom:none}
-  .qa-table td:first-child{font-weight:600;color:var(--navy)}
-  .qa-insight{display:flex;flex-direction:column;gap:10px;padding:14px 16px;background:#fff;border-radius:8px;border:1px solid var(--gray-200)}
-  .qa-insight-row{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--gray-700);line-height:1.55}
-  .qa-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px}
-  .dot-blue{background:var(--blue)}
+  .qa-table td:first-child{font-weight:600;color:var(--ink)}
+  .qa-insight{display:flex;flex-direction:column;gap:10px;padding:14px 16px;background:var(--bg);border:1px solid var(--line)}
+  .qa-insight-row{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink-2);line-height:1.55}
+  .qa-dot{width:8px;height:8px;flex-shrink:0;margin-top:5px}
+  .dot-blue{background:var(--accent)}
   .dot-green{background:var(--green)}
   .dot-amber{background:var(--amber)}
 </style>
@@ -544,15 +672,19 @@ LIMIT 8;</pre>
 </script>
 
 
+<div class="back-row">
+  <p class="back-note">Uber Eats Growth Analysis · SQL + LLM Pipeline · 2026</p>
+  <a class="back-link" href="draft.html">← Back to Portfolio</a>
+</div>
+
 <footer>
-  <div><strong>Min Tang</strong> · mintang417@gmail.com</div>
+  <div class="footer-name">Min Tang</div>
   <div class="footer-links">
-    <a href="https://kylatang.github.io/">← Portfolio</a>
-    <a href="mailto:mintang417@gmail.com">Contact</a>
-    <a href="https://github.com/KylaTang/kylatang.github.io" target="_blank" rel="noopener" class="footer-gh">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-    </a>
+    <a href="draft.html">← Portfolio</a>
+    <a href="mailto:mintang417@gmail.com">mintang417@gmail.com</a>
+    <a href="https://www.linkedin.com/in/kylatang/" target="_blank">LinkedIn</a>
   </div>
+  <div class="footer-copy">© 2026</div>
 </footer>
 
 </body>
