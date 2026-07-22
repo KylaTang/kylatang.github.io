@@ -370,14 +370,15 @@
   <header class="hero">
     <p class="eyebrow">Multi-Touchpoint Attribution (MTA) · Real Advertising Data</p>
     <h1>Last-click method overvalued the channel by <span class="num">89%</span> and undervalued another by <span class="num">42%</span>.</h1>
-    <p class="intro">Last-click assigns 100% of conversion credit to the final touchpoint, so every earlier interaction in a customer's journey gets zero credit, even the channels that built awareness or moved someone toward converting. That erases most of the picture in multi-touch journeys and skews budget toward whichever channel happens to close the loop. This audit runs two independent attribution methods against last-click across 16.4 million real ad impressions and 435,810 converting user journeys to measure how large that skew actually is.</p>
+    <p class="intro">“Last-click” refers that when running an ad campaign, it assigns 100% of conversion credit to the final touchpoint, while the earlier steps of awareness during the customer journey gets 0 credit. That easily brings the skewness for multi-touch campaigns and budget allocation efficiency. 
+      This article shows a comparison of two multi-touch attribution methods (MTA) against "Last-click". The data includes 16.4 million real ad impressions and 435,810 converting user journeys to measure how large that skew actually is.</p>
   </header>
 </div>
 
 <section class="reveal">
   <div class="bignum">0.66%</div>
-  <p>Only 0.66% of conversions crossed more than one distinct channel. Most "multi-touch" paths were the same campaign shown repeatedly.</p>
-  <p class="fine">Before you pay to fix how credit is split, check whether multi-touch is even your problem.</p>
+  <p>Only 0.66% of conversions crossed more than 1 channel. Most "multi-touch" paths were the same campaign shown repeatedly.</p>
+  <p class="fine">Note: Before you use MTA to check how credit is assigned, check if multi-touch affects your campaign first.</p>
 </section>
 
 <div class="wrap">
@@ -387,17 +388,17 @@
       <div class="method-card">
         <div class="tag">Baseline</div>
         <strong>Last-click</strong>
-        <p>100% credit to the final touchpoint. The default in most ad platforms — here it's the model under audit.</p>
+        <p>100% credit to the final touchpoint. The default setting in most ad platforms. </p>
       </div>
       <div class="method-card">
         <div class="tag">Algorithmic</div>
         <strong>Markov chain removal effect</strong>
-        <p>Models the customer journey as a graph. A channel's value = how much conversion probability drops when it's removed.</p>
+        <p>Models the customer journey as a network graph.  The contribution of a channel depends on how much the conversion probability drops when it's removed.</p>
       </div>
       <div class="method-card">
         <div class="tag">Algorithmic</div>
         <strong>Shapley value</strong>
-        <p>Game-theoretic credit-splitting. Ignores sequence entirely, evaluates every possible arrival order.</p>
+        <p>Game-theoretic based concept. The contribution of a channel depends on the average marginal performance contribution of that channel compared with the one of all possible "orders of entry".</p>
       </div>
     </div>
   </section>
@@ -433,7 +434,7 @@
 
 <div class="cta-wrap">
   <div class="cta-panel recruiter">
-    <h3>I use attribution modeling, causal inference, and ML methods to improve budget allocation and growth performance.</h3>
+    <h3>I use attribution modeling, causal inference, and ML methods to improve growth performance.</h3>
   Want this run on your own data? Send your request and I'll show which touchpoint is misleading you.
     <a class="btn" href="mailto:mintang417@gmail.com?subject=Attribution%20audit%20inquiry" target="_blank">Start an Audit</a>
   </div>
