@@ -12,7 +12,7 @@
     gtag('config', 'G-WHFCJNDL0J');
   </script>
   <title>Min Tang — AI Marketing Analyst</title>
-  <meta name="description" content="Min Tang is an AI marketing analyst building NLP pipelines, ML models, and LLM agents that turn raw data into marketing decisions. AUC 0.863 on 480K+ Yelp reviews." />
+  <meta name="description" content="Min Tang is an AI marketing analyst building NLP pipelines, Machine Learning models, and LLM to drive better marketing decisions. AUC 0.863 on 480K+ Yelp reviews." />
   <meta name="keywords" content="Min Tang, AI Marketing Analyst, NLP, Machine Learning, consumer intelligence, BERT, XGBoost, LangGraph, RAG" />
   <meta name="author" content="Min Tang" />
   <meta property="og:title" content="Min Tang — AI Marketing Analyst" />
@@ -116,22 +116,23 @@
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
-    .edu-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 56px; align-items: start; }
+    .edu-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 88px; align-items: center; }
+    .edu-avatar { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); margin-bottom: 16px; }
 
     /* LEFT — education identity */
-    .edu-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px; }
+    .edu-eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px; }
     .edu-headline {
       font-family: 'Iowan Old Style','Palatino Linotype',Georgia,'Songti SC',serif;
-      font-size: clamp(26px, 3.6vw, 38px); font-weight: 600; letter-spacing: -.01em;
+      font-size: clamp(16px, 1.6vw, 18px); font-weight: 600; letter-spacing: -.01em;
       color: var(--accent); line-height: 1.15; margin-bottom: 14px;
     }
-    .edu-bio { font-size: 15px; color: var(--ink-2); line-height: 1.7; }
+    .edu-bio { font-size: 14px; color: var(--ink-2); line-height: 1.6; }
 
     /* RIGHT — thesis + coursework */
     .edu-right { display: flex; flex-direction: column; gap: 28px; }
-    .edu-block-label { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
-    .edu-block-detail { font-size: 13.5px; color: var(--ink-2); line-height: 1.65; }
-    .edu-block-detail strong { color: var(--accent); font-weight: 600; }
+    .edu-block-label { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .edu-block-detail { font-size: 14px; color: var(--ink-2); line-height: 1.65; }
+    .edu-block-detail strong { color: var(--accent); font-weight: 500; }
     .edu-block-detail a { color: var(--accent); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--accent-pale); }
     .edu-block-detail a:hover { border-bottom-color: var(--accent); }
 
@@ -145,8 +146,9 @@
     h2 { font-size: clamp(20px, 2.8vw, 26px); margin-bottom: 8px; letter-spacing: -.005em; }
     .sub { font-size: 15px; color: var(--ink-2); max-width: 500px; margin-bottom: 28px; }
     .case-header { margin-bottom: 10px; }
-    .case-question { background: var(--warm-d); border-left: 3px solid var(--accent); padding: 16px 22px; margin-bottom: 24px; font-size: 15px; font-weight: 500; color: var(--ink); position: relative; overflow: hidden; }
-    .case-question::after { content: '\201C'; font-family: Georgia, serif; font-size: 100px; color: var(--accent-pale); line-height: 1; position: absolute; right: 14px; top: -8px; pointer-events: none; }
+    .case-question { background: var(--warm-d); border-left: 3px solid var(--accent); padding: 18px 22px; margin-bottom: 24px; font-size: 15px; font-weight: 500; color: var(--ink); position: relative; overflow: hidden; }
+    .case-question::after { content: '?'; font-family: Georgia, serif; font-size: 100px; color: var(--accent-pale); line-height: 1; position: absolute; right: 14px; top: -18px; pointer-events: none; }
+    .case-question-label { display: block; position: relative; z-index: 1; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
     .case-question span { position: relative; z-index: 1; }
     .case-question strong { color: var(--accent); }
     .pipeline-track { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; position: relative; margin-bottom: 24px; }
@@ -173,8 +175,9 @@
     .chip { display: inline-block; background: var(--accent-pale); color: var(--accent); font-size: 10px; font-weight: 700; padding: 1px 7px; margin-left: 5px; vertical-align: middle; border: 1px solid var(--accent-pale); }
     .insight-list { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); }
     .insight-card { background: #fff; padding: 20px 24px; display: flex; flex-direction: column; gap: 10px; }
+    .insight-top { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
     .insight-pill {
-      display: inline-block; align-self: flex-start;
+      display: inline-block; flex: none;
       font-size: 10px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
       color: var(--accent); background: var(--accent-pale); padding: 3px 9px;
     }
@@ -276,7 +279,8 @@
     <span class="eyebrow-tag">Martech</span>
   </div>
   <h1>AI-powered<br>marketing — built<br>on <em>data and ML.</em></h1>
-  <p class="hero-sub">I combine NLP pipelines, ML models, and LLM agents and turn to market decisions. I've worked as a B2C &amp; B2B marketer specialising in product market entry and user growth — especially in cross-cultural environments.</p>
+  <p class="hero-sub">I combine ML models and LLM to drive better marketing decisions. 
+  I've worked as a B2C &amp; B2B marketer specialising in product entry and market growth, especially in cross-cultural environments.</p>
 </section>
 
 <!-- STAT BAR -->
@@ -308,7 +312,7 @@
     <span class="stack-tag">ML · Causal Inference</span>
     <span class="stack-tag">API · dbt · BigQuery</span>
     <span class="stack-tag">Growth Analytics of Platform & User</span>
-    <span class="stack-tag">CRM · GA4</span>
+    <span class="stack-tag">CRM · GA4 · APP & Web</span>
   </div>
 </div>
 
@@ -317,18 +321,19 @@
 <section class="edu-module">
   <div class="edu-grid">
     <div class="edu-left">
+      <img class="edu-avatar" src="assets/profile/min-tang-avatar.jpg" alt="Min Tang" />
       <div class="edu-eyebrow">M.Sc. Computational Social Science · 08/2024–06/2026</div>
       <div class="edu-headline">Linköping University</div>
-      <p class="edu-bio">I hold a bachelor's degree in Education and a Master's in Computational Social Science.</p>
+      <p class="edu-bio">M.Sc. Computational Social Science | B.A. Education</p>
     </div>
     <div class="edu-right">
       <div class="edu-block">
         <div class="edu-block-label">Core Coursework</div>
-        <p class="edu-block-detail">NLP, Machine Learning, Social Network Analysis, Discrete Choice Modelling, etc.</p>
+        <p class="edu-block-detail">Statistical and Computational methods: NLP, Machine Learning, Social Network Analysis, Discrete Choice Modelling... to address data questions.</p>
       </div>
       <div class="edu-block">
         <div class="edu-block-label">Master's Thesis</div>
-        <p class="edu-block-detail"><strong>ML-Driven Analysis Project on Big Data (Yelp platform)</strong>: Used NLP, BERT to compute authenticity semantic similarity from 480K+ reviews, combined with Machine Learning methods to analyze behavior patterns.</p>
+        <p class="edu-block-detail">ML-Driven Analysis Project on Big Data from Yelp: Used NLP, BERT and ML methods to compute behavior, network and language semantic similarity from 480K+ reviews, to analyze behavior patterns.</p>
       </div>
     </div>
   </div>
@@ -341,8 +346,8 @@
     <h2>What 480K Yelp Reviews Reveal About Purchasing Patterns</h2>
   </div>
   <div class="case-question" style="margin-top:24px">
-    <span>As a new restaurant brand is entering Philadelphia.</span>
-    <span> <strong>Who are their right customers? How to win their likes?</strong></span>
+    <span class="case-question-label">The Question</span>
+    <span>As a new restaurant brand is entering Philadelphia. <strong>Who are their right customers? How to win their likes?</strong></span>
   </div>
   <p class="sub" style="margin-top:24px;max-width:900px">From 480K unlabeled reviews to predicting customer segment and behavior, this process combined 4 methods spanning unsupervised machine learning and causal inference.</p>
   <div class="pipeline-track">
@@ -386,23 +391,23 @@
   <div class="compare-table" style="margin-top:20px">
     <div class="col-head">Dimension</div>
     <div class="col-head">Traditional Research</div>
-    <div class="col-head ml-head">ML on 480K Reviews</div>
+    <div class="col-head ml-head">NLP & ML Model</div>
 
     <div class="dim">Data collection</div>
-    <div class="trad-cell"><div class="cell-head">Weeks of fieldwork</div><div class="cell-detail">Surveys &amp; focus groups, smaller samples</div></div>
-    <div class="ml-cell"><div class="cell-head"><span class="n">480K</span> reviews, already public</div><div class="cell-detail">Ready to analyse today</div></div>
+    <div class="trad-cell"><div class="cell-head">Weeks of fieldwork</div><div class="cell-detail">Survey on smaller samples & high cost</div></div>
+    <div class="ml-cell"><div class="cell-head"><span class="n">480K</span> user reviews</div><div class="cell-detail">Public & available</div></div>
 
     <div class="dim">Rigor</div>
-    <div class="trad-cell"><div class="cell-head">Small-sample testing</div><div class="cell-detail">A/B tests on whatever traffic exists</div></div>
-    <div class="ml-cell"><div class="cell-head">Grounded in real language</div><div class="cell-detail">BERT embeddings applied to the review text</div></div>
+    <div class="trad-cell"><div class="cell-head">Small-sample testing</div><div class="cell-detail">A/B tests require time to design & verify</div></div>
+    <div class="ml-cell"><div class="cell-head">Grounded in text language</div><div class="cell-detail">BERT embeddings combined with AI, making it faster to analyze big text data</div></div>
 
-    <div class="dim">Targeting</div>
-    <div class="trad-cell"><div class="cell-head">Age, income, location</div><div class="cell-detail">A proxy for actual behaviour</div></div>
-    <div class="ml-cell"><div class="cell-head"><span class="n">AUC 0.863</span></div><div class="cell-detail">Predicted from actual behaviour</div></div>
+    <div class="dim">Target</div>
+    <div class="trad-cell"><div class="cell-head">Variable controlled (age, income, etc.)</div><div class="cell-detail">A proxy for actual behaviour</div></div>
+    <div class="ml-cell"><div class="cell-head"><span class="n">Model evaluation by AUC (Area Under Curve)</span></div><div class="cell-detail">Predicted from actual behaviour</div></div>
 
-    <div class="dim">Update cadence</div>
-    <div class="trad-cell"><div class="cell-head">Quarterly</div><div class="cell-detail">Findings lag behind behavior</div></div>
-    <div class="ml-cell"><div class="cell-head">Re-run anytime</div><div class="cell-detail">As new reviews arrive</div></div>
+    <div class="dim">Update</div>
+    <div class="trad-cell"><div class="cell-head">Quarterly</div><div class="cell-detail">Lag-behind findings</div></div>
+    <div class="ml-cell"><div class="cell-head">Run anytime</div><div class="cell-detail">Real-time retrieve</div></div>
   </div>
 </section>
 
@@ -411,28 +416,35 @@
   <h2>From Findings to Decisions</h2>
   <div class="insight-list">
     <div class="insight-card">
-      <span class="insight-pill">Target</span>
-      <div class="insight-finding"><strong>Omnivore consumers</strong> dominate Philadelphia. Broad taste, mid-budget, highly active reviewers.</div>
+      <div class="insight-top">
+        <span class="insight-pill">Target</span>
+        <div class="insight-finding"><strong>Omnivore consumers</strong> dominate Philadelphia. Broad taste, mid-budget, highly active reviewers.</div>
+      </div>
       <div class="insight-decision"><span class="dlabel">Decision:</span> Prioritise omnivore-profile users for acquisition. Higher review activity, faster brand adoption.</div>
     </div>
     <div class="insight-card">
-      <span class="insight-pill">Messaging</span>
-      <div class="insight-finding">"<strong>Authentic</strong>" is used most by budget and mid-price diners. Accessibility and authenticity overlap.</div>
+      <div class="insight-top">
+        <span class="insight-pill">Messaging</span>
+        <div class="insight-finding">"<strong>Authentic</strong>" is used most by budget and mid-price diners. Accessibility and authenticity overlap.</div>
+      </div>
       <div class="insight-decision"><span class="dlabel">Decision:</span> Build copy around cultural authenticity at accessible price points. Premium framing misreads the segment.</div>
     </div>
     <div class="insight-card">
-      <span class="insight-pill">Measure</span>
-      <div class="insight-finding">Writing style predicts consumer identity at <strong>AUC 0.863</strong>. BERT semantic features outperformed all text baselines.</div>
+      <div class="insight-top">
+        <span class="insight-pill">Measure</span>
+        <div class="insight-finding">Writing style predicts consumer identity at <strong>AUC 0.863</strong>. BERT semantic features outperformed all text baselines.</div>
+      </div>
       <div class="insight-decision"><span class="dlabel">Decision:</span> Use public reviews as an ongoing brand health signal between formal survey cycles.</div>
     </div>
   </div>
+  <p class="sub" style="margin-top:28px;margin-bottom:0;max-width:700px"></p>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-name">Min Tang</div>
   <div class="footer-links">
-    <a href="mailto:mintang417@gmail.com">mintang417@gmail.com</a>
+    <a href="mailto:mintang417@gmail.com">Email</a>
     <a href="https://www.linkedin.com/in/kylatang/" target="_blank">LinkedIn</a>
     <a href="https://github.com/KylaTang/NLP-Analysis-of-Cultural-Omnivores-on-Yelp-" target="_blank" rel="noopener" class="footer-gh">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
