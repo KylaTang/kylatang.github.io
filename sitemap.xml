@@ -4,6 +4,7 @@
       <loc>https://kylatang.github.io/</loc>
       <lastmod>2026-05-30</lastmod>
       <priority>1.0</priority>
+        <changefreq>monthly</changefreq>
     </url>
     <!-- writing.html-->
     <url>
@@ -17,5 +18,5 @@
     <lastmod>2026-07</lastmod>
     <priority>0.8</priority>
   </url>
-
 </urlset>
+
