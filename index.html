@@ -68,14 +68,14 @@
     .nav-cta:hover { background: var(--ink); color: #fff; }
 
     /* HERO */
-    .hero { padding: 96px var(--pad) 80px; background: var(--warm); border-bottom: 1px solid var(--line); }
+    .hero { padding: 64px var(--pad) 40px; background: var(--warm); border-bottom: 1px solid var(--line); }
     .hero-eyebrow { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
     .eyebrow-tag {
       font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
       color: var(--ink-3); padding: 4px 10px; border: 1px solid var(--line); background: var(--warm-d);
     }
     .hero h1 {
-      font-size: clamp(40px, 6.5vw, 80px);
+      font-size: clamp(38px, 5vw, 64px);
       line-height: 1.02; letter-spacing: -.015em;
       max-width: 800px; margin-bottom: 28px;
     }
@@ -84,20 +84,6 @@
       color: var(--accent);
     }
     .hero-sub { font-size: 16px; color: var(--ink-2); line-height: 1.75; max-width: 540px; font-weight: 400; }
-
-    /* STAT BAR */
-    .stat-bar {
-      padding: 0 var(--pad); background: var(--warm-d);
-      border-bottom: 1px solid var(--line); display: flex; flex-wrap: wrap;
-    }
-    .stat-item {
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 28px 48px 28px 0; margin-right: 48px;
-      border-right: 1px solid var(--line);
-    }
-    .stat-item:last-child { border-right: none; }
-    .stat-n { font-size: 28px; font-weight: 900; letter-spacing: -.04em; color: var(--ink); line-height: 1; }
-    .stat-l { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin-top: 5px; }
 
     /* STACK BAR */
     .stack-bar {
@@ -117,19 +103,21 @@
       border-bottom: 1px solid var(--line);
     }
     .edu-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 88px; align-items: center; }
-    .edu-avatar { width: 99px; height: 99px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); margin-bottom: 16px; }
+    .edu-avatar { width: 108px; height: 108px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); margin-bottom: 18px; }
 
     /* LEFT — education identity */
+    .edu-name { font-family: 'Iowan Old Style','Palatino Linotype',Georgia,'Songti SC',serif; font-size: 26px; font-weight: 600; color: var(--accent); margin-bottom: 6px; }
+    .edu-location { font-family: 'Iowan Old Style','Palatino Linotype',Georgia,'Songti SC',serif; font-size: 15px; color: var(--ink-3); margin-bottom: 14px; }
     .edu-eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px; }
     .edu-headline {
       font-family: 'Iowan Old Style','Palatino Linotype',Georgia,'Songti SC',serif;
       font-size: clamp(15px, 1.6vw, 18px); font-weight: 600; letter-spacing: -.01em;
       color: var(--accent); line-height: 1.15; margin-bottom: 14px;
     }
-    .edu-bio { font-size: 14px; color: var(--ink-2); line-height: 1.6; }
+    .edu-bio { font-family: 'Iowan Old Style','Palatino Linotype',Georgia,'Songti SC',serif; font-size: 15px; color: var(--ink); font-weight: 600; line-height: 1.6; }
 
     /* RIGHT — thesis + course*/
-    .edu-right { display: flex; flex-direction: column; gap: 32px; }
+    .edu-right { display: flex; flex-direction: column; gap: 40px; }
     .edu-block-label { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
     .edu-block-detail { font-size: 14px; color: var(--ink-2); line-height: 1.65; }
     .edu-block-detail strong { color: var(--accent); font-weight: 500; }
@@ -273,67 +261,45 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-eyebrow">
-    <span class="eyebrow-tag">AI Marketing Analyst</span>
-    <span class="eyebrow-tag">NLP</span>
-    <span class="eyebrow-tag">Machine Learning</span>
-    <span class="eyebrow-tag">Martech</span>
+    <span class="eyebrow-tag">Data Analytics</span>
+    <span class="eyebrow-tag">Growth Marketing Analytics</span>
+    <span class="eyebrow-tag">LLM</span>
+    <span class="eyebrow-tag">ML</span>
   </div>
-  <h1>AI-powered<br>marketing — built<br>on <em>data and ML.</em></h1>
-  <p class="hero-sub">I combine ML models and LLM to drive better marketing decisions. 
-  I've worked as a B2C &amp; B2B marketer specialising in product entry and market growth, especially in cross-cultural environments.</p>
+  <h1>Growth marketing,<br>built on <em>method<br>and experience.</em></h1>
 </section>
-
-<!-- STAT BAR -->
-<div class="stat-bar">
-  <div class="stat-item">
-    <span class="stat-n">8</span>
-    <span class="stat-l">Years in Marketing</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-n">EU & Asia</span>
-    <span class="stat-l">Market Focus</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-n">10+</span>
-    <span class="stat-l">Countries</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-n">4</span>
-    <span class="stat-l">Fortune 500 Companies</span>
-  </div>
-</div>
 
 <!-- STACK BAR -->
 <div class="stack-bar">
   <span class="stack-label">Toolkit</span>
   <div class="stack-tags">
-    <span class="stack-tag"> R · SQL · BI · Python</span>
+    <span class="stack-tag">NLP · ML · Causal Inference</span>
+    <span class="stack-tag">Attribution Model · A/B Testing</span>
     <span class="stack-tag">LLM · RAG · LangGraph</span>
-    <span class="stack-tag">ML · Causal Inference</span>
-    <span class="stack-tag">API · dbt · BigQuery</span>
-    <span class="stack-tag">Growth Analytics of Platform & User</span>
-    <span class="stack-tag">CRM · GA4 · APP & Web</span>
+    <span class="stack-tag">R · SQL · Python</span>
+    <span class="stack-tag">BI · dbt · BigQuery</span>
+    <span class="stack-tag">GA4 · CRM</span>
   </div>
 </div>
 
-
-<!-- EDUCATION MODULE -->
+<!-- IDENTITY + PROFESSIONAL BACKGROUND -->
 <section class="edu-module">
   <div class="edu-grid">
     <div class="edu-left">
       <img class="edu-avatar" src="assets/profile/min-tang-avatar.jpg" alt="Min Tang" />
-      <div class="edu-eyebrow">M.Sc. Computational Social Science · 08/2024–06/2026</div>
-      <div class="edu-headline">Linköping University</div>
+      <div class="edu-name">Kyla Tang (Min Tang)</div>
+      <div class="edu-location">Location: Sweden</div>
       <p class="edu-bio">M.Sc. Computational Social Science | B.A. Education</p>
     </div>
     <div class="edu-right">
       <div class="edu-block">
-        <div class="edu-block-label">Core Courses</div>
-        <p class="edu-block-detail">Statistical and Computational methods: NLP, Machine Learning, Social Network Analysis, Discrete Choice Modelling... to address data questions.</p>
+        <div class="edu-block-label">Professional Background</div>
+        <p class="edu-block-detail">8 years as a B2C &amp; B2B marketer across EU &amp; Asia, including 4 Fortune 500 brands. Now I aim to use ML models and LLMs to turn marketing data into growth decisions.</p>
       </div>
       <div class="edu-block">
-        <div class="edu-block-label">Master Thesis</div>
-        <p class="edu-block-detail">ML-Driven Analysis Project on Big Data from Yelp: Used NLP, BERT and ML methods to compute behavior, network and language semantic similarity from 480K+ reviews, to analyze behavior patterns.</p>
+        <div class="edu-block-label">Education</div>
+        <p class="edu-block-detail"><span style="color:var(--accent); font-weight:600">M.Sc. Computational Social Science, Linköping University</span> (2024.08–2026.06).</p>
+        <p class="edu-block-detail" style="color:var(--ink-3); margin-top:12px">Core course: NLP, Machine Learning, Social Network Analysis, Discrete Choice Modelling.</p>
       </div>
     </div>
   </div>
@@ -347,9 +313,8 @@
   </div>
   <div class="case-question" style="margin-top:24px">
     <span class="case-question-label">The Question</span>
-    <span>As a new restaurant brand is entering Philadelphia. <strong>Who are their right customers? How to win their likes?</strong></span>
+    <span style="font-size:14px; font-weight:400; color:var(--ink-2); line-height:1.65">This project is originally from my <a href="https://liu.diva-portal.org/smash/record.jsf?dswid=&amp;pid=diva2%3A2072274" target="_blank" rel="noopener" style="color:var(--accent); font-weight:600; text-decoration:none; border-bottom:1px solid var(--accent-pale)">M.Sc. thesis</a>, which used NLP, BERT and unsupervised ML methods to analyze consumption behavior by choice, network and language from 480K+ Yelp reviews. Here it is extended to answer the question:<br><br><strong style="font-size:15px; color:var(--accent)">As a new restaurant brand is entering Philadelphia. Who are their right customers? How to win their likes?</strong></span>
   </div>
-  <p class="sub" style="margin-top:24px;max-width:900px">From 480K unlabeled reviews to predicting customer segment and behavior, this process combined 4 methods spanning unsupervised machine learning and causal inference.</p>
   <div class="pipeline-track">
     <div class="pipe-step">
       <div class="pipe-node">1</div>
