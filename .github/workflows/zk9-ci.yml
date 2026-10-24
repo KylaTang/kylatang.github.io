@@ -1,0 +1,49 @@
+name: zk9 CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'zk9/**'
+      - '.github/workflows/zk9-ci.yml'
+  pull_request:
+    paths:
+      - 'zk9/**'
+      - '.github/workflows/zk9-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-static-app:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Check app files, manifest, and inline JavaScript syntax
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const path = require('node:path');
+          const vm = require('node:vm');
+          const root = path.resolve('zk9');
+          const required = ['index.html', 'manifest.json', 'sw.js', 'icon-192.png', 'icon-512.png', 'lib/xlsx.full.min.js'];
+          for (const file of required) {
+            if (!fs.existsSync(path.join(root, file))) throw new Error(`Missing required app file: ${file}`);
+          }
+          const manifest = JSON.parse(fs.readFileSync(path.join(root, 'manifest.json'), 'utf8'));
+          for (const icon of manifest.icons || []) {
+            const file = String(icon.src || '').replace(/^\//, '');
+            if (!file || !fs.existsSync(path.join(root, file))) throw new Error(`Missing manifest icon: ${icon.src}`);
+          }
+          const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+          const scripts = [...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script\s*>/gi)]
+            .filter(([, attrs]) => !/\bsrc\s*=/.test(attrs))
+            .filter(([, attrs]) => !/\btype\s*=\s*["']application\//i.test(attrs));
+          if (!scripts.length) throw new Error('No inline application script found.');
+          scripts.forEach(([, , code], index) => new vm.Script(code, { filename: `zk9-inline-${index + 1}.js` }));
+          console.log(`Validated ${required.length} app assets, ${manifest.icons?.length || 0} manifest icons, and ${scripts.length} inline script(s).`);
+          NODE
