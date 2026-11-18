@@ -145,14 +145,16 @@
     .pipe-node {
       width: 28px; height: 28px; background: var(--bg); border: 1.5px solid var(--accent);
       display: flex; align-items: center; justify-content: center;
-      font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 14px;
+      font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 10px;
     }
-    .pipe-technique { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; letter-spacing: -.005em; }
+    .pipe-question { font-family: inherit; font-size: 17px; font-weight: 700; line-height: 1.35; min-height: 69px; padding-top: 0; margin-bottom: 8px; letter-spacing: -.015em; }
+    .pipe-technique { font-size: 16px; font-weight: 700; line-height: 1.4; color: var(--accent); background: var(--accent-wash); border-left: 3px solid var(--accent); padding: 8px 10px; margin-bottom: 8px; letter-spacing: -.005em; }
+    .pipe-method-kind { display: block; font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 3px; }
     .pipe-outcome { font-size: 12.5px; color: var(--ink-2); line-height: 1.45; margin-bottom: 9px; }
-    .pipe-chip { display: inline-block; font-size: 10px; font-weight: 700; color: var(--accent); background: var(--accent-pale); padding: 2px 7px; }
     @media (max-width: 760px) {
       .pipeline-track { grid-template-columns: 1fr; gap: 20px; }
       .pipeline-track::before { display: none; }
+      .pipe-question { min-height: 0; }
     }
     .stat-row { display: flex; flex-wrap: wrap; gap: 12px; }
     .stat-box { flex: 1; min-width: 140px; background: var(--ink); padding: 18px 22px; }
@@ -194,6 +196,7 @@
       font-variant-numeric: tabular-nums;
     }
     .reveal p { max-width: 56ch; color: var(--ink-2); font-size: 15px; margin: 0; }
+    .reveal-metric { font-size: 17px; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
     .reveal .fine { font-size: 13px; color: var(--ink-3); }
 
     /* METHOD COMPARISON TABLE */
@@ -240,6 +243,27 @@
       .nav-cta { padding: 8px 10px; }
       .nav-cta-label { display: none; }
       .stat-item { padding: 20px 28px 20px 0; margin-right: 28px; }
+      .stack-bar { align-items: flex-start; gap: 12px; padding-top: 20px; padding-bottom: 20px; }
+      .stack-tags { gap: 6px; }
+      .stack-tag { padding: 6px 9px; font-size: 11px; }
+      .hero { padding-top: 42px; padding-bottom: 32px; }
+      .hero h1 { font-size: clamp(34px, 10vw, 46px); line-height: 1.06; }
+      .edu-module, section { padding-top: 44px; padding-bottom: 44px; }
+      .edu-right { gap: 24px; }
+      .compare-table { display: block; overflow: visible; text-align: left; }
+      .compare-table .col-head:first-child,
+      .compare-table .col-head:nth-child(2) { display: none; }
+      .compare-table .col-head:nth-child(3) { display: block; }
+      .compare-table .dim { display: block; padding: 12px 14px 5px; border-bottom: 0; font-size: 11px; text-align: left; }
+      .compare-table .trad-cell,
+      .compare-table .ml-cell { padding: 10px 14px 13px; text-align: left; }
+      .compare-table .trad-cell::before,
+      .compare-table .ml-cell::before { display: block; margin-bottom: 4px; font-size: 9px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+      .compare-table .trad-cell::before { content: "Traditional research"; }
+      .compare-table .ml-cell::before { content: "Natural Language Processing and Machine Learning model"; color: var(--accent); }
+      .cell-head { font-size: 15px; }
+      .cell-detail { font-size: 13px; }
+      footer { align-items: flex-start; }
     }
   </style>
 </head>
@@ -318,36 +342,36 @@
   <div class="pipeline-track">
     <div class="pipe-step">
       <div class="pipe-node">1</div>
-      <div class="pipe-technique">LDA Topic Modelling</div>
+      <h3 class="pipe-question">What matters to customers?</h3>
+      <div class="pipe-technique"><span class="pipe-method-kind">Unsupervised Machine Learning</span>LDA Topic Modelling</div>
       <div class="pipe-outcome">Found the "Omnivore" segment without pre-defined categories.</div>
-      <span class="pipe-chip">Audience Discovery</span>
     </div>
     <div class="pipe-step">
       <div class="pipe-node">2</div>
-      <div class="pipe-technique">BERT Embeddings</div>
+      <h3 class="pipe-question">How do customers differ?</h3>
+      <div class="pipe-technique"><span class="pipe-method-kind">Natural Language Processing</span>BERT Embeddings</div>
       <div class="pipe-outcome">Decoded which words signal authentic dining culture.</div>
-      <span class="pipe-chip">Language Analysis</span>
     </div>
     <div class="pipe-step">
       <div class="pipe-node">3</div>
-      <div class="pipe-technique">Causal Forest</div>
-      <div class="pipe-outcome">Confirmed causation instead of correlation.</div>
-      <span class="pipe-chip">Causal Inference</span>
+      <h3 class="pipe-question">What drives these differences?</h3>
+      <div class="pipe-technique"><span class="pipe-method-kind">Causal Inference</span>Causal Forest</div>
+      <div class="pipe-outcome">ML-based causal inference: estimated effects across groups under causal assumptions.</div>
     </div>
     <div class="pipe-step">
       <div class="pipe-node">4</div>
-      <div class="pipe-technique">XGBoost</div>
-      <div class="pipe-outcome">Predicts consumer type from writing style alone.</div>
-      <span class="pipe-chip">AUC 0.863</span>
+      <h3 class="pipe-question">Can writing style predict consumer type?</h3>
+      <div class="pipe-technique"><span class="pipe-method-kind">Supervised Models</span>XGBoost + Poisson Regression</div>
+      <div class="pipe-outcome">XGBoost predicts consumer type from writing style (AUC 0.863); Poisson regression models review classification labels.</div>
     </div>
   </div>
 </section>
 
 <section class="reveal">
-  <div class="reveal-eyebrow">Model Evaluation Result · AUC</div>
+  <div class="reveal-eyebrow">XGBoost · ROC-AUC</div>
   <div class="bignum">0.863</div>
-  <p>Predicts consumer type from writing style alone, using XGBoost trained on BERT authenticity features.</p>
-  <p class="fine">+11.7% over the AUC of Logistic Regression Model (0.746), and 14.0% over AUC of Random Forest Model (0.849).</p>
+  <p style="max-width:100ch">Predicting consumer type from writing style, using XGBoost trained on BERT authenticity features.</p>
+  <p class="fine">AUC improvement: +0.117 vs. Logistic Regression (0.746), and +0.014 vs. Random Forest (0.849).</p>
 </section>
 
 <section class="vs-section">
