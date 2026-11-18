@@ -87,8 +87,8 @@
 
     /* STACK BAR */
     .stack-bar {
-      padding: 28px var(--pad); background: var(--warm-d);
-      border-bottom: 1px solid var(--line);
+      margin-top: 40px; padding: 22px 0 0; background: transparent;
+      border-top: 1px solid var(--line);
       display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
     }
     .stack-label { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); white-space: nowrap; }
@@ -139,6 +139,8 @@
     .case-question-label { display: block; position: relative; z-index: 1; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
     .case-question span { position: relative; z-index: 1; }
     .case-question strong { color: var(--accent); }
+    .thesis-link { display: inline-flex; align-items: center; margin: 0 3px; padding: 3px 9px; border: 1px solid var(--accent); background: var(--warm); color: var(--accent); font-size: 12px; font-weight: 700; line-height: 1.4; text-decoration: none; transition: background .15s, color .15s; }
+    .thesis-link:hover, .thesis-link:focus-visible { background: var(--accent); color: #fff; outline: none; }
     .pipeline-track { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; position: relative; margin-bottom: 24px; }
     .pipeline-track::before { content: ''; position: absolute; left: 14px; right: 14px; top: 14px; height: 1px; background: var(--line); z-index: 0; }
     .pipe-step { position: relative; z-index: 1; }
@@ -198,6 +200,11 @@
     .reveal p { max-width: 56ch; color: var(--ink-2); font-size: 15px; margin: 0; }
     .reveal-metric { font-size: 17px; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
     .reveal .fine { font-size: 13px; color: var(--ink-3); }
+    .dashboard-section { padding: 36px var(--pad) 60px; background: var(--warm); }
+    .dashboard-grid { width: 100%; max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; align-items: stretch; }
+    .dashboard-figure { min-width: 0; margin: 0; overflow: hidden; display: grid; grid-template-rows: 1fr auto; border: 1px solid var(--accent-pale); background: #fff; box-shadow: 0 8px 22px rgba(35, 55, 38, .08); }
+    .dashboard-figure img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: contain; background: #fff; }
+    .dashboard-figure figcaption { padding: 12px 16px; color: var(--accent); font-size: 12px; line-height: 1.5; border-top: 1px solid var(--accent-pale); background: var(--warm-d); }
 
     /* METHOD COMPARISON TABLE */
     .compare-table { display: grid; grid-template-columns: 132px 1fr 1fr; border: 1px solid var(--line); overflow-x: auto; text-align: center; }
@@ -247,6 +254,7 @@
       .stack-tags { gap: 6px; }
       .stack-tag { padding: 6px 9px; font-size: 11px; }
       .hero { padding-top: 42px; padding-bottom: 32px; }
+      .dashboard-grid { grid-template-columns: 1fr; gap: 18px; }
       .hero h1 { font-size: clamp(34px, 10vw, 46px); line-height: 1.06; }
       .edu-module, section { padding-top: 44px; padding-bottom: 44px; }
       .edu-right { gap: 24px; }
@@ -293,19 +301,6 @@
   <h1>Growth marketing,<br>built on <em>method<br>and experience.</em></h1>
 </section>
 
-<!-- STACK BAR -->
-<div class="stack-bar">
-  <span class="stack-label">Toolkit</span>
-  <div class="stack-tags">
-    <span class="stack-tag">NLP · ML · Causal Inference</span>
-    <span class="stack-tag">Attribution Model · A/B Testing</span>
-    <span class="stack-tag">LLM · RAG · LangGraph</span>
-    <span class="stack-tag">R · SQL · Python</span>
-    <span class="stack-tag">BI · dbt · BigQuery</span>
-    <span class="stack-tag">GA4 · CRM</span>
-  </div>
-</div>
-
 <!-- IDENTITY + PROFESSIONAL BACKGROUND -->
 <section class="edu-module">
   <div class="edu-grid">
@@ -318,13 +313,24 @@
     <div class="edu-right">
       <div class="edu-block">
         <div class="edu-block-label">Professional Background</div>
-        <p class="edu-block-detail">8 years as a B2C &amp; B2B marketer across EU &amp; Asia, including 4 Fortune 500 brands. Now I aim to use ML models and LLMs to turn marketing data into growth decisions.</p>
+        <p class="edu-block-detail">8 years as a B2C &amp; B2B marketer across EU &amp; Asia, including 3 Fortune 500 companies. Now I aim to connect data with diverse analytical methods to help teams make better market decisions.</p>
       </div>
       <div class="edu-block">
         <div class="edu-block-label">Education</div>
         <p class="edu-block-detail"><span style="color:var(--accent); font-weight:600">M.Sc. Computational Social Science, Linköping University</span> (2024.08–2026.06).</p>
-        <p class="edu-block-detail" style="color:var(--ink-3); margin-top:12px">Core course: NLP, Machine Learning, Social Network Analysis, Causal Inference, Discrete Choice Modelling.</p>
+        <p class="edu-block-detail" style="margin-top:12px">Core courses: R programming, Natural Language Processing, Machine Learning, Deep Learning, Social Network Analysis, Causal Inference, and Discrete Choice Modelling.</p>
       </div>
+    </div>
+  </div>
+  <div class="stack-bar">
+    <span class="stack-label">Toolkit</span>
+    <div class="stack-tags">
+      <span class="stack-tag">NLP · ML · Causal Inference</span>
+      <span class="stack-tag">Attribution Model · A/B Testing</span>
+      <span class="stack-tag">LLM · RAG · LangGraph</span>
+      <span class="stack-tag">R · SQL · Python</span>
+      <span class="stack-tag">BI · dbt · BigQuery</span>
+      <span class="stack-tag">GA4 · CRM</span>
     </div>
   </div>
 </section>
@@ -337,7 +343,7 @@
   </div>
   <div class="case-question" style="margin-top:24px">
     <span class="case-question-label">The Question</span>
-    <span style="font-size:14px; font-weight:400; color:var(--ink-2); line-height:1.65">This project is originally from my <a href="https://liu.diva-portal.org/smash/record.jsf?dswid=&amp;pid=diva2%3A2072274" target="_blank" rel="noopener" style="color:var(--accent); font-weight:600; text-decoration:none; border-bottom:1px solid var(--accent-pale)">M.Sc. thesis</a>, which used NLP, BERT and unsupervised ML methods to analyze consumption behavior by choice, network and language from 480K+ Yelp reviews. Here it is extended to answer the question:<br><br><strong style="font-size:15px; color:var(--accent)">As a new restaurant brand is entering Philadelphia. Who are their right customers? How to win their likes?</strong></span>
+    <span style="font-size:14px; font-weight:400; color:var(--ink-2); line-height:1.65">This project is originally from my <a class="thesis-link" href="https://liu.diva-portal.org/smash/record.jsf?dswid=&amp;pid=diva2%3A2072274" target="_blank" rel="noopener">M.Sc. thesis ↗</a>, which used NLP, BERT and unsupervised ML methods to analyze consumption behavior by choice, network and language from 480K+ Yelp reviews. Here it is extended to answer the question:<br><br><strong style="font-size:15px; color:var(--accent)">As a new restaurant brand is entering Philadelphia. Who are their right customers? How to win their likes?</strong></span>
   </div>
   <div class="pipeline-track">
     <div class="pipe-step">
@@ -372,6 +378,19 @@
   <div class="bignum">0.863</div>
   <p style="max-width:100ch">Predicting consumer type from writing style, using XGBoost trained on BERT authenticity features.</p>
   <p class="fine">AUC improvement: +0.117 vs. Logistic Regression (0.746), and +0.014 vs. Random Forest (0.849).</p>
+</section>
+
+<section class="dashboard-section" aria-label="Restaurant analytics dashboards">
+  <div class="dashboard-grid">
+    <figure class="dashboard-figure">
+      <img src="assets/yelp-intelligence/restaurant-analytics-dashboard.png" alt="Restaurant analytics dashboard showing cuisine category counts, top-rated cuisines, rating by price tier, cross-analysis, and cohort ratings" loading="lazy" />
+      <figcaption>Restaurant analytics · category mix, cuisine ratings, price tiers and cohorts.</figcaption>
+    </figure>
+    <figure class="dashboard-figure">
+      <img src="assets/yelp-intelligence/review-sentiment-dashboard.png" alt="Review sentiment dashboard showing positive review metrics, ratings by sentiment, and review text" loading="lazy" />
+      <figcaption>Review sentiment · positive and negative ratings, review themes and engagement.</figcaption>
+    </figure>
+  </div>
 </section>
 
 <section class="vs-section">
